@@ -35,29 +35,17 @@ import { LanguageSwitcher } from '@/components/language-switcher'
 /** Languages offered in the landing header: ZH · EN · FR · VI · RU · KO. */
 const LANDING_LANGUAGES = ['zhCN', 'en', 'fr', 'vi', 'ru', 'ko'] as const
 
-/** Purple infinity logo (pure SVG, no image file needed). */
+/** Purple infinity logo, drawn from /topkenapi-logo.png (480×244). */
 export function QuantumLogo(props: { size?: number }) {
   const size = props.size ?? 40
   return (
     <svg
       width={size}
-      height={size * 0.55}
-      viewBox='0 0 120 66'
-      fill='none'
+      height={(size * 244) / 480}
+      viewBox='0 0 480 244'
       aria-hidden='true'
     >
-      <defs>
-        <linearGradient id='qn-logo-g' x1='0' y1='0' x2='120' y2='0'>
-          <stop offset='0' stopColor='#a855f7' />
-          <stop offset='1' stopColor='#5b6cf6' />
-        </linearGradient>
-      </defs>
-      <path
-        d='M33 9C18.6 9 9 19.7 9 33s9.6 24 24 24c11 0 18.6-7.6 27-17.5C68.4 49.4 76 57 87 57c14.4 0 24-10.7 24-24S101.4 9 87 9C76 9 68.4 16.6 60 26.5 51.6 16.6 44 9 33 9Z'
-        stroke='url(#qn-logo-g)'
-        strokeWidth='14'
-        strokeLinejoin='round'
-      />
+      <image href='/topkenapi-logo.png' width='480' height='244' />
     </svg>
   )
 }
