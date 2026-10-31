@@ -31,7 +31,12 @@ export function AuthLayout({ children }: AuthLayoutProps) {
   const { systemName, logo, loading } = useSystemConfig()
 
   return (
-    <div className='relative grid h-svh max-w-none'>
+    <div className='relative grid h-svh max-w-none overflow-hidden'>
+      {/* Soft champagne glow, matching the landing page */}
+      <div
+        aria-hidden='true'
+        className='pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_85%_8%,color-mix(in_oklch,var(--primary)_12%,transparent),transparent_70%),radial-gradient(ellipse_55%_40%_at_0%_100%,color-mix(in_oklch,var(--primary)_7%,transparent),transparent_70%)]'
+      />
       <Link
         to='/'
         className='absolute top-4 left-4 z-10 flex items-center gap-2 transition-opacity hover:opacity-80 sm:top-8 sm:left-8'
@@ -54,7 +59,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
         )}
       </Link>
       <div className='container flex items-center pt-16 sm:pt-0'>
-        <div className='mx-auto flex w-full flex-col justify-center space-y-2 px-4 py-8 sm:w-[480px] sm:p-8'>
+        <div className='sm:border-border sm:bg-card/70 mx-auto flex w-full flex-col justify-center space-y-2 px-4 py-8 sm:w-[480px] sm:rounded-2xl sm:border sm:p-8 sm:shadow-[0_30px_80px_-30px_rgb(0_0_0/0.6)] sm:backdrop-blur'>
           {children}
         </div>
       </div>

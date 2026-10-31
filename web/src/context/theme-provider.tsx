@@ -34,7 +34,8 @@ import {
 type Theme = 'dark' | 'light' | 'system'
 type ResolvedTheme = Exclude<Theme, 'system'>
 
-const DEFAULT_THEME = 'system'
+// Topkenapi ships dark (black-brown + champagne gold) by default
+const DEFAULT_THEME = 'dark'
 const THEMES = new Set<Theme>(['dark', 'light', 'system'])
 
 type ThemeProviderProps = {
