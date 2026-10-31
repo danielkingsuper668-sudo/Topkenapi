@@ -35,8 +35,11 @@ import { Trans, useTranslation } from 'react-i18next'
 
 import { useStatus } from '@/hooks/use-status'
 
-import { DocsLink, QuantumHeader, QuantumLogo } from './quantum-header'
+import { DocsLink, QuantumHeader } from './quantum-header'
 import { QuantumPromptBox } from './quantum-prompt-box'
+import heroCube2000 from '../../assets/hero-cube-2000.webp'
+import heroCube3840 from '../../assets/hero-cube-3840.webp'
+
 import './quantum-landing.css'
 
 // Brand: "topken" (cream) + "api" (champagne gold)
@@ -145,13 +148,18 @@ export function QuantumLanding(props: QuantumLandingProps) {
               </div>
             </div>
 
-            <div className='qn-visual qn-fade qn-d3' aria-hidden='true'>
-              <div className='qn-glow' />
-              <div className='qn-ring' />
-              <div className='qn-podium' />
-              <div className='qn-cube'>
-                <QuantumLogo size={140} />
-              </div>
+            <div className='qn-visual qn-visual-img qn-fade qn-d3' aria-hidden='true'>
+              <img
+                className='qn-hero-img'
+                src={heroCube2000}
+                srcSet={`${heroCube2000} 2000w, ${heroCube3840} 3840w`}
+                sizes='(min-width: 1024px) 60vw, 116vw'
+                width={3840}
+                height={2576}
+                alt=''
+                fetchPriority='high'
+                decoding='async'
+              />
             </div>
           </div>
 

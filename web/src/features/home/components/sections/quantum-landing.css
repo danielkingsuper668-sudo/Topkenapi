@@ -282,3 +282,14 @@
 .qn-example:hover { color: var(--qn-text); border-color: var(--qn-line-strong); }
 .qn-prompt + .qn-cta, .qn-cta { margin-top: 22px; }
 .qn-chip:focus-visible, .qn-example:focus-visible, .qn-prompt-send:focus-visible { outline: 2px solid var(--qn-gold); outline-offset: 2px; }
+
+/* Hero visual: AI-upscaled 4K glass cube render (edges fade into the page) */
+.qn-visual.qn-visual-img { height: auto; display: block; overflow: visible; }
+.qn-hero-img {
+  display: block; width: 116%; max-width: none; height: auto; margin: 0 -8%;
+  -webkit-mask-image: radial-gradient(ellipse 62% 60% at 50% 50%, #000 58%, transparent 100%);
+          mask-image: radial-gradient(ellipse 62% 60% at 50% 50%, #000 58%, transparent 100%);
+  animation: qn-float 7s ease-in-out infinite;
+}
+@media (min-width: 1024px) { .qn-hero-img { width: 124%; margin: 0 -14% 0 -6%; } }
+@media (prefers-reduced-motion: reduce) { .qn-hero-img { animation: none; } }
