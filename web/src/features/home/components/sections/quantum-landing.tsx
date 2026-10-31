@@ -36,6 +36,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useStatus } from '@/hooks/use-status'
 
 import { DocsLink, QuantumHeader, QuantumLogo } from './quantum-header'
+import { QuantumPromptBox } from './quantum-prompt-box'
 import './quantum-landing.css'
 
 const BRAND = 'QuantumNous'
@@ -120,6 +121,9 @@ export function QuantumLanding(props: QuantumLandingProps) {
                   'Experience the power of OpenAI, Claude, Gemini, DeepSeek, Qwen and many other AI models with outstanding performance and optimized costs.'
                 )}
               </p>
+              <div className='qn-fade qn-d4'>
+                <QuantumPromptBox isAuthenticated={props.isAuthenticated} />
+              </div>
               <div className='qn-cta qn-fade qn-d4'>
                 <Link
                   to={props.isAuthenticated ? '/dashboard' : '/sign-up'}

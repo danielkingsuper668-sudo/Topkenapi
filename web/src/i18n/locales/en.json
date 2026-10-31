@@ -7395,6 +7395,11 @@
     "Professional support": "Professional support",
     "With you around the clock": "With you around the clock",
     "Main navigation": "Main navigation",
-    "Why choose <1>{{brand}}</1> {{product}}?": "Why choose <1>{{brand}}</1> {{product}}?"
+    "Why choose <1>{{brand}}</1> {{product}}?": "Why choose <1>{{brand}}</1> {{product}}?",
+    "Ask any AI model": "Ask any AI model",
+    "Type an instruction, e.g. \"Summarize this article\"…": "Type an instruction, e.g. \"Summarize this article\"…",
+    "Write a product launch email": "Write a product launch email",
+    "Explain this code step by step": "Explain this code step by step",
+    "Translate a paragraph into English": "Translate a paragraph into English"
   }
 }

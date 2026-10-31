@@ -7395,6 +7395,11 @@
     "Professional support": "Профессиональная поддержка",
     "With you around the clock": "Рядом с вами 24/7",
     "Main navigation": "Основная навигация",
-    "Why choose <1>{{brand}}</1> {{product}}?": "Почему <1>{{brand}}</1> {{product}}?"
+    "Why choose <1>{{brand}}</1> {{product}}?": "Почему <1>{{brand}}</1> {{product}}?",
+    "Ask any AI model": "Спросите любую модель ИИ",
+    "Type an instruction, e.g. \"Summarize this article\"…": "Введите команду, например «Кратко перескажи статью»…",
+    "Write a product launch email": "Написать письмо о запуске продукта",
+    "Explain this code step by step": "Объяснить этот код шаг за шагом",
+    "Translate a paragraph into English": "Перевести абзац на английский"
   }
 }

@@ -16,6 +16,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
+import { useCallback } from 'react'
+
 import { PlaygroundChat } from './components/chat/playground-chat'
 import { PlaygroundInput } from './components/input/playground-input'
 import {
@@ -24,6 +26,7 @@ import {
   usePlaygroundOptions,
   usePlaygroundState,
 } from './hooks'
+import { usePendingPrompt } from './hooks/use-pending-prompt'
 
 export function Playground() {
   const {
@@ -72,6 +75,19 @@ export function Playground() {
     setGroups,
     setModels,
     updateConfig,
+  })
+
+  // Prompt typed in the landing-page search box (sent once, after loading)
+  const handleModelChange = useCallback(
+    (value: string) => updateConfig('model', value),
+    [updateConfig]
+  )
+  usePendingPrompt({
+    isReady: !isLoadingModels && !isLoadingMessages && !!config.model,
+    models,
+    currentModel: config.model,
+    onModelChange: handleModelChange,
+    onSend: handleSendMessage,
   })
 
   return (

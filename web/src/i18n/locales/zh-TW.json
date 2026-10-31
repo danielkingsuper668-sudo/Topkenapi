@@ -7395,6 +7395,11 @@
     "Professional support": "專業支援",
     "With you around the clock": "7×24 小時全程陪伴",
     "Main navigation": "主導覽",
-    "Why choose <1>{{brand}}</1> {{product}}?": "為什麼選擇 <1>{{brand}}</1> {{product}}？"
+    "Why choose <1>{{brand}}</1> {{product}}?": "為什麼選擇 <1>{{brand}}</1> {{product}}？",
+    "Ask any AI model": "向任意 AI 模型提問",
+    "Type an instruction, e.g. \"Summarize this article\"…": "輸入指令，例如「幫我總結這篇文章」…",
+    "Write a product launch email": "寫一封產品發表郵件",
+    "Explain this code step by step": "逐步解釋這段程式碼",
+    "Translate a paragraph into English": "把一段話翻譯成英文"
   }
 }

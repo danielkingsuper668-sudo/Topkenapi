@@ -7395,6 +7395,11 @@
     "Professional support": "Professional support",
     "With you around the clock": "With you around the clock",
     "Main navigation": "Main navigation",
-    "Why choose <1>{{brand}}</1> {{product}}?": "<1>{{brand}}</1> {{product}} が選ばれる理由"
+    "Why choose <1>{{brand}}</1> {{product}}?": "<1>{{brand}}</1> {{product}} が選ばれる理由",
+    "Ask any AI model": "どの AI モデルにも質問できます",
+    "Type an instruction, e.g. \"Summarize this article\"…": "指示を入力（例：「この記事を要約して」）…",
+    "Write a product launch email": "製品発表メールを書く",
+    "Explain this code step by step": "このコードを順に説明する",
+    "Translate a paragraph into English": "段落を英語に翻訳する"
   }
 }
