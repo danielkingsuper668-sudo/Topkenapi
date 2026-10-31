@@ -32,6 +32,9 @@ import { useTranslation } from 'react-i18next'
 
 import { LanguageSwitcher } from '@/components/language-switcher'
 
+/** Languages offered in the landing header: ZH · EN · FR · VI · RU · KO. */
+const LANDING_LANGUAGES = ['zhCN', 'en', 'fr', 'vi', 'ru', 'ko'] as const
+
 /** Purple infinity logo (pure SVG, no image file needed). */
 export function QuantumLogo(props: { size?: number }) {
   const size = props.size ?? 40
@@ -120,7 +123,7 @@ export function QuantumHeader(props: QuantumHeaderProps) {
 
         <div className='qn-actions'>
           <span className='qn-lang'>
-            <LanguageSwitcher />
+            <LanguageSwitcher variant='compact' codes={LANDING_LANGUAGES} />
           </span>
           {props.isAuthenticated ? (
             <Link to='/dashboard' className='qn-btn qn-btn-gold qn-btn-sm'>
@@ -173,9 +176,6 @@ export function QuantumHeader(props: QuantumHeaderProps) {
               <ArrowRight size={18} aria-hidden='true' /> {t('Sign In')}
             </Link>
           )}
-          <div className='qn-mobile-lang'>
-            <LanguageSwitcher />
-          </div>
         </nav>
       )}
     </header>

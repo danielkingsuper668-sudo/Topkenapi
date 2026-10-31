@@ -7385,7 +7385,6 @@
     "Easy integration": "Easy integration",
     "Round-the-clock support": "Round-the-clock support",
     "and many more…": "and many more…",
-    "Why choose": "Why choose",
     "Why Choose Us?": "Why Choose Us?",
     "Outstanding performance": "Outstanding performance",
     "Smooth, high-speed AI experience": "Smooth, high-speed AI experience",
@@ -7395,6 +7394,7 @@
     "Scale easily as you grow": "Scale easily as you grow",
     "Professional support": "Professional support",
     "With you around the clock": "With you around the clock",
-    "Main navigation": "Main navigation"
+    "Main navigation": "Main navigation",
+    "Why choose <1>{{brand}}</1> {{product}}?": "<1>{{brand}}</1> {{product}} が選ばれる理由"
   }
 }

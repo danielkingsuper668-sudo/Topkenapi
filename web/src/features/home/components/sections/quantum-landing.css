@@ -51,10 +51,10 @@
 .qn-nav a.is-active { color: var(--qn-gold); border-color: var(--qn-line-strong); }
 .qn-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
 .qn-nav + .qn-actions { margin-left: 0; }
-.qn-lang { display: none; }
+.qn-lang { display: inline-flex; }
+@media (max-width: 400px) { .qn-brand-text { display: none; } }
 @media (min-width: 1024px) {
   .qn-nav { display: flex; }
-  .qn-lang { display: inline-flex; }
 }
 
 .qn-btn {
@@ -236,5 +236,4 @@
 .qn-d3 { animation-delay: 180ms; }
 .qn-d4 { animation-delay: 240ms; }
 .qn-footer-links { display: flex; gap: 18px; }
-.qn-mobile-lang { padding: 6px 4px; }
 .qn a:focus-visible, .qn button:focus-visible { outline: 2px solid var(--qn-gold); outline-offset: 2px; }

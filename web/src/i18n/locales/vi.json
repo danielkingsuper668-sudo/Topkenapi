@@ -7385,7 +7385,6 @@
     "Easy integration": "Dễ dàng tích hợp",
     "Round-the-clock support": "Hỗ trợ 24/7",
     "and many more…": "và nhiều hơn nữa…",
-    "Why choose": "Tại sao chọn",
     "Why Choose Us?": "Why Choose Us?",
     "Outstanding performance": "Hiệu suất vượt trội",
     "Smooth, high-speed AI experience": "Trải nghiệm AI mượt mà, tốc độ cao",
@@ -7395,6 +7394,7 @@
     "Scale easily as you grow": "Dễ dàng mở rộng theo nhu cầu",
     "Professional support": "Hỗ trợ chuyên nghiệp",
     "With you around the clock": "Đồng hành cùng bạn 24/7",
-    "Main navigation": "Điều hướng chính"
+    "Main navigation": "Điều hướng chính",
+    "Why choose <1>{{brand}}</1> {{product}}?": "Tại sao chọn <1>{{brand}}</1> {{product}}?"
   }
 }

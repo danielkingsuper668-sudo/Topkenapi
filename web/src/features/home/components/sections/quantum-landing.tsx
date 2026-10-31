@@ -31,7 +31,7 @@ import {
   TrendingUp,
   Zap,
 } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 
 import { useStatus } from '@/hooks/use-status'
 
@@ -183,7 +183,11 @@ export function QuantumLanding(props: QuantumLandingProps) {
           <div className='qn-wrap'>
             <div className='qn-why-head'>
               <h2>
-                {t('Why choose')} <em>{BRAND}</em> {PRODUCT}?
+                <Trans
+                  i18nKey='Why choose <1>{{brand}}</1> {{product}}?'
+                  values={{ brand: BRAND, product: PRODUCT }}
+                  components={{ 1: <em /> }}
+                />
               </h2>
             </div>
             <p className='qn-why-sub'>{t('Why Choose Us?')}</p>

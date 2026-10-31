@@ -7385,7 +7385,6 @@
     "Easy integration": "轻松集成",
     "Round-the-clock support": "24/7 支持",
     "and many more…": "以及更多…",
-    "Why choose": "为什么选择",
     "Why Choose Us?": "Why Choose Us?",
     "Outstanding performance": "卓越性能",
     "Smooth, high-speed AI experience": "流畅、高速的 AI 体验",
@@ -7395,6 +7394,7 @@
     "Scale easily as you grow": "按需轻松扩展",
     "Professional support": "专业支持",
     "With you around the clock": "7×24 小时全程陪伴",
-    "Main navigation": "主导航"
+    "Main navigation": "主导航",
+    "Why choose <1>{{brand}}</1> {{product}}?": "为什么选择 <1>{{brand}}</1> {{product}}？"
   }
 }

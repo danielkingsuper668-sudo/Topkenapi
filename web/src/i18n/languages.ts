@@ -17,13 +17,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 export const INTERFACE_LANGUAGE_OPTIONS = [
-  { code: 'zhCN', label: '简体中文' },
-  { code: 'en', label: 'English' },
-  { code: 'fr', label: 'Français' },
-  { code: 'ru', label: 'Русский' },
-  { code: 'ja', label: '日本語' },
-  { code: 'vi', label: 'Tiếng Việt' },
-  { code: 'zhTW', label: '繁體中文' },
+  { code: 'zhCN', label: '简体中文', short: 'ZH', flag: '🇨🇳' },
+  { code: 'en', label: 'English', short: 'EN', flag: '🇺🇸' },
+  { code: 'fr', label: 'Français', short: 'FR', flag: '🇫🇷' },
+  { code: 'ru', label: 'Русский', short: 'RU', flag: '🇷🇺' },
+  { code: 'ja', label: '日本語', short: 'JA', flag: '🇯🇵' },
+  { code: 'vi', label: 'Tiếng Việt', short: 'VI', flag: '🇻🇳' },
+  { code: 'ko', label: '한국어', short: 'KO', flag: '🇰🇷' },
+  { code: 'zhTW', label: '繁體中文', short: 'TW', flag: '🇹🇼' },
 ] as const
 
 export type InterfaceLanguageCode =

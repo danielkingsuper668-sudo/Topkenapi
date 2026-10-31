@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { Languages, Check } from 'lucide-react'
+import { Languages, Check, ChevronDown } from 'lucide-react'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -35,7 +35,15 @@ import { api } from '@/lib/api'
 import { cn } from '@/lib/utils'
 import { useAuthStore } from '@/stores/auth-store'
 
-export function LanguageSwitcher() {
+type LanguageSwitcherProps = {
+  /** Limit and order the languages shown; defaults to all interface languages. */
+  codes?: readonly string[]
+  /** `icon` (default): globe icon button. `compact`: flag + short code + chevron. */
+  variant?: 'icon' | 'compact'
+  className?: string
+}
+
+export function LanguageSwitcher(props: LanguageSwitcherProps = {}) {
   const { i18n, t } = useTranslation()
   const user = useAuthStore((s) => s.auth.user)
   const currentLanguage = normalizeInterfaceLanguage(i18n.language)
@@ -53,20 +61,54 @@ export function LanguageSwitcher() {
     [i18n, user]
   )
 
+  const options = props.codes
+    ? props.codes.flatMap((code) =>
+        INTERFACE_LANGUAGE_OPTIONS.filter((lang) => lang.code === code)
+      )
+    : INTERFACE_LANGUAGE_OPTIONS
+  const current = INTERFACE_LANGUAGE_OPTIONS.find(
+    (lang) => lang.code === currentLanguage
+  )
+
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger
-        render={<Button variant='ghost' size='icon' className='h-9 w-9' />}
-      >
-        <Languages className='size-[1.2rem]' />
-        <span className='sr-only'>{t('Change language')}</span>
-      </DropdownMenuTrigger>
+      {props.variant === 'compact' ? (
+        <DropdownMenuTrigger
+          render={
+            <Button
+              variant='ghost'
+              className={cn('h-9 gap-1.5 px-2.5', props.className)}
+            />
+          }
+        >
+          <span aria-hidden='true'>{current?.flag}</span>
+          <span className='text-sm font-medium'>{current?.short}</span>
+          <ChevronDown className='size-3.5 opacity-70' aria-hidden='true' />
+          <span className='sr-only'>{t('Change language')}</span>
+        </DropdownMenuTrigger>
+      ) : (
+        <DropdownMenuTrigger
+          render={
+            <Button
+              variant='ghost'
+              size='icon'
+              className={cn('h-9 w-9', props.className)}
+            />
+          }
+        >
+          <Languages className='size-[1.2rem]' />
+          <span className='sr-only'>{t('Change language')}</span>
+        </DropdownMenuTrigger>
+      )}
       <DropdownMenuContent align='end'>
-        {INTERFACE_LANGUAGE_OPTIONS.map((lang) => (
+        {options.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
             onClick={() => handleChangeLanguage(lang.code)}
           >
+            {props.variant === 'compact' && (
+              <span aria-hidden='true'>{lang.flag}</span>
+            )}
             {lang.label}
             <Check
               size={14}
