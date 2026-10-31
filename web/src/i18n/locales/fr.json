@@ -7395,11 +7395,11 @@
     "Professional support": "Assistance professionnelle",
     "With you around the clock": "À vos côtés 24h/24, 7j/7",
     "Main navigation": "Navigation principale",
-    "Why choose <1>{{brand}}</1> {{product}}?": "Pourquoi choisir <1>{{brand}}</1> {{product}} ?",
     "Ask any AI model": "Interrogez n'importe quel modèle d'IA",
     "Type an instruction, e.g. \"Summarize this article\"…": "Saisissez une instruction, ex. « Résume cet article »…",
     "Write a product launch email": "Rédiger un e-mail de lancement de produit",
     "Explain this code step by step": "Expliquer ce code étape par étape",
-    "Translate a paragraph into English": "Traduire un paragraphe en anglais"
+    "Translate a paragraph into English": "Traduire un paragraphe en anglais",
+    "Why choose <1>{{brand}}</1>?": "Pourquoi choisir <1>{{brand}}</1> ?"
   }
 }

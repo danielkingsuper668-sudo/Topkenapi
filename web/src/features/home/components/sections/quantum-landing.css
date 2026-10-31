@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-/* QuantumNous New API — landing page (black-brown + champagne gold + violet) */
+/* topkenapi — landing page (black-brown + champagne gold + violet) */
 .qn {
   --qn-bg: #0e0b08;
   --qn-bg-2: #15110c;
@@ -39,8 +39,8 @@
 .qn-header.is-scrolled { border-bottom-color: var(--qn-line); }
 .qn-header-inner { display: flex; align-items: center; gap: 16px; height: 68px; }
 .qn-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.qn-brand-text { line-height: 1.15; font-weight: 600; font-size: 15px; }
-.qn-brand-text small { display: block; font-weight: 500; font-size: 13px; color: var(--qn-muted); }
+.qn-brand-text { font-weight: 700; font-size: 21px; letter-spacing: -0.01em; line-height: 1; }
+.qn-brand-text em { font-style: normal; color: var(--qn-gold); }
 .qn-nav { display: none; align-items: center; gap: 6px; margin: 0 auto; }
 .qn-nav a {
   display: inline-flex; align-items: center; gap: 6px;
@@ -52,7 +52,7 @@
 .qn-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
 .qn-nav + .qn-actions { margin-left: 0; }
 .qn-lang { display: inline-flex; }
-@media (max-width: 400px) { .qn-brand-text { display: none; } }
+@media (max-width: 360px) { .qn-brand-text { display: none; } }
 @media (min-width: 1024px) {
   .qn-nav { display: flex; }
 }
@@ -107,10 +107,10 @@
 .qn-pill svg { width: 14px; height: 14px; color: var(--qn-gold); }
 .qn-title {
   margin: 20px 0 0; font-weight: 700; letter-spacing: -0.02em;
-  font-size: clamp(2.6rem, 9vw, 4.6rem); line-height: 1.02;
+  font-size: clamp(3.4rem, 15vw, 6.2rem); line-height: 1;
 }
 .qn-title .qn-gold-text {
-  display: block;
+  display: inline;
   background: linear-gradient(180deg, #f2dfba 10%, #c9a467 90%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }

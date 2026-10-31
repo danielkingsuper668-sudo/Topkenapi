@@ -33,7 +33,6 @@
     "With you around the clock": "언제나 함께합니다",
     "Main navigation": "주 메뉴",
     "Open menu": "메뉴 열기",
-    "Why choose <1>{{brand}}</1> {{product}}?": "왜 <1>{{brand}}</1> {{product}}일까요?",
     "Ask any AI model": "모든 AI 모델에게 질문하세요",
     "Type an instruction, e.g. \"Summarize this article\"…": "명령을 입력하세요. 예: \"이 글을 요약해 줘\"…",
     "Send": "보내기",
@@ -41,6 +40,7 @@
     "Auto": "자동",
     "Write a product launch email": "제품 출시 이메일 작성",
     "Explain this code step by step": "이 코드를 단계별로 설명",
-    "Translate a paragraph into English": "문단을 영어로 번역"
+    "Translate a paragraph into English": "문단을 영어로 번역",
+    "Why choose <1>{{brand}}</1>?": "왜 <1>{{brand}}</1>일까요?"
   }
 }

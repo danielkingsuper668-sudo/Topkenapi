@@ -82,8 +82,8 @@ export function DocsLink(props: {
 }
 
 interface QuantumHeaderProps {
-  brand: string
-  product: string
+  brandMain: string
+  brandAccent: string
   docsUrl: string
   isAuthenticated?: boolean
 }
@@ -103,11 +103,15 @@ export function QuantumHeader(props: QuantumHeaderProps) {
   return (
     <header className={scrolled ? 'qn-header is-scrolled' : 'qn-header'}>
       <div className='qn-wrap qn-header-inner'>
-        <Link to='/' className='qn-brand' aria-label={props.brand}>
+        <Link
+          to='/'
+          className='qn-brand'
+          aria-label={`${props.brandMain}${props.brandAccent}`}
+        >
           <QuantumLogo size={44} />
           <span className='qn-brand-text'>
-            {props.brand}
-            <small>{props.product}</small>
+            {props.brandMain}
+            <em>{props.brandAccent}</em>
           </span>
         </Link>
 

@@ -39,8 +39,10 @@ import { DocsLink, QuantumHeader, QuantumLogo } from './quantum-header'
 import { QuantumPromptBox } from './quantum-prompt-box'
 import './quantum-landing.css'
 
-const BRAND = 'QuantumNous'
-const PRODUCT = 'New API'
+// Brand: "topken" (cream) + "api" (champagne gold)
+const BRAND_MAIN = 'topken'
+const BRAND_ACCENT = 'api'
+const BRAND = `${BRAND_MAIN}${BRAND_ACCENT}`
 
 // Translation keys (English = key). Sub-labels stay English like the mockup.
 const HIGHLIGHTS = [
@@ -95,8 +97,8 @@ export function QuantumLanding(props: QuantumLandingProps) {
   return (
     <div className='qn'>
       <QuantumHeader
-        brand={BRAND}
-        product={PRODUCT}
+        brandMain={BRAND_MAIN}
+        brandAccent={BRAND_ACCENT}
         docsUrl={docsUrl}
         isAuthenticated={props.isAuthenticated}
       />
@@ -110,8 +112,8 @@ export function QuantumLanding(props: QuantumLandingProps) {
                 {t('Next-generation AI API platform')}
               </span>
               <h1 className='qn-title qn-fade qn-d1'>
-                {BRAND}
-                <span className='qn-gold-text'>{PRODUCT}</span>
+                {BRAND_MAIN}
+                <span className='qn-gold-text'>{BRAND_ACCENT}</span>
               </h1>
               <p className='qn-sub qn-fade qn-d2'>
                 {t('Connect every AI,')} <span>{t('with just one API')}</span>
@@ -188,8 +190,8 @@ export function QuantumLanding(props: QuantumLandingProps) {
             <div className='qn-why-head'>
               <h2>
                 <Trans
-                  i18nKey='Why choose <1>{{brand}}</1> {{product}}?'
-                  values={{ brand: BRAND, product: PRODUCT }}
+                  i18nKey='Why choose <1>{{brand}}</1>?'
+                  values={{ brand: BRAND }}
                   components={{ 1: <em /> }}
                 />
               </h2>
@@ -213,7 +215,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
       <footer className='qn-footer'>
         <div className='qn-wrap'>
           <span>
-            © {new Date().getFullYear()} {BRAND} {PRODUCT}
+            © {new Date().getFullYear()} {BRAND}
           </span>
           <span className='qn-footer-links'>
             <Link to='/pricing'>{t('Pricing')}</Link>

@@ -7395,11 +7395,11 @@
     "Professional support": "专业支持",
     "With you around the clock": "7×24 小时全程陪伴",
     "Main navigation": "主导航",
-    "Why choose <1>{{brand}}</1> {{product}}?": "为什么选择 <1>{{brand}}</1> {{product}}？",
     "Ask any AI model": "向任意 AI 模型提问",
     "Type an instruction, e.g. \"Summarize this article\"…": "输入指令，例如“帮我总结这篇文章”…",
     "Write a product launch email": "写一封产品发布邮件",
     "Explain this code step by step": "逐步解释这段代码",
-    "Translate a paragraph into English": "把一段话翻译成英文"
+    "Translate a paragraph into English": "把一段话翻译成英文",
+    "Why choose <1>{{brand}}</1>?": "为什么选择 <1>{{brand}}</1>？"
   }
 }

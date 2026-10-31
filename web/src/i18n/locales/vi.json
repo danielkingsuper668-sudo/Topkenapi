@@ -7395,11 +7395,11 @@
     "Professional support": "Hỗ trợ chuyên nghiệp",
     "With you around the clock": "Đồng hành cùng bạn 24/7",
     "Main navigation": "Điều hướng chính",
-    "Why choose <1>{{brand}}</1> {{product}}?": "Tại sao chọn <1>{{brand}}</1> {{product}}?",
     "Ask any AI model": "Hỏi bất kỳ mô hình AI nào",
     "Type an instruction, e.g. \"Summarize this article\"…": "Nhập lệnh, ví dụ \"Tóm tắt bài viết này\"…",
     "Write a product launch email": "Viết email ra mắt sản phẩm",
     "Explain this code step by step": "Giải thích đoạn code từng bước",
-    "Translate a paragraph into English": "Dịch một đoạn văn sang tiếng Anh"
+    "Translate a paragraph into English": "Dịch một đoạn văn sang tiếng Anh",
+    "Why choose <1>{{brand}}</1>?": "Tại sao chọn <1>{{brand}}</1>?"
   }
 }
