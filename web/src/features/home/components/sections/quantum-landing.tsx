@@ -40,7 +40,7 @@ import { QuantumPromptBox } from './quantum-prompt-box'
 import './quantum-landing.css'
 
 // Brand: "topken" (cream) + "api" (champagne gold)
-const BRAND_MAIN = 'topken'
+const BRAND_MAIN = 'Topken'
 const BRAND_ACCENT = 'api'
 const BRAND = `${BRAND_MAIN}${BRAND_ACCENT}`
 
