@@ -17,6 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { CommandMenu } from '@/components/command-menu'
+import { SupportFab } from '@/components/topken/support-contact'
 import { AnimatedOutlet } from '@/components/page-transition'
 import { SkipToMain } from '@/components/skip-to-main'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
@@ -28,6 +29,7 @@ import { useAuthStore } from '@/stores/auth-store'
 
 import { AppHeader } from './app-header'
 import { AppSidebar } from './app-sidebar'
+import '@/components/topken/topken.css'
 
 type AuthenticatedLayoutProps = {
   children?: React.ReactNode
@@ -42,7 +44,10 @@ export function AuthenticatedLayout(props: AuthenticatedLayoutProps) {
   return (
     <LayoutProvider>
       <SearchProvider>
-        <SidebarProvider defaultOpen={defaultOpen} className='flex-col'>
+        <SidebarProvider
+          defaultOpen={defaultOpen}
+          className='tk-console flex-col'
+        >
           <SkipToMain />
           <AppHeader />
           <div className='flex min-h-0 w-full flex-1'>
@@ -60,6 +65,7 @@ export function AuthenticatedLayout(props: AuthenticatedLayoutProps) {
           </div>
         </SidebarProvider>
         <CommandMenu />
+        <SupportFab />
       </SearchProvider>
     </LayoutProvider>
   )

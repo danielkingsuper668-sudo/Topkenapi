@@ -23,12 +23,13 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { SystemUpdateAction } from '@/features/system-update/system-update-action'
 import { useNotifications } from '@/hooks/use-notifications'
+import { TopkenBrand } from '@/components/topken/topken-brand'
+import { TopkenMarquee } from '@/components/topken/topken-marquee'
 import { useTopNavLinks } from '@/hooks/use-top-nav-links'
 
 import { defaultTopNavLinks } from '../config/top-nav.config'
 import type { TopNavLink } from '../types'
 import { Header } from './header'
-import { SystemBrand } from './system-brand'
 import { TopNav } from './top-nav'
 
 /**
@@ -54,6 +55,9 @@ import { TopNav } from './top-nav'
  *   rightContent={<CustomRight />}
  * />
  */
+/** Languages offered in the console header: ZH · EN · FR · VI · RU · KO. */
+const CONSOLE_LANGUAGES = ['zhCN', 'en', 'fr', 'vi', 'ru', 'ko'] as const
+
 type AppHeaderProps = {
   /**
    * Custom navigation links, uses default global navigation or dynamically generated from backend if not provided
@@ -112,9 +116,11 @@ export function AppHeader({
   const notifications = useNotifications()
 
   return (
-    <Header>
+    <>
+    <TopkenMarquee />
+    <Header className='tk-bar h-14'>
       <div className='@container/system-brand flex min-w-0 flex-1 items-center gap-1'>
-        <SystemBrand variant='inline' />
+        <TopkenBrand />
         <SystemUpdateAction presentation='version' />
       </div>
 
@@ -144,11 +150,12 @@ export function AppHeader({
               loading={notifications.loading}
             />
           )}
-          <LanguageSwitcher />
+          <LanguageSwitcher variant='compact' codes={CONSOLE_LANGUAGES} />
           {showConfigDrawer && <ConfigDrawer />}
           {showProfileDropdown && <ProfileDropdown />}
         </div>
       )}
     </Header>
+    </>
   )
 }
