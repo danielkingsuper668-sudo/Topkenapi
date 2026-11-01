@@ -230,6 +230,17 @@ export function QuantumLanding(props: QuantumLandingProps) {
             <DocsLink href={docsUrl}>{t('Docs')}</DocsLink>
             <Link to='/about'>{t('Support')}</Link>
           </span>
+          <span className='qn-footer-attribution'>
+            {t('Powered by')}{' '}
+            <a
+              href='https://github.com/QuantumNous/new-api'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              New API
+            </a>{' '}
+            © QuantumNous · AGPLv3
+          </span>
         </div>
       </footer>
     </div>

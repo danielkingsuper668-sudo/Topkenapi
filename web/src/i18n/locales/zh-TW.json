@@ -7400,6 +7400,7 @@
     "Write a product launch email": "寫一封產品發表郵件",
     "Explain this code step by step": "逐步解釋這段程式碼",
     "Translate a paragraph into English": "把一段話翻譯成英文",
-    "Why choose <1>{{brand}}</1>?": "為什麼選擇 <1>{{brand}}</1>？"
+    "Why choose <1>{{brand}}</1>?": "為什麼選擇 <1>{{brand}}</1>？",
+    "Powered by": "技術支援："
   }
 }

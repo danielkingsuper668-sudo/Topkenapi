@@ -236,6 +236,7 @@
 .qn-d3 { animation-delay: 180ms; }
 .qn-d4 { animation-delay: 240ms; }
 .qn-footer-links { display: flex; gap: 18px; }
+.qn-footer-attribution { flex-basis: 100%; font-size: 11px; opacity: .55; text-align: center; }
 .qn a:focus-visible, .qn button:focus-visible { outline: 2px solid var(--qn-gold); outline-offset: 2px; }
 
 /* ---------- Prompt / search box ---------- */

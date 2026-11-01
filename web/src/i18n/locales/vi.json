@@ -7400,6 +7400,7 @@
     "Write a product launch email": "Viết email ra mắt sản phẩm",
     "Explain this code step by step": "Giải thích đoạn code từng bước",
     "Translate a paragraph into English": "Dịch một đoạn văn sang tiếng Anh",
-    "Why choose <1>{{brand}}</1>?": "Tại sao chọn <1>{{brand}}</1>?"
+    "Why choose <1>{{brand}}</1>?": "Tại sao chọn <1>{{brand}}</1>?",
+    "Powered by": "Vận hành bởi"
   }
 }

@@ -7400,6 +7400,7 @@
     "Write a product launch email": "Rédiger un e-mail de lancement de produit",
     "Explain this code step by step": "Expliquer ce code étape par étape",
     "Translate a paragraph into English": "Traduire un paragraphe en anglais",
-    "Why choose <1>{{brand}}</1>?": "Pourquoi choisir <1>{{brand}}</1> ?"
+    "Why choose <1>{{brand}}</1>?": "Pourquoi choisir <1>{{brand}}</1> ?",
+    "Powered by": "Propulsé par"
   }
 }

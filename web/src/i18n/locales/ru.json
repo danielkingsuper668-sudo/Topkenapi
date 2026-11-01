@@ -7400,6 +7400,7 @@
     "Write a product launch email": "Написать письмо о запуске продукта",
     "Explain this code step by step": "Объяснить этот код шаг за шагом",
     "Translate a paragraph into English": "Перевести абзац на английский",
-    "Why choose <1>{{brand}}</1>?": "Почему <1>{{brand}}</1>?"
+    "Why choose <1>{{brand}}</1>?": "Почему <1>{{brand}}</1>?",
+    "Powered by": "Работает на"
   }
 }
