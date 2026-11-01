@@ -42,6 +42,7 @@ import { useId, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
+import { SectionPageLayout } from '@/components/layout'
 import { SupportContactCard } from '@/components/topken/support-contact'
 import { getUserQuotaDates } from '@/features/dashboard/api'
 import {
@@ -58,11 +59,13 @@ import { toIntlLocale } from '@/i18n/languages'
 import { getUserModels } from '@/lib/api'
 import { formatNumber } from '@/lib/format'
 import { handleServerError } from '@/lib/handle-server-error'
+import { ROLE } from '@/lib/roles'
 import { requireServerSuccess } from '@/lib/server-error-message'
 import { computeTimeRange } from '@/lib/time'
 import { useAuthStore } from '@/stores/auth-store'
 
 import { AnnouncementDetailModal } from './announcement-detail-dialog'
+import { PerformanceHealthPanel } from './performance-health-panel'
 
 const GUIDE_STORAGE_KEY = 'tk_overview_guide_hidden'
 const CONSUME_LOG_TYPE = 2
@@ -530,5 +533,37 @@ export function TopkenOverview() {
         announcement={openAnnouncement}
       />
     </div>
+  )
+}
+
+/** Overview route: Topkenapi panels, plus gateway health for admins. */
+export function TopkenOverviewPage() {
+  const { t } = useTranslation()
+  const isAdmin = useAuthStore(
+    (state) => (state.auth.user?.role ?? 0) >= ROLE.ADMIN
+  )
+  return (
+    <SectionPageLayout>
+      <SectionPageLayout.Title>{t('Overview')}</SectionPageLayout.Title>
+      <SectionPageLayout.Content>
+        <TopkenOverview />
+        {isAdmin && (
+          <div className='mt-4'>
+            <PerformanceHealthPanel />
+          </div>
+        )}
+        <p className='tk-attr'>
+          {t('Powered by')}{' '}
+          <a
+            href='https://github.com/QuantumNous/new-api'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            New API
+          </a>{' '}
+          © QuantumNous · AGPLv3
+        </p>
+      </SectionPageLayout.Content>
+    </SectionPageLayout>
   )
 }
