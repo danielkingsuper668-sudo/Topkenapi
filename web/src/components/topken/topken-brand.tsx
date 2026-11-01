@@ -17,9 +17,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { Link } from '@tanstack/react-router'
+import { Phone } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { cn } from '@/lib/utils'
+
+import { BRAND_ACCENT, BRAND_MAIN, BRAND_NAME, HOTLINE } from './brand'
 
 /** Purple infinity mark from /topkenapi-logo.png (480×244). */
 export function TopkenMark(props: { width?: number }) {
@@ -36,19 +39,35 @@ export function TopkenMark(props: { width?: number }) {
   )
 }
 
-/** "Topken" + gold "api" wordmark, linking home. */
+/** Mark + "Topken" + accent "X" wordmark in Unbounded, linking home. */
 export function TopkenBrand(props: { className?: string; markWidth?: number }) {
   const { t } = useTranslation()
   return (
     <Link
       to='/'
-      aria-label={t('Go to home')}
+      aria-label={`${BRAND_NAME} · ${t('Go to home')}`}
       className={cn('tk-brand', props.className)}
     >
       <TopkenMark width={props.markWidth} />
-      <span>
-        Topken<em>api</em>
+      <span className='tk-wordmark'>
+        {BRAND_MAIN}
+        <em>{BRAND_ACCENT}</em>
       </span>
     </Link>
+  )
+}
+
+/** Hotline pill; renders nothing while HOTLINE is empty. */
+export function HotlinePill(props: { className?: string }) {
+  const { t } = useTranslation()
+  if (!HOTLINE) return null
+  return (
+    <a
+      href={`tel:${HOTLINE.replace(/[^\d+]/g, '')}`}
+      className={cn('tk-hotline', props.className)}
+    >
+      <Phone size={14} aria-hidden='true' />
+      {t('Hotline')} <b>{HOTLINE}</b>
+    </a>
   )
 }

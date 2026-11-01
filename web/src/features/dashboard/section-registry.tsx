@@ -25,6 +25,11 @@ import { createSectionRegistry } from '@/features/system-settings/utils/section-
  */
 const DASHBOARD_SECTIONS = [
   {
+    id: 'setup',
+    titleKey: 'API setup guide',
+    build: () => null,
+  },
+  {
     id: 'overview',
     titleKey: 'Overview',
     build: () => null,

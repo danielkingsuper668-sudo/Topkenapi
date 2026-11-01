@@ -19,16 +19,14 @@ For commercial licensing, please contact support@quantumnous.com
 import {
   Activity,
   Box,
-  ClipboardList,
   CreditCard,
   FileText,
   FlaskConical,
   Key,
   LayoutDashboard,
-  ListTodo,
-  MessageSquare,
   PlugZap,
   Radio,
+  Rocket,
   ServerCog,
   Settings,
   ShieldCheck,
@@ -58,14 +56,9 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
         title: t('Chat'),
         items: [
           {
-            title: t('Playground'),
+            title: t('Chat with AI'),
             url: '/playground',
             icon: FlaskConical,
-          },
-          {
-            title: t('Chat'),
-            icon: MessageSquare,
-            type: 'chat-presets',
           },
         ],
       },
@@ -74,14 +67,14 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
         title: t('General'),
         items: [
           {
+            title: t('API setup guide'),
+            url: '/dashboard/setup',
+            icon: Rocket,
+          },
+          {
             title: t('Overview'),
             url: '/dashboard/overview',
             icon: Activity,
-          },
-          {
-            title: t('Dashboard'),
-            url: '/dashboard/models',
-            icon: LayoutDashboard,
           },
           {
             title: t('API Keys'),
@@ -89,21 +82,20 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
             icon: Key,
           },
           {
-            title: t('Usage Logs'),
+            title: t('Models & pricing'),
+            url: '/pricing',
+            icon: Box,
+          },
+          {
+            title: t('Usage'),
+            url: '/dashboard/models',
+            icon: LayoutDashboard,
+          },
+          {
+            title: t('API logs'),
             url: '/usage-logs/common',
+            activeUrls: ['/usage-logs'],
             icon: FileText,
-          },
-          {
-            title: t('Audit Logs'),
-            url: '/usage-logs/audit',
-            icon: ClipboardList,
-          },
-          {
-            title: t('Task Logs'),
-            url: '/usage-logs/task',
-            activeUrls: ['/usage-logs/drawing'],
-            configUrls: ['/usage-logs/drawing', '/usage-logs/task'],
-            icon: ListTodo,
           },
         ],
       },
@@ -112,12 +104,12 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
         title: t('Personal'),
         items: [
           {
-            title: t('Wallet'),
+            title: t('Top up'),
             url: '/wallet',
             icon: Wallet,
           },
           {
-            title: t('Profile'),
+            title: t('Account'),
             url: '/profile',
             icon: User,
           },

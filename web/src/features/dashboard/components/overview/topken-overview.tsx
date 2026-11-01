@@ -43,6 +43,7 @@ import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
 import { SectionPageLayout } from '@/components/layout'
+import { BRAND_NAME } from '@/components/topken/brand'
 import { SupportContactCard } from '@/components/topken/support-contact'
 import { getUserQuotaDates } from '@/features/dashboard/api'
 import {
@@ -263,7 +264,7 @@ export function TopkenOverview() {
             {t('Get started in 1 minute')}
           </div>
           <h2 id='tk-g-title'>
-            {t('Connect')} <em>Topkenapi</em>
+            {t('Connect')} <em>{BRAND_NAME}</em>
           </h2>
           <p className='tk-d'>
             {t(
@@ -271,7 +272,11 @@ export function TopkenOverview() {
             )}
           </p>
           <div className='tk-clients'>
-            <Link to='/keys' className='tk-client rec'>
+            <Link
+              to='/dashboard/$section'
+              params={{ section: 'setup' }}
+              className='tk-client rec'
+            >
               <span className='tk-cl-ic'>
                 <Repeat size={20} aria-hidden='true' />
               </span>
@@ -283,7 +288,11 @@ export function TopkenOverview() {
               </span>
               <ChevronRight size={16} aria-hidden='true' />
             </Link>
-            <Link to='/keys' className='tk-client'>
+            <Link
+              to='/dashboard/$section'
+              params={{ section: 'setup' }}
+              className='tk-client'
+            >
               <span className='tk-cl-ic' style={{ background: '#d0546b' }}>
                 <MessageSquare size={20} aria-hidden='true' />
               </span>

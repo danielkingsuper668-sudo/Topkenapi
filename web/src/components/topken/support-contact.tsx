@@ -58,30 +58,9 @@ const SUPPORT_CHANNELS: SupportChannel[] = [
     color: '#229ed9',
     icon: <Send size={18} aria-hidden='true' />,
   },
-  {
-    name: 'Instagram',
-    value: '@TopkenAPI',
-    href: 'https://instagram.com/TopkenAPI',
-    color: '#d6249f',
-    icon: (
-      <svg
-        viewBox='0 0 24 24'
-        width='19'
-        height='19'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='1.8'
-        aria-hidden='true'
-      >
-        <rect x='3' y='3' width='18' height='18' rx='5' />
-        <circle cx='12' cy='12' r='4' />
-        <circle cx='17.5' cy='6.5' r='1' fill='currentColor' />
-      </svg>
-    ),
-  },
 ]
 
-/** WeChat / Zalo / Telegram / Instagram rows with copy and open actions. */
+/** WeChat / Zalo / Telegram rows with copy and open actions. */
 export function SupportChannelList() {
   const { t } = useTranslation()
   return (

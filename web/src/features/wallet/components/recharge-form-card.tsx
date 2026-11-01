@@ -20,6 +20,7 @@ import { Gift, ExternalLink, Loader2, Receipt, WalletCards } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 
+import { SupportChannelList } from '@/components/topken/support-contact'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
@@ -246,6 +247,8 @@ export function RechargeFormCard({
                       return (
                         <Button
                           key={preset.value}
+                          data-tk-preset=''
+                          data-selected={selectedPreset === preset.value}
                           variant='outline'
                           className={cn(
                             'flex min-h-16 flex-col items-start rounded-lg px-3 py-2.5 text-left whitespace-normal sm:min-h-[72px] sm:p-4',
@@ -488,13 +491,16 @@ export function RechargeFormCard({
           )}
         </div>
       ) : (
-        <Alert>
-          <AlertDescription>
-            {t(
-              'Online topup is not enabled. Please use redemption code or contact administrator.'
-            )}
-          </AlertDescription>
-        </Alert>
+        <div className='space-y-3'>
+          <Alert>
+            <AlertDescription>
+              {t(
+                'To top up, message us on any channel below. We will send you a redemption code to enter here.'
+              )}
+            </AlertDescription>
+          </Alert>
+          <SupportChannelList />
+        </div>
       )}
 
       {/* Creem Products Section */}

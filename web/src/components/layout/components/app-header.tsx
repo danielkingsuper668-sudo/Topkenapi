@@ -23,7 +23,7 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { SystemUpdateAction } from '@/features/system-update/system-update-action'
 import { useNotifications } from '@/hooks/use-notifications'
-import { TopkenBrand } from '@/components/topken/topken-brand'
+import { HotlinePill, TopkenBrand } from '@/components/topken/topken-brand'
 import { TopkenMarquee } from '@/components/topken/topken-marquee'
 import { useTopNavLinks } from '@/hooks/use-top-nav-links'
 
@@ -121,6 +121,9 @@ export function AppHeader({
     <Header className='tk-bar h-14'>
       <div className='@container/system-brand flex min-w-0 flex-1 items-center gap-1'>
         <TopkenBrand />
+        <span className='ms-2 hidden md:inline-flex'>
+          <HotlinePill />
+        </span>
         <SystemUpdateAction presentation='version' />
       </div>
 

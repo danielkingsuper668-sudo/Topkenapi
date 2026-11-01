@@ -21,39 +21,32 @@ import {
   ArrowRight,
   BookOpen,
   Coins,
-  Headphones,
   Home as HomeIcon,
-  Layers,
+  Info,
+  LayoutDashboard,
   Menu,
+  Rocket,
   X,
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { HotlinePill, TopkenMark } from '@/components/topken/topken-brand'
 
 /** Languages offered in the landing header: ZH · EN · FR · VI · RU · KO. */
 const LANDING_LANGUAGES = ['zhCN', 'en', 'fr', 'vi', 'ru', 'ko'] as const
 
 /** Purple infinity logo, drawn from /topkenapi-logo.png (480×244). */
 export function QuantumLogo(props: { size?: number }) {
-  const size = props.size ?? 40
-  return (
-    <svg
-      width={size}
-      height={(size * 244) / 480}
-      viewBox='0 0 480 244'
-      aria-hidden='true'
-    >
-      <image href='/topkenapi-logo.png' width='480' height='244' />
-    </svg>
-  )
+  return <TopkenMark width={props.size ?? 40} />
 }
 
 /** External-or-internal docs link (docs URL comes from system settings). */
 export function DocsLink(props: {
   href: string
   className?: string
+  onClick?: () => void
   children: React.ReactNode
 }) {
   const isExternal = props.href.startsWith('http')
@@ -63,6 +56,7 @@ export function DocsLink(props: {
       target={isExternal ? '_blank' : undefined}
       rel='noopener noreferrer'
       className={props.className}
+      onClick={props.onClick}
     >
       {props.children}
     </a>
@@ -80,6 +74,7 @@ export function QuantumHeader(props: QuantumHeaderProps) {
   const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -96,21 +91,25 @@ export function QuantumHeader(props: QuantumHeaderProps) {
           className='qn-brand'
           aria-label={`${props.brandMain}${props.brandAccent}`}
         >
-          <QuantumLogo size={44} />
-          <span className='qn-brand-text'>
+          <QuantumLogo size={40} />
+          <span className='qn-brand-text tk-wordmark'>
             {props.brandMain}
             <em>{props.brandAccent}</em>
           </span>
         </Link>
+        <HotlinePill className='qn-hotline' />
 
         <nav className='qn-nav' aria-label={t('Main navigation')}>
           <Link to='/' className='is-active'>
-            <HomeIcon size={16} aria-hidden='true' /> {t('Home')}
+            {t('Home')}
           </Link>
-          <Link to='/rankings'>{t('API & Models')}</Link>
-          <Link to='/pricing'>{t('Pricing')}</Link>
+          <Link to='/dashboard/$section' params={{ section: 'setup' }}>
+            {t('API setup guide')}
+          </Link>
+          <Link to='/dashboard'>{t('Dashboard')}</Link>
+          <Link to='/pricing'>{t('Models & pricing')}</Link>
           <DocsLink href={props.docsUrl}>{t('Docs')}</DocsLink>
-          <Link to='/about'>{t('Support')}</Link>
+          <Link to='/about'>{t('About')}</Link>
         </nav>
 
         <div className='qn-actions'>
@@ -148,23 +147,30 @@ export function QuantumHeader(props: QuantumHeaderProps) {
 
       {menuOpen && (
         <nav className='qn-mobile-menu' aria-label={t('Main navigation')}>
-          <Link to='/' onClick={() => setMenuOpen(false)}>
+          <Link to='/' onClick={closeMenu}>
             <HomeIcon size={18} aria-hidden='true' /> {t('Home')}
           </Link>
-          <Link to='/rankings' onClick={() => setMenuOpen(false)}>
-            <Layers size={18} aria-hidden='true' /> {t('API & Models')}
+          <Link
+            to='/dashboard/$section'
+            params={{ section: 'setup' }}
+            onClick={closeMenu}
+          >
+            <Rocket size={18} aria-hidden='true' /> {t('API setup guide')}
           </Link>
-          <Link to='/pricing' onClick={() => setMenuOpen(false)}>
-            <Coins size={18} aria-hidden='true' /> {t('Pricing')}
+          <Link to='/dashboard' onClick={closeMenu}>
+            <LayoutDashboard size={18} aria-hidden='true' /> {t('Dashboard')}
           </Link>
-          <DocsLink href={props.docsUrl}>
+          <Link to='/pricing' onClick={closeMenu}>
+            <Coins size={18} aria-hidden='true' /> {t('Models & pricing')}
+          </Link>
+          <DocsLink href={props.docsUrl} onClick={closeMenu}>
             <BookOpen size={18} aria-hidden='true' /> {t('Docs')}
           </DocsLink>
-          <Link to='/about' onClick={() => setMenuOpen(false)}>
-            <Headphones size={18} aria-hidden='true' /> {t('Support')}
+          <Link to='/about' onClick={closeMenu}>
+            <Info size={18} aria-hidden='true' /> {t('About')}
           </Link>
           {!props.isAuthenticated && (
-            <Link to='/sign-in' onClick={() => setMenuOpen(false)}>
+            <Link to='/sign-in' onClick={closeMenu}>
               <ArrowRight size={18} aria-hidden='true' /> {t('Sign In')}
             </Link>
           )}

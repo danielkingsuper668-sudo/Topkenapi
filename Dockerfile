@@ -3,6 +3,8 @@ FROM oven/bun:1.4.4@sha256:1d22548f177f4ff38e0c15baa3c2c46c6c2060ba2d1bc573bb472
 WORKDIR /build/web
 COPY web/package.json web/bun.lock ./
 RUN bun install --frozen-lockfile
+# TopkenX: self-hosted fonts (no Google Fonts at runtime)
+RUN bun add @fontsource-variable/unbounded@^5 @fontsource-variable/montserrat@^5
 COPY ./web ./
 COPY ./VERSION /build/VERSION
 RUN DISABLE_ESLINT_PLUGIN='true' VITE_REACT_APP_VERSION=$(cat /build/VERSION) bun run build

@@ -22,9 +22,9 @@ import { useTranslation } from 'react-i18next'
 export function TopkenMarquee() {
   const { t } = useTranslation()
   const messages = [
-    t('Topkenapi guarantees 100% official models, never modified'),
+    t('100% genuine, quality service for every model: the exact model, never swapped, never diluted'),
     t('One API for OpenAI · Claude · Gemini · DeepSeek · Qwen'),
-    t('24/7 support: WeChat · Zalo · Telegram · Instagram'),
+    t('24/7 support: WeChat · Zalo · Telegram'),
   ]
 
   return (

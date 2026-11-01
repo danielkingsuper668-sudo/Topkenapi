@@ -18,6 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { CommandMenu } from '@/components/command-menu'
 import { SupportFab } from '@/components/topken/support-contact'
+import { useConsoleTheme } from '@/components/topken/use-console-theme'
 import { AnimatedOutlet } from '@/components/page-transition'
 import { SkipToMain } from '@/components/skip-to-main'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
@@ -36,6 +37,7 @@ type AuthenticatedLayoutProps = {
 }
 
 export function AuthenticatedLayout(props: AuthenticatedLayoutProps) {
+  useConsoleTheme()
   const defaultOpen = getCookie('sidebar_state') !== 'false'
   const signedIn = useAuthStore((s) => !!s.auth.user)
   // Unmount pages on sign-out, otherwise their queries refetch and toast "Session expired!" / "invalid access token"

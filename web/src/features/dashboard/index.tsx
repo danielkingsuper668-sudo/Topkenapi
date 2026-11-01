@@ -38,6 +38,7 @@ import { useAuthStore } from '@/stores/auth-store'
 import { ModelsChartPreferences } from './components/models/models-chart-preferences'
 import { ModelsFilter } from './components/models/models-filter-dialog'
 import { TopkenOverviewPage } from './components/overview/topken-overview'
+import { TopkenSetupPage } from './components/overview/topken-setup'
 import { DEFAULT_TIME_GRANULARITY } from './constants'
 import {
   buildDefaultDashboardFilters,
@@ -182,6 +183,9 @@ function PerformanceOverviewFallback() {
 }
 
 const SECTION_META: Record<DashboardSectionId, { titleKey: string }> = {
+  setup: {
+    titleKey: 'API setup guide',
+  },
   overview: {
     titleKey: 'Overview',
   },
@@ -253,7 +257,10 @@ export function Dashboard() {
   const visibleSections = useMemo(
     () =>
       DASHBOARD_SECTION_IDS.filter(
-        (section) => section !== 'overview' && (section !== 'users' || isAdmin)
+        (section) =>
+          section !== 'overview' &&
+          section !== 'setup' &&
+          (section !== 'users' || isAdmin)
       ),
     [isAdmin]
   )
@@ -324,6 +331,10 @@ export function Dashboard() {
 
   if (activeSection === 'overview') {
     return <TopkenOverviewPage />
+  }
+
+  if (activeSection === 'setup') {
+    return <TopkenSetupPage />
   }
 
   return (
