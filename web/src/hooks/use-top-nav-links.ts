@@ -67,23 +67,16 @@ export function useTopNavLinks(): TopNavLink[] {
     links.push({ title: t('Home'), href: '/' })
   }
 
-  // Console -> /dashboard (new console path)
+  // TopkenX order: Home · API setup guide · Dashboard · Models & pricing · Docs · About
   if (modules?.console !== false) {
-    links.push({ title: t('Console'), href: '/dashboard' })
+    links.push({ title: t('API setup guide'), href: '/dashboard/setup' })
+    links.push({ title: t('Dashboard'), href: '/dashboard' })
   }
 
-  // Pricing
   const pricing = modules?.pricing
   if (pricing && typeof pricing === 'object' && pricing.enabled) {
     const requiresAuth = pricing.requireAuth && !isAuthed
-    links.push({ title: t('Model Square'), href: '/pricing', requiresAuth })
-  }
-
-  // Rankings
-  const rankings = modules?.rankings
-  if (rankings && typeof rankings === 'object' && rankings.enabled) {
-    const requiresAuth = rankings.requireAuth && !isAuthed
-    links.push({ title: t('Rankings'), href: '/rankings', requiresAuth })
+    links.push({ title: t('Models & pricing'), href: '/pricing', requiresAuth })
   }
 
   // Docs (supports external links)
