@@ -100,6 +100,7 @@ export function TopkenSetupPage() {
                   item.href ? (
                     <a
                       key={item.name}
+                      data-brand={item.name}
                       className='tk-help-chip'
                       href={item.href}
                       target='_blank'
@@ -111,8 +112,9 @@ export function TopkenSetupPage() {
                     <button
                       key={item.name}
                       type='button'
+                      data-brand={item.name}
                       className='tk-help-chip'
-                      style={{ background: 'transparent', font: 'inherit' }}
+                      style={{ font: 'inherit' }}
                       onClick={() => copy(item.value)}
                     >
                       <span>{item.name}</span> {item.value}
@@ -143,7 +145,7 @@ export function TopkenSetupPage() {
               {key ? (
                 <button
                   type='button'
-                  className='tk-btn gold'
+                  className='tk-btn tk-copy-key'
                   onClick={() => copy(resolveKey)}
                 >
                   <Copy size={15} aria-hidden='true' />
@@ -163,7 +165,7 @@ export function TopkenSetupPage() {
               </div>
               <button
                 type='button'
-                className='tk-btn'
+                className='tk-btn tk-copy-addr'
                 onClick={() => copy(apiBase)}
               >
                 <Copy size={15} aria-hidden='true' />
