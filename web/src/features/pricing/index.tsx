@@ -19,7 +19,6 @@ For commercial licensing, please contact support@quantumnous.com
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { PublicLayout } from '@/components/layout'
 import { PageTransition } from '@/components/page-transition'
 
 import {
@@ -32,6 +31,7 @@ import {
   ModelCardGrid,
   ModelDetailsDrawer,
 } from './components'
+import { PricingShell } from './components/pricing-shell'
 import { EXCLUDED_GROUPS, VIEW_MODES } from './constants'
 import { useFilters } from './hooks/use-filters'
 import { usePricingData } from './hooks/use-pricing-data'
@@ -150,16 +150,16 @@ export function Pricing() {
 
   if (isLoading) {
     return (
-      <PublicLayout showMainContainer={false}>
+      <PricingShell>
         <div className='mx-auto w-full max-w-[1800px] px-3 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-10 xl:px-8'>
           <LoadingSkeleton viewMode={viewMode} />
         </div>
-      </PublicLayout>
+      </PricingShell>
     )
   }
 
   return (
-    <PublicLayout showMainContainer={false}>
+    <PricingShell>
       <div className='relative'>
         <div
           aria-hidden
@@ -284,6 +284,6 @@ export function Pricing() {
           )}
         </PageTransition>
       </div>
-    </PublicLayout>
+    </PricingShell>
   )
 }

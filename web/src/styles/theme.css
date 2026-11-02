@@ -182,21 +182,21 @@ For commercial licensing, please contact support@quantumnous.com
   /* Native controls follow the theme; Dark Reader also reads this to detect
      the built-in dark theme. */
   color-scheme: dark;
-  /* Topkenapi: black-brown canvas, champagne-gold primary, violet charts. */
-  --background: oklch(0.165 0.009 70);
-  --foreground: oklch(0.94 0.014 85);
-  --card: oklch(0.2 0.011 70);
-  --card-foreground: oklch(0.94 0.014 85);
-  --popover: oklch(0.22 0.012 70);
-  --popover-foreground: oklch(0.94 0.014 85);
-  --primary: oklch(0.83 0.075 80);
-  --primary-foreground: oklch(0.22 0.03 65);
-  --secondary: oklch(0.25 0.013 70);
-  --secondary-foreground: oklch(0.86 0.06 80);
-  --muted: oklch(0.23 0.012 70);
-  --muted-foreground: oklch(0.72 0.025 80);
+  /* TopkenX: minimal grey-violet canvas with a soft lavender primary. */
+  --background: oklch(0.17 0.007 285);
+  --foreground: oklch(0.95 0.006 285);
+  --card: oklch(0.205 0.009 285);
+  --card-foreground: oklch(0.95 0.006 285);
+  --popover: oklch(0.225 0.01 285);
+  --popover-foreground: oklch(0.95 0.006 285);
+  --primary: oklch(0.78 0.09 292);
+  --primary-foreground: oklch(0.2 0.03 290);
+  --secondary: oklch(0.25 0.01 285);
+  --secondary-foreground: oklch(0.88 0.04 292);
+  --muted: oklch(0.235 0.009 285);
+  --muted-foreground: oklch(0.71 0.015 285);
   --accent: color-mix(in oklch, var(--primary) 12%, var(--background));
-  --accent-foreground: oklch(0.96 0.014 85);
+  --accent-foreground: oklch(0.96 0.008 285);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
   --success: oklch(0.696 0.17 162.48);
@@ -207,24 +207,24 @@ For commercial licensing, please contact support@quantumnous.com
   --info-foreground: oklch(0.145 0 0);
   --neutral: oklch(0.76 0 0);
   --neutral-foreground: oklch(0.155 0 0);
-  --border: oklch(0.83 0.075 80 / 13%);
-  --input: oklch(0.83 0.075 80 / 20%);
-  --ring: oklch(0.78 0.08 80);
-  --chart-1: oklch(0.83 0.075 80);
-  --chart-2: oklch(0.68 0.19 295);
-  --chart-3: oklch(0.66 0.15 265);
-  --chart-4: oklch(0.72 0.11 50);
-  --chart-5: oklch(0.72 0.1 175);
-  --sidebar: oklch(0.145 0.008 70);
-  --sidebar-foreground: oklch(0.92 0.014 85);
-  --sidebar-primary: oklch(0.83 0.075 80);
-  --sidebar-primary-foreground: oklch(0.22 0.03 65);
+  --border: oklch(0.85 0.02 285 / 10%);
+  --input: oklch(0.85 0.03 285 / 16%);
+  --ring: oklch(0.74 0.09 292);
+  --chart-1: oklch(0.78 0.09 292);
+  --chart-2: oklch(0.7 0.12 250);
+  --chart-3: oklch(0.72 0.1 175);
+  --chart-4: oklch(0.75 0.11 330);
+  --chart-5: oklch(0.8 0.08 80);
+  --sidebar: oklch(0.155 0.006 285);
+  --sidebar-foreground: oklch(0.93 0.006 285);
+  --sidebar-primary: oklch(0.78 0.09 292);
+  --sidebar-primary-foreground: oklch(0.2 0.03 290);
   --sidebar-accent: color-mix(in oklch, var(--primary) 12%, var(--background));
-  --sidebar-accent-foreground: oklch(0.88 0.065 80);
-  --sidebar-border: oklch(0.83 0.075 80 / 12%);
-  --sidebar-ring: oklch(0.78 0.08 80);
-  --skeleton-base: oklch(0.24 0.012 70);
-  --skeleton-highlight: oklch(0.3 0.014 70);
+  --sidebar-accent-foreground: oklch(0.9 0.05 292);
+  --sidebar-border: oklch(0.85 0.02 285 / 10%);
+  --sidebar-ring: oklch(0.74 0.09 292);
+  --skeleton-base: oklch(0.24 0.008 285);
+  --skeleton-highlight: oklch(0.3 0.01 285);
   --table-row: var(--background);
   --table-header: color-mix(in oklch, var(--foreground) 6%, var(--background));
   --table-header-hover: color-mix(

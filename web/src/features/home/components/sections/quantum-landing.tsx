@@ -40,7 +40,7 @@ import {
 } from '@/components/topken/brand'
 import { SetupGuide } from '@/components/topken/setup-guide'
 import { TopkenMarquee } from '@/components/topken/topken-marquee'
-import { ModelCard } from '@/features/pricing/components/model-card'
+import { ModelCardGrid } from '@/features/pricing/components/model-card-grid'
 import { usePricingData } from '@/features/pricing/hooks/use-pricing-data'
 import type { PricingModel } from '@/features/pricing/types'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
@@ -62,7 +62,14 @@ const SUPPORTED_MODELS = [
 ]
 
 /** One featured model per family, in this order, when it exists. */
-const FEATURED_PATTERNS = [/claude/i, /gpt/i, /gemini/i, /deepseek/i, /grok/i]
+const FEATURED_PATTERNS = [
+  /claude/i,
+  /gpt/i,
+  /gemini/i,
+  /grok/i,
+  /deepseek/i,
+  /qwen/i,
+]
 
 interface QuantumLandingProps {
   isAuthenticated?: boolean
@@ -85,7 +92,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
         (item) => pattern.test(item.model_name) && !picked.includes(item)
       )
       if (model) picked.push(model)
-      if (picked.length === 3) break
+      if (picked.length === 6) break
     }
     return picked
   }, [pricing.models])
@@ -318,15 +325,17 @@ export function QuantumLanding(props: QuantumLandingProps) {
                 </Link>
               </div>
               <div className='qx-models'>
-                {featured.map((model) => (
-                  <ModelCard
-                    key={model.model_name}
-                    model={model}
-                    priceRate={pricing.priceRate}
-                    usdExchangeRate={pricing.usdExchangeRate}
-                    onClick={() => navigate({ to: '/pricing' })}
-                  />
-                ))}
+                <ModelCardGrid
+                  models={featured}
+                  priceRate={pricing.priceRate}
+                  usdExchangeRate={pricing.usdExchangeRate}
+                  onModelClick={(modelName) =>
+                    navigate({
+                      to: '/pricing/$modelId',
+                      params: { modelId: modelName },
+                    })
+                  }
+                />
               </div>
             </div>
           </section>

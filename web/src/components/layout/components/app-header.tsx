@@ -55,8 +55,8 @@ import { TopNav } from './top-nav'
  *   rightContent={<CustomRight />}
  * />
  */
-/** Languages offered in the console header: ZH · EN · FR · VI · RU · KO. */
-const CONSOLE_LANGUAGES = ['zhCN', 'en', 'fr', 'vi', 'ru', 'ko'] as const
+/** Languages offered in the console header: ZH · EN · VI · RU · FR · KO · JA. */
+const CONSOLE_LANGUAGES = ['zhCN', 'en', 'vi', 'ru', 'fr', 'ko', 'ja'] as const
 
 type AppHeaderProps = {
   /**

@@ -122,14 +122,20 @@ function NavBadge({ children }: { children: ReactNode }) {
  */
 function SidebarMenuLink({ item, href }: { item: NavLink; href: string }) {
   const { isMobile, setOpenMobile } = useSidebar()
+  const searchMatches =
+    !item.search ||
+    Object.entries(item.search).every(([key, value]) =>
+      href.includes(`${key}=${value}`)
+    )
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
-        isActive={checkIsActive(href, item)}
+        isActive={checkIsActive(href, item) && searchMatches}
         tooltip={item.title}
         render={
           <Link
             to={item.url}
+            search={item.search as never}
             preload={isMobile ? false : undefined}
             onClick={() => setOpenMobile(false)}
           />

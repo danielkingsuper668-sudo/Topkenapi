@@ -34,8 +34,8 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { HotlinePill, TopkenMark } from '@/components/topken/topken-brand'
 
-/** Languages offered in the landing header: ZH · EN · FR · VI · RU · KO. */
-const LANDING_LANGUAGES = ['zhCN', 'en', 'fr', 'vi', 'ru', 'ko'] as const
+/** Languages offered in the landing header: ZH · EN · VI · RU · FR · KO · JA. */
+const LANDING_LANGUAGES = ['zhCN', 'en', 'vi', 'ru', 'fr', 'ko', 'ja'] as const
 
 /** Purple infinity logo, drawn from /topkenapi-logo.png (480×244). */
 export function QuantumLogo(props: { size?: number }) {

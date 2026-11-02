@@ -41,6 +41,8 @@ type BaseNavItem = {
  */
 export type NavLink = BaseNavItem & {
   url: LinkProps['to'] | (string & {})
+  /** Optional search params; the item is active only when they all match. */
+  search?: Record<string, string>
   items?: never
   type?: never
 }

@@ -82,9 +82,16 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
             icon: Key,
           },
           {
-            title: t('Models & pricing'),
+            title: t('Models'),
             url: '/pricing',
+            search: { view: 'card' },
             icon: Box,
+          },
+          {
+            title: t('Pricing'),
+            url: '/pricing',
+            search: { view: 'table' },
+            icon: CreditCard,
           },
           {
             title: t('Usage'),

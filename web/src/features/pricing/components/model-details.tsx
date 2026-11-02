@@ -37,8 +37,9 @@ import { CopyButton } from '@/components/copy-button'
 import { StaticDataTable } from '@/components/data-table'
 import { sideDrawerContentClassName } from '@/components/drawer-layout'
 import { GroupBadge } from '@/components/group-badge'
-import { PublicLayout } from '@/components/layout'
 import { Button } from '@/components/ui/button'
+
+import { PricingShell } from './pricing-shell'
 import {
   Sheet,
   SheetContent,
@@ -1626,7 +1627,7 @@ export function ModelDetails() {
 
   if (isLoading) {
     return (
-      <PublicLayout>
+      <PricingShell contained>
         <div className='mx-auto max-w-5xl px-4 sm:px-6'>
           <Skeleton className='mb-4 h-5 w-16' />
           <div className='space-y-2'>
@@ -1645,13 +1646,13 @@ export function ModelDetails() {
             ))}
           </div>
         </div>
-      </PublicLayout>
+      </PricingShell>
     )
   }
 
   if (!model) {
     return (
-      <PublicLayout>
+      <PricingShell contained>
         <div className='mx-auto max-w-2xl px-4 text-center sm:px-6'>
           <h2 className='mb-1 text-base font-semibold'>
             {t('Model not found')}
@@ -1663,12 +1664,12 @@ export function ModelDetails() {
             {t('Back to Models')}
           </Button>
         </div>
-      </PublicLayout>
+      </PricingShell>
     )
   }
 
   return (
-    <PublicLayout>
+    <PricingShell contained>
       <div className='mx-auto max-w-5xl px-4 sm:px-6'>
         <Button
           variant='ghost'
@@ -1697,6 +1698,6 @@ export function ModelDetails() {
           }
         />
       </div>
-    </PublicLayout>
+    </PricingShell>
   )
 }
