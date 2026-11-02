@@ -36,6 +36,10 @@ import { useAuthStore } from '@/stores/auth-store'
 
 import { defaultTopNavLinks } from '../config/top-nav.config'
 import type { TopNavLink } from '../types'
+import { BRAND_ACCENT, BRAND_MAIN } from '@/components/topken/brand'
+import { TopkenMark } from '@/components/topken/topken-brand'
+import '@/components/topken/topken.css'
+
 import { HeaderLogo } from './header-logo'
 
 const AUTH_PROMPT_SECONDS = 5
@@ -220,18 +224,19 @@ export function PublicHeader(props: PublicHeaderProps) {
                 to={homeUrl}
                 className='group flex min-w-0 items-center gap-2.5'
               >
-                <div className='flex size-7 shrink-0 items-center justify-center transition-all duration-300 group-hover:scale-105'>
-                  {logoContent}
-                </div>
+                {customLogo ? (
+                  <div className='flex size-7 shrink-0 items-center justify-center'>
+                    {logoContent}
+                  </div>
+                ) : (
+                  <TopkenMark width={34} />
+                )}
                 <span
-                  className='max-w-48 truncate text-sm font-semibold tracking-tight'
+                  className='tk-wordmark max-w-48 truncate text-base'
                   title={displaySiteName}
                 >
-                  {loading ? (
-                    <Skeleton className='h-4 w-16' />
-                  ) : (
-                    displaySiteName
-                  )}
+                  {BRAND_MAIN}
+                  <em>{BRAND_ACCENT}</em>
                 </span>
               </Link>
               <SystemUpdateAction presentation='version' />
