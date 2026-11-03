@@ -41,7 +41,6 @@ import {
   SupportChannelList,
   SupportFab,
 } from '@/components/topken/support-contact'
-import { useStatus } from '@/hooks/use-status'
 
 import heroCube2000 from '../../assets/hero-cube-2000.webp'
 import heroCube3840 from '../../assets/hero-cube-3840.webp'
@@ -73,10 +72,8 @@ interface QuantumLandingProps {
 
 export function QuantumLanding(props: QuantumLandingProps) {
   const { t } = useTranslation()
-  const { status } = useStatus()
   useGoldTheme()
-  const docsUrl =
-    (status?.docs_link as string | undefined) || 'https://docs.newapi.pro'
+  const docsUrl = '/docs'
 
   const highlights = [
     { icon: Zap, title: t('Fast'), sub: t('Streaming, fast first token') },
@@ -90,7 +87,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
     {
       icon: Headphones,
       title: t('24/7 support'),
-      sub: 'WeChat · Zalo · Telegram',
+      sub: 'WeChat · Telegram · Zalo',
     },
   ]
 

@@ -7404,7 +7404,7 @@
     "Powered by": "Powered by",
     "Topkenapi guarantees 100% official models, never modified": "Topkenapi guarantees 100% official models, never modified",
     "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen": "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen",
-    "24/7 support: WeChat · Zalo · Telegram · Instagram": "24/7 support: WeChat · Zalo · Telegram · Instagram",
+    "24/7 support: WeChat · Telegram · Zalo · Instagram": "24/7 support: WeChat · Telegram · Zalo · Instagram",
     "Contact support": "Contact support",
     "Online 24/7, reach us on your favourite app": "Online 24/7, reach us on your favourite app",
     "Hold and drag to move": "Hold and drag to move",
@@ -7431,7 +7431,7 @@
     "Avg. latency": "Avg. latency",
     "Last hour": "Last hour",
     "100% genuine, quality service for every model: the exact model, never swapped, never diluted": "100% genuine, quality service for every model: the exact model, never swapped, never diluted",
-    "24/7 support: WeChat · Zalo · Telegram": "24/7 support: WeChat · Zalo · Telegram",
+    "24/7 support: WeChat · Telegram · Zalo": "24/7 support: WeChat · Telegram · Zalo",
     "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.": "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.",
     "A few minutes to set up": "A few minutes to set up",
     "AI API for everyone": "AI API for everyone",
@@ -7532,6 +7532,12 @@
     "Every call logged, costs visible in real time": "Every call logged, costs visible in real time",
     "Real people": "Real people",
     "Support in Chinese, Vietnamese and English": "Support in Chinese, Vietnamese and English",
-    "Contact us": "Contact us"
+    "Contact us": "Contact us",
+    "Notice from {{brand}}": "Notice from {{brand}}",
+    "Don't show again": "Don't show again",
+    "View pricing": "View pricing",
+    "Start now": "Start now",
+    "Sign in to get your key": "Sign in to get your key",
+    "Sign in to get your key. One key works with every model.": "Sign in to get your key. One key works with every model."
   }
 }

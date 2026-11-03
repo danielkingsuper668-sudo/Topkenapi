@@ -17,6 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { CommandMenu } from '@/components/command-menu'
+import { AnnouncementPopup } from '@/components/topken/announcement-popup'
 import { SupportFab } from '@/components/topken/support-contact'
 import { useConsoleTheme } from '@/components/topken/use-console-theme'
 import { AnimatedOutlet } from '@/components/page-transition'
@@ -69,6 +70,7 @@ export function AuthenticatedLayout(props: AuthenticatedLayoutProps) {
         </SidebarProvider>
         <CommandMenu />
         <SupportFab />
+        <AnnouncementPopup />
       </SearchProvider>
     </LayoutProvider>
   )

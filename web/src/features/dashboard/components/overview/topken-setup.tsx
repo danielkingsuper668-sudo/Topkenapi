@@ -30,13 +30,29 @@ import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 import { requireServerSuccess } from '@/lib/server-error-message'
 
 const SUPPORT_LINKS = [
-  { name: 'Zalo', value: '0816981777', href: 'https://zalo.me/0816981777' },
-  { name: 'Telegram', value: '@TOPKENAPI', href: 'https://t.me/TOPKENAPI' },
   { name: 'WeChat', value: '19866980020', href: '' },
+  { name: 'Telegram', value: '@topkenx', href: 'https://t.me/topkenx' },
+  { name: 'Zalo', value: '0816981777', href: 'https://zalo.me/0816981777' },
 ]
 
-/** "API setup guide": your key, your address, and step-by-step tool setup. */
+/** "API setup guide" page in the console. */
 export function TopkenSetupPage() {
+  const { t } = useTranslation()
+  return (
+    <SectionPageLayout>
+      <SectionPageLayout.Title>{t('API setup guide')}</SectionPageLayout.Title>
+      <SectionPageLayout.Content>
+        <TopkenSetupContent />
+      </SectionPageLayout.Content>
+    </SectionPageLayout>
+  )
+}
+
+/**
+ * Your key, your address, and step-by-step tool setup. Visitors (the public
+ * Docs page) see the same guide with a sign-in button instead of a key.
+ */
+export function TopkenSetupContent(props: { visitor?: boolean }) {
   const { t } = useTranslation()
   const { copyToClipboard } = useCopyToClipboard({ notify: false })
   const apiBase = getApiBase()
@@ -48,6 +64,7 @@ export function TopkenSetupPage() {
       return result.success ? (result.data?.items ?? []) : []
     },
     staleTime: 60 * 1000,
+    enabled: !props.visitor,
   })
   const keys = keysQuery.data ?? []
   const key = keys.find((item) => item.status === 1) ?? keys[0] ?? null
@@ -74,9 +91,6 @@ export function TopkenSetupPage() {
   }
 
   return (
-    <SectionPageLayout>
-      <SectionPageLayout.Title>{t('API setup guide')}</SectionPageLayout.Title>
-      <SectionPageLayout.Content>
         <div className='tk-setup'>
           <header className='tk-setup-hero'>
             <div className='tk-eyebrow'>
@@ -133,16 +147,27 @@ export function TopkenSetupPage() {
               <b id='tk-key-title'>{t('Your key')}</b>
             </div>
             <p>
-              {key
-                ? t('This key works with every model you have access to.')
-                : t('You have no API key yet. Create one to get started.')}
+              {props.visitor &&
+                t('Sign in to get your key. One key works with every model.')}
+              {!props.visitor &&
+                key &&
+                t('This key works with every model you have access to.')}
+              {!props.visitor &&
+                !key &&
+                t('You have no API key yet. Create one to get started.')}
             </p>
             <div className='tk-keyrow'>
               <div className='tk-keyval'>
                 <KeyRound size={16} aria-hidden='true' />
                 <span>{maskedKey}</span>
               </div>
-              {key ? (
+              {props.visitor && (
+                <Link to='/sign-in' className='tk-btn gold'>
+                  <KeyRound size={15} aria-hidden='true' />
+                  {t('Sign in to get your key')}
+                </Link>
+              )}
+              {!props.visitor && key && (
                 <button
                   type='button'
                   className='tk-btn tk-copy-key'
@@ -151,7 +176,8 @@ export function TopkenSetupPage() {
                   <Copy size={15} aria-hidden='true' />
                   {t('Copy key')}
                 </button>
-              ) : (
+              )}
+              {!props.visitor && !key && (
                 <Link to='/keys' className='tk-btn gold'>
                   <KeyRound size={15} aria-hidden='true' />
                   {t('Create an API key')}
@@ -193,7 +219,5 @@ export function TopkenSetupPage() {
             />
           </section>
         </div>
-      </SectionPageLayout.Content>
-    </SectionPageLayout>
   )
 }

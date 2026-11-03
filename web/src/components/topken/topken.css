@@ -494,8 +494,8 @@ For commercial licensing, please contact support@quantumnous.com
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
-  transition: left 0.25s ease, top 0.25s ease;
 }
+.tk-fab.is-ready { transition: left 0.25s ease, top 0.25s ease; }
 .tk-fab.is-drag { cursor: grabbing; transition: none; transform: scale(1.06); }
 .tk-fab:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .tk-fabp {
@@ -728,3 +728,35 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-btn.tk-copy-addr { border-color: transparent; color: #fff; background: #2563eb; }
 .tk-btn.tk-copy-addr:hover { background: #1d4ed8; }
 .tk-section-h b { font-size: 20px; font-weight: 800; }
+
+/* ---------- login notice popup (System settings → Announcements) ---------- */
+.tk-ann {
+  border: 1px solid var(--tk-border2);
+  background:
+    radial-gradient(ellipse 70% 50% at 100% 0%, color-mix(in oklch, var(--primary) 14%, transparent), transparent 70%),
+    var(--popover);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.85);
+  border-radius: 22px;
+}
+.tk-ann .tk-ann-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.tk-ann-body { font-size: 15px; line-height: 1.65; }
+.tk-ann-body h1, .tk-ann-body h2 { font-size: clamp(22px, 4.6vw, 30px); line-height: 1.2; font-weight: 800; margin: 0 0 12px; }
+.tk-ann-body h3 { font-size: 18px; font-weight: 700; margin: 14px 0 6px; }
+.tk-ann-body strong { color: var(--tk-gold-a); }
+.tk-ann-body blockquote {
+  margin: 12px 0; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--tk-border2);
+  background: color-mix(in oklch, var(--primary) 7%, transparent);
+}
+.tk-ann-body code { font-family: var(--tk-mono); font-size: 0.88em; padding: 1px 6px; border-radius: 6px; background: var(--tk-accent); }
+.tk-ann-foot { border-top: 1px solid var(--tk-border); align-items: center; }
+.tk-ann-foot .tk-ann-skip { margin-right: auto; color: var(--muted-foreground); }
+@media (max-width: 639px) {
+  .tk-ann-foot { flex-direction: column-reverse; }
+  .tk-ann-foot > * { width: 100%; }
+}

@@ -7404,7 +7404,7 @@
     "Powered by": "Работает на",
     "Topkenapi guarantees 100% official models, never modified": "Topkenapi: 100% оригинальные модели без изменений",
     "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen": "Один API для OpenAI · Claude · Gemini · DeepSeek · Qwen",
-    "24/7 support: WeChat · Zalo · Telegram · Instagram": "Поддержка 24/7: WeChat · Zalo · Telegram · Instagram",
+    "24/7 support: WeChat · Telegram · Zalo · Instagram": "Поддержка 24/7: WeChat · Telegram · Zalo · Instagram",
     "Contact support": "Связаться с поддержкой",
     "Online 24/7, reach us on your favourite app": "Онлайн 24/7 в привычном мессенджере",
     "Hold and drag to move": "Удерживайте, чтобы переместить",
@@ -7431,7 +7431,7 @@
     "Avg. latency": "Средняя задержка",
     "Last hour": "За последний час",
     "100% genuine, quality service for every model: the exact model, never swapped, never diluted": "100% настоящие модели и качество для каждой: точно та модель, без подмены, без разбавления",
-    "24/7 support: WeChat · Zalo · Telegram": "Поддержка 24/7: WeChat · Zalo · Telegram",
+    "24/7 support: WeChat · Telegram · Zalo": "Поддержка 24/7: WeChat · Telegram · Zalo",
     "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.": "Окно чата на компьютере: Cherry Studio, Chatbox, LobeChat — без команд.",
     "A few minutes to set up": "Настройка за пару минут",
     "AI API for everyone": "AI API для всех",
@@ -7532,6 +7532,12 @@
     "Every call logged, costs visible in real time": "Каждый вызов в журнале, расходы в реальном времени",
     "Real people": "Живая поддержка",
     "Support in Chinese, Vietnamese and English": "Поддержка на китайском, вьетнамском и английском",
-    "Contact us": "Контакты"
+    "Contact us": "Контакты",
+    "Notice from {{brand}}": "Уведомление от {{brand}}",
+    "Don't show again": "Больше не показывать",
+    "View pricing": "Цены",
+    "Start now": "Начать",
+    "Sign in to get your key": "Войдите, чтобы получить ключ",
+    "Sign in to get your key. One key works with every model.": "Войдите, чтобы получить ключ. Один ключ подходит для всех моделей."
   }
 }

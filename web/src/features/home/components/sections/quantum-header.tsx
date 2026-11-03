@@ -42,18 +42,24 @@ export function QuantumLogo(props: { size?: number }) {
   return <TopkenMark width={props.size ?? 40} />
 }
 
-/** External-or-internal docs link (docs URL comes from system settings). */
+/** Docs link: in-site paths stay in the same tab, full URLs open a new one. */
 export function DocsLink(props: {
   href: string
   className?: string
   onClick?: () => void
   children: React.ReactNode
 }) {
-  const isExternal = props.href.startsWith('http')
+  if (!props.href.startsWith('http')) {
+    return (
+      <Link to={props.href} className={props.className} onClick={props.onClick}>
+        {props.children}
+      </Link>
+    )
+  }
   return (
     <a
       href={props.href}
-      target={isExternal ? '_blank' : undefined}
+      target='_blank'
       rel='noopener noreferrer'
       className={props.className}
       onClick={props.onClick}

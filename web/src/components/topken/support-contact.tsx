@@ -28,6 +28,7 @@ import {
 import { useTranslation } from 'react-i18next'
 
 import { CopyButton } from '@/components/copy-button'
+import { cn } from '@/lib/utils'
 
 type SupportChannel = {
   name: string
@@ -45,18 +46,18 @@ const SUPPORT_CHANNELS: SupportChannel[] = [
     icon: <MessageCircle size={19} aria-hidden='true' />,
   },
   {
+    name: 'Telegram',
+    value: '@topkenx',
+    href: 'https://t.me/topkenx',
+    color: '#229ed9',
+    icon: <Send size={18} aria-hidden='true' />,
+  },
+  {
     name: 'Zalo',
     value: '0816981777',
     href: 'https://zalo.me/0816981777',
     color: '#0068ff',
     icon: <b className='tk-cic-letter'>Z</b>,
-  },
-  {
-    name: 'Telegram',
-    value: '@TOPKENAPI',
-    href: 'https://t.me/TOPKENAPI',
-    color: '#229ed9',
-    icon: <Send size={18} aria-hidden='true' />,
   },
 ]
 
@@ -148,6 +149,9 @@ export function SupportFab() {
   const [open, setOpen] = useState(false)
   const [dragging, setDragging] = useState(false)
   const [, forceLayout] = useState(0)
+  // Animate moves only after the first placement, so a page change never
+  // shows the button sliding in from the top-left corner.
+  const [ready, setReady] = useState(false)
 
   const placeFab = useCallback(() => {
     const fab = fabRef.current
@@ -182,6 +186,11 @@ export function SupportFab() {
     placeFab()
     if (open) placePanel()
   })
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setReady(true))
+    return () => cancelAnimationFrame(frame)
+  }, [])
 
   useEffect(() => {
     const onResize = () => forceLayout((n) => n + 1)
@@ -270,7 +279,7 @@ export function SupportFab() {
       <button
         ref={fabRef}
         type='button'
-        className={dragging ? 'tk-fab is-drag' : 'tk-fab'}
+        className={cn('tk-fab', ready && 'is-ready', dragging && 'is-drag')}
         aria-expanded={open}
         aria-controls='tk-fab-panel'
         aria-label={t('Contact support')}

@@ -7404,7 +7404,7 @@
     "Powered by": "Vận hành bởi",
     "Topkenapi guarantees 100% official models, never modified": "Topkenapi cam kết 100% mô hình chính hãng, không qua chỉnh sửa",
     "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen": "Một API cho OpenAI · Claude · Gemini · DeepSeek · Qwen",
-    "24/7 support: WeChat · Zalo · Telegram · Instagram": "Hỗ trợ 24/7: WeChat · Zalo · Telegram · Instagram",
+    "24/7 support: WeChat · Telegram · Zalo · Instagram": "Hỗ trợ 24/7: WeChat · Telegram · Zalo · Instagram",
     "Contact support": "Liên hệ hỗ trợ",
     "Online 24/7, reach us on your favourite app": "Trực tuyến 24/7, chọn kênh bạn quen dùng",
     "Hold and drag to move": "Giữ và kéo để di chuyển",
@@ -7431,7 +7431,7 @@
     "Avg. latency": "Độ trễ trung bình",
     "Last hour": "1 giờ gần nhất",
     "100% genuine, quality service for every model: the exact model, never swapped, never diluted": "Cam kết 100% hàng thật, chất lượng cho mọi mô hình: đúng mô hình, không tráo, không pha",
-    "24/7 support: WeChat · Zalo · Telegram": "Hỗ trợ 24/7: WeChat · Zalo · Telegram",
+    "24/7 support: WeChat · Telegram · Zalo": "Hỗ trợ 24/7: WeChat · Telegram · Zalo",
     "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.": "Cửa sổ chat trên máy tính: Cherry Studio, Chatbox, LobeChat, không cần gõ lệnh.",
     "A few minutes to set up": "Vài phút là cài xong",
     "AI API for everyone": "API AI cho mọi người",
@@ -7532,6 +7532,12 @@
     "Every call logged, costs visible in real time": "Mỗi lệnh gọi đều có nhật ký, chi phí cập nhật tức thì",
     "Real people": "Hỗ trợ tận tâm",
     "Support in Chinese, Vietnamese and English": "Hỗ trợ tiếng Trung · Việt · Anh",
-    "Contact us": "Liên hệ"
+    "Contact us": "Liên hệ",
+    "Notice from {{brand}}": "Thông báo từ {{brand}}",
+    "Don't show again": "Không hiển thị lại",
+    "View pricing": "Xem bảng giá",
+    "Start now": "Bắt đầu dùng ngay",
+    "Sign in to get your key": "Đăng nhập để lấy khóa",
+    "Sign in to get your key. One key works with every model.": "Đăng nhập để lấy khóa. Một khóa dùng được cho mọi mô hình."
   }
 }

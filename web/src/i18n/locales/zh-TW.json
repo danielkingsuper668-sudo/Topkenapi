@@ -7404,7 +7404,7 @@
     "Powered by": "技術支援：",
     "Topkenapi guarantees 100% official models, never modified": "Topkenapi 承诺 100% 官方正品模型，无任何二次修改",
     "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen": "一个 API 接入 OpenAI · Claude · Gemini · DeepSeek · Qwen",
-    "24/7 support: WeChat · Zalo · Telegram · Instagram": "7×24 小时客服：微信 · Zalo · Telegram · Instagram",
+    "24/7 support: WeChat · Telegram · Zalo · Instagram": "7×24 小时客服：微信 · Telegram · Zalo · Instagram",
     "Contact support": "联系客服",
     "Online 24/7, reach us on your favourite app": "7×24 小时在线，选择你习惯的方式",
     "Hold and drag to move": "按住可拖动",
@@ -7431,7 +7431,7 @@
     "Avg. latency": "平均延迟",
     "Last hour": "近 1 小时",
     "100% genuine, quality service for every model: the exact model, never swapped, never diluted": "承诺所有模型 100% 真货、品质有保障：模型对版，不调包，不掺水",
-    "24/7 support: WeChat · Zalo · Telegram": "7×24 小时客服：微信 · Zalo · Telegram",
+    "24/7 support: WeChat · Telegram · Zalo": "7×24 小时客服：微信 · Telegram · Zalo",
     "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.": "电脑上的聊天窗口：Cherry Studio、Chatbox、LobeChat，无需命令行。",
     "A few minutes to set up": "几分钟即可设置",
     "AI API for everyone": "人人可用的 AI API",
@@ -7532,6 +7532,12 @@
     "Every call logged, costs visible in real time": "每次呼叫都有明細，費用即時可查",
     "Real people": "專人服務",
     "Support in Chinese, Vietnamese and English": "中文 · Tiếng Việt · English 客服",
-    "Contact us": "聯絡我們"
+    "Contact us": "聯絡我們",
+    "Notice from {{brand}}": "來自 {{brand}} 的通知",
+    "Don't show again": "不再顯示",
+    "View pricing": "查看價格",
+    "Start now": "立即開始",
+    "Sign in to get your key": "登入取得金鑰",
+    "Sign in to get your key. One key works with every model.": "登入即可取得金鑰，一個金鑰通用所有模型。"
   }
 }

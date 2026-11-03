@@ -7404,7 +7404,7 @@
     "Powered by": "Propulsé par",
     "Topkenapi guarantees 100% official models, never modified": "Topkenapi : modèles 100 % officiels, jamais modifiés",
     "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen": "Une API pour OpenAI · Claude · Gemini · DeepSeek · Qwen",
-    "24/7 support: WeChat · Zalo · Telegram · Instagram": "Assistance 24h/24 : WeChat · Zalo · Telegram · Instagram",
+    "24/7 support: WeChat · Telegram · Zalo · Instagram": "Assistance 24h/24 : WeChat · Telegram · Zalo · Instagram",
     "Contact support": "Contacter le support",
     "Online 24/7, reach us on your favourite app": "En ligne 24h/24, sur votre application préférée",
     "Hold and drag to move": "Maintenez pour déplacer",
@@ -7431,7 +7431,7 @@
     "Avg. latency": "Latence moyenne",
     "Last hour": "Dernière heure",
     "100% genuine, quality service for every model: the exact model, never swapped, never diluted": "Engagement 100 % authentique et de qualité pour chaque modèle : le bon modèle, jamais échangé, jamais dilué",
-    "24/7 support: WeChat · Zalo · Telegram": "Assistance 24h/24 : WeChat · Zalo · Telegram",
+    "24/7 support: WeChat · Telegram · Zalo": "Assistance 24h/24 : WeChat · Telegram · Zalo",
     "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.": "Une fenêtre de chat sur votre ordinateur : Cherry Studio, Chatbox, LobeChat, sans commandes.",
     "A few minutes to set up": "Quelques minutes pour configurer",
     "AI API for everyone": "L’API IA pour tous",
@@ -7532,6 +7532,12 @@
     "Every call logged, costs visible in real time": "Chaque appel journalisé, coûts en temps réel",
     "Real people": "Support humain",
     "Support in Chinese, Vietnamese and English": "Support en chinois, vietnamien et anglais",
-    "Contact us": "Nous contacter"
+    "Contact us": "Nous contacter",
+    "Notice from {{brand}}": "Annonce de {{brand}}",
+    "Don't show again": "Ne plus afficher",
+    "View pricing": "Voir les tarifs",
+    "Start now": "Commencer",
+    "Sign in to get your key": "Connectez-vous pour obtenir votre clé",
+    "Sign in to get your key. One key works with every model.": "Connectez-vous pour obtenir votre clé. Une seule clé pour tous les modèles."
   }
 }

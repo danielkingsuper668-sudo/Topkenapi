@@ -24,7 +24,7 @@ export function TopkenMarquee() {
   const messages = [
     t('100% genuine, quality service for every model: the exact model, never swapped, never diluted'),
     t('One API for OpenAI · Claude · Gemini · DeepSeek · Qwen'),
-    t('24/7 support: WeChat · Zalo · Telegram'),
+    t('24/7 support: WeChat · Telegram · Zalo'),
   ]
 
   return (

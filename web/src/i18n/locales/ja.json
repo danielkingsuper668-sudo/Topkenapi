@@ -7404,7 +7404,7 @@
     "Powered by": "技術提供：",
     "Topkenapi guarantees 100% official models, never modified": "Topkenapi guarantees 100% official models, never modified",
     "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen": "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen",
-    "24/7 support: WeChat · Zalo · Telegram · Instagram": "24/7 support: WeChat · Zalo · Telegram · Instagram",
+    "24/7 support: WeChat · Telegram · Zalo · Instagram": "24/7 support: WeChat · Telegram · Zalo · Instagram",
     "Contact support": "サポートに連絡",
     "Online 24/7, reach us on your favourite app": "24時間対応、お好きなアプリでどうぞ",
     "Hold and drag to move": "長押しで移動",
@@ -7431,7 +7431,7 @@
     "Avg. latency": "平均遅延",
     "Last hour": "直近1時間",
     "100% genuine, quality service for every model: the exact model, never swapped, never diluted": "全モデル100%本物・品質保証：正しいモデル、すり替えなし、水増しなし",
-    "24/7 support: WeChat · Zalo · Telegram": "24時間サポート：WeChat · Zalo · Telegram",
+    "24/7 support: WeChat · Telegram · Zalo": "24時間サポート：WeChat · Telegram · Zalo",
     "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.": "パソコンのチャット画面：Cherry Studio、Chatbox、LobeChat。コマンド不要。",
     "A few minutes to set up": "数分で設定完了",
     "AI API for everyone": "みんなのAI API",
@@ -7532,6 +7532,12 @@
     "Every call logged, costs visible in real time": "すべての呼び出しを記録、費用もリアルタイム",
     "Real people": "専任サポート",
     "Support in Chinese, Vietnamese and English": "中国語・ベトナム語・英語で対応",
-    "Contact us": "お問い合わせ"
+    "Contact us": "お問い合わせ",
+    "Notice from {{brand}}": "{{brand}} からのお知らせ",
+    "Don't show again": "今後表示しない",
+    "View pricing": "料金を見る",
+    "Start now": "今すぐ始める",
+    "Sign in to get your key": "ログインしてキーを取得",
+    "Sign in to get your key. One key works with every model.": "ログインしてキーを取得。1つのキーで全モデルを利用できます。"
   }
 }

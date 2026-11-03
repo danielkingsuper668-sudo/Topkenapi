@@ -44,7 +44,7 @@
     "Why choose <1>{{brand}}</1>?": "왜 <1>{{brand}}</1>일까요?",
     "Topkenapi guarantees 100% official models, never modified": "Topkenapi: 100% 정품 공식 모델, 무수정",
     "One API for OpenAI · Claude · Gemini · DeepSeek · Qwen": "하나의 API로 OpenAI · Claude · Gemini · DeepSeek · Qwen",
-    "24/7 support: WeChat · Zalo · Telegram · Instagram": "24시간 지원: WeChat · Zalo · Telegram · Instagram",
+    "24/7 support: WeChat · Telegram · Zalo · Instagram": "24시간 지원: WeChat · Telegram · Zalo · Instagram",
     "Contact support": "고객 지원",
     "Online 24/7, reach us on your favourite app": "24시간 온라인, 편한 앱으로 연락하세요",
     "Hold and drag to move": "길게 눌러 이동",
@@ -83,7 +83,7 @@
     "Avg. latency": "평균 지연",
     "Last hour": "최근 1시간",
     "100% genuine, quality service for every model: the exact model, never swapped, never diluted": "모든 모델 100% 진품·품질 보장: 정확한 모델, 바꿔치기·희석 없음",
-    "24/7 support: WeChat · Zalo · Telegram": "24시간 지원: WeChat · Zalo · Telegram",
+    "24/7 support: WeChat · Telegram · Zalo": "24시간 지원: WeChat · Telegram · Zalo",
     "A chat window on your computer: Cherry Studio, Chatbox, LobeChat, no commands needed.": "컴퓨터의 채팅 창: Cherry Studio, Chatbox, LobeChat, 명령어 불필요.",
     "A few minutes to set up": "몇 분이면 설정 완료",
     "AI API for everyone": "모두를 위한 AI API",
@@ -185,6 +185,12 @@
     "Every call logged, costs visible in real time": "모든 호출 기록, 비용 실시간 확인",
     "Real people": "전담 지원",
     "Support in Chinese, Vietnamese and English": "중국어 · 베트남어 · 영어 지원",
-    "Contact us": "문의하기"
+    "Contact us": "문의하기",
+    "Notice from {{brand}}": "{{brand}} 공지",
+    "Don't show again": "다시 보지 않기",
+    "View pricing": "가격 보기",
+    "Start now": "지금 시작",
+    "Sign in to get your key": "로그인하고 키 받기",
+    "Sign in to get your key. One key works with every model.": "로그인하면 키를 받을 수 있습니다. 하나의 키로 모든 모델을 사용합니다."
   }
 }
