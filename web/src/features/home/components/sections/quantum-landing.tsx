@@ -174,7 +174,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
                 srcSet={`${heroCube2000} 2000w, ${heroCube3840} 3840w`}
                 sizes='(min-width: 1024px) 56vw, 110vw'
                 width={2000}
-                height={1341}
+                height={1125}
                 alt=''
                 fetchPriority='high'
                 decoding='async'
