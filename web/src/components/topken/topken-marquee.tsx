@@ -33,7 +33,8 @@ export function TopkenMarquee() {
         {[0, 1].map((copy) =>
           messages.map((message) => (
             <span key={`${copy}-${message}`} aria-hidden={copy === 1}>
-              ✦ {message}
+              <span className='tk-mq-sym'>✦⋆.˚͙͘͡★</span>
+              {message}
             </span>
           ))
         )}
