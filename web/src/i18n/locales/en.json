@@ -7513,6 +7513,25 @@
     "You have no API key yet. Create one to get started.": "You have no API key yet. Create one to get started.",
     "You will not write a single line of code.": "You will not write a single line of code.",
     "Your key": "Your key",
-    "Up and running in minutes": "Up and running in minutes"
+    "Up and running in minutes": "Up and running in minutes",
+    "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Billed in ¥, pay as you go.": "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Billed in ¥, pay as you go.",
+    "Sign up free, get $5 credit": "Sign up free, get $5 credit",
+    "Fast": "Fast",
+    "Streaming, fast first token": "Streaming, fast first token",
+    "Reliable": "Reliable",
+    "Automatic retries across channels": "Automatic retries across channels",
+    "Priced in ¥": "Priced in ¥",
+    "Easy setup": "Easy setup",
+    "24/7 support": "24/7 support",
+    "More models": "More models",
+    "Real models": "Real models",
+    "Exactly the model you call — never swapped or diluted": "Exactly the model you call — never swapped or diluted",
+    "Key control": "Key control",
+    "Set limits and models per key, disable any time": "Set limits and models per key, disable any time",
+    "Clear usage": "Clear usage",
+    "Every call logged, costs visible in real time": "Every call logged, costs visible in real time",
+    "Real people": "Real people",
+    "Support in Chinese, Vietnamese and English": "Support in Chinese, Vietnamese and English",
+    "Contact us": "Contact us"
   }
 }

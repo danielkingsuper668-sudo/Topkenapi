@@ -7513,6 +7513,25 @@
     "You have no API key yet. Create one to get started.": "У вас ещё нет ключа API. Создайте его, чтобы начать.",
     "You will not write a single line of code.": "Не придётся писать ни строчки кода.",
     "Your key": "Ваш ключ",
-    "Up and running in minutes": "Готово за пару минут"
+    "Up and running in minutes": "Готово за пару минут",
+    "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Billed in ¥, pay as you go.": "Один ключ для OpenAI, Claude, Gemini, DeepSeek, Qwen и других. Совместимо с OpenAI: смените один адрес. Оплата в ¥ по факту.",
+    "Sign up free, get $5 credit": "Регистрация — $5 в подарок",
+    "Fast": "Быстро",
+    "Streaming, fast first token": "Потоковый вывод",
+    "Reliable": "Стабильно",
+    "Automatic retries across channels": "Авто-повтор по каналам",
+    "Priced in ¥": "Цены в ¥",
+    "Easy setup": "Быстрое подключение",
+    "24/7 support": "Поддержка 24/7",
+    "More models": "Ещё модели",
+    "Real models": "Настоящие модели",
+    "Exactly the model you call — never swapped or diluted": "Именно та модель, что вы вызываете, без подмены",
+    "Key control": "Контроль ключей",
+    "Set limits and models per key, disable any time": "Лимиты и модели для каждого ключа, отключение в любой момент",
+    "Clear usage": "Прозрачность",
+    "Every call logged, costs visible in real time": "Каждый вызов в журнале, расходы в реальном времени",
+    "Real people": "Живая поддержка",
+    "Support in Chinese, Vietnamese and English": "Поддержка на китайском, вьетнамском и английском",
+    "Contact us": "Контакты"
   }
 }
