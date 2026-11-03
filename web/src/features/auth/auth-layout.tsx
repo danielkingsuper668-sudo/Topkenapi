@@ -20,6 +20,7 @@ import { useTranslation } from 'react-i18next'
 
 import { TopkenBrand } from '@/components/topken/topken-brand'
 import { useConsoleTheme } from '@/components/topken/use-console-theme'
+import '@/components/topken/console-skin.css'
 
 import '@/components/topken/topken.css'
 

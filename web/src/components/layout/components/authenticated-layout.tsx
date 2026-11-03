@@ -31,6 +31,7 @@ import { useAuthStore } from '@/stores/auth-store'
 import { AppHeader } from './app-header'
 import { AppSidebar } from './app-sidebar'
 import '@/components/topken/topken.css'
+import '@/components/topken/console-skin.css'
 
 type AuthenticatedLayoutProps = {
   children?: React.ReactNode
