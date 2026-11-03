@@ -42,8 +42,7 @@ import {
   SupportFab,
 } from '@/components/topken/support-contact'
 
-import heroCube2000 from '../../assets/hero-cube-2000.webp'
-import heroCube3840 from '../../assets/hero-cube-3840.webp'
+import { HeroCube } from './hero-cube'
 import { DocsLink, QuantumHeader } from './quantum-header'
 
 import '@/components/topken/topken.css'
@@ -165,18 +164,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
                 </Link>
               </div>
             </div>
-            <div className='qg-visual' aria-hidden='true'>
-              <img
-                src={heroCube2000}
-                srcSet={`${heroCube2000} 2400w, ${heroCube3840} 3840w`}
-                sizes='(min-width: 1024px) 3840px, 110vw'
-                width={2400}
-                height={1350}
-                alt=''
-                fetchPriority='high'
-                decoding='async'
-              />
-            </div>
+            <HeroCube />
           </div>
 
           <div className='qn-wrap'>

@@ -16,16 +16,49 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+export type ConsolePalette = 'bronze' | 'navy'
+
+const PALETTE_STORAGE_KEY = 'tk-palette'
+
+function readPalette(): ConsolePalette {
+  try {
+    return localStorage.getItem(PALETTE_STORAGE_KEY) === 'navy'
+      ? 'navy'
+      : 'bronze'
+  } catch {
+    return 'bronze'
+  }
+}
 
 /**
- * Switches the console palette to the minimal grey-violet theme while the
- * calling layout is mounted. The landing page keeps its own colours.
+ * Turns on the console skin while the calling layout is mounted (the
+ * landing page keeps its own colours) and applies the saved palette:
+ * bronze + circuit (default) or night blue.
  */
 export function useConsoleTheme() {
   useEffect(() => {
     const root = document.documentElement
     root.classList.add('tk-violet')
-    return () => root.classList.remove('tk-violet')
+    root.classList.toggle('tk-navy', readPalette() === 'navy')
+    return () => root.classList.remove('tk-violet', 'tk-navy')
   }, [])
+}
+
+/** Header control state for switching between the two console palettes. */
+export function useConsolePalette() {
+  const [palette, setPalette] = useState<ConsolePalette>(readPalette)
+
+  const choose = (next: ConsolePalette) => {
+    setPalette(next)
+    document.documentElement.classList.toggle('tk-navy', next === 'navy')
+    try {
+      localStorage.setItem(PALETTE_STORAGE_KEY, next)
+    } catch {
+      // Not remembered: the default palette returns next visit.
+    }
+  }
+
+  return { palette, choose }
 }

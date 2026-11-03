@@ -23,6 +23,7 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { SystemUpdateAction } from '@/features/system-update/system-update-action'
 import { useNotifications } from '@/hooks/use-notifications'
+import { PaletteSwitch } from '@/components/topken/palette-switch'
 import { HotlinePill, TopkenBrand } from '@/components/topken/topken-brand'
 import { TopkenMarquee } from '@/components/topken/topken-marquee'
 import { useTopNavLinks } from '@/hooks/use-top-nav-links'
@@ -153,6 +154,7 @@ export function AppHeader({
               loading={notifications.loading}
             />
           )}
+          <PaletteSwitch />
           <LanguageSwitcher variant='compact' codes={CONSOLE_LANGUAGES} />
           {showConfigDrawer && <ConfigDrawer />}
           {showProfileDropdown && <ProfileDropdown />}
