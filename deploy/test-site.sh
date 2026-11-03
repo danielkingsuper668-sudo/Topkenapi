@@ -39,7 +39,8 @@ git -C "$DIR/src" log -1 --format='%h' > "$DIR/src/VERSION"
 docker build -q -t topkenx:test "$DIR/src" >/dev/null || die "编译失败，请把上面的报错截图发给 Claude（正式站不受影响）"
 
 say "4/6 找到正式站，复制一份数据给测试站"
-LIVE=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | grep -v " $NAME\$" | grep -Ei 'new-?api|topken' | grep -vi caddy | head -1 | cut -d' ' -f1 || true)
+# the live site is the new-api container that is NOT a test site
+LIVE=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk 'tolower($3) !~ /test/' | grep -Ei 'new-?api|topken' | grep -vi caddy | head -1 | cut -d' ' -f1 || true)
 [ -n "$LIVE" ] || die "没找到正在运行的正式站容器（docker ps 里应该有 new-api）"
 LIVE_DATA=$(docker inspect -f '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Source}}{{end}}{{end}}' "$LIVE")
 [ -n "$LIVE_DATA" ] || die "正式站没有挂载 /data，无法复制数据"
@@ -52,8 +53,8 @@ if docker inspect -f '{{range .Config.Env}}{{println .}}{{end}}' "$LIVE" | grep 
   echo "注意：正式站用的是外部数据库，测试站将使用全新的空数据库（不会碰正式数据）"
 fi
 mkdir -p "$DIR/data"
-if [ ! -f "$DIR/data/.copied" ] || [ "${FRESH_DATA:-0}" = 1 ]; then
-  rm -rf "$DIR/data"/* ; cp -a "$LIVE_DATA"/. "$DIR/data"/ && touch "$DIR/data/.copied"
+if [ "$(cat "$DIR/data/.copied" 2>/dev/null)" != "$LIVE_DATA" ] || [ "${FRESH_DATA:-0}" = 1 ]; then
+  rm -rf "$DIR/data"/* "$DIR/data"/.copied; cp -a "$LIVE_DATA"/. "$DIR/data"/ && echo "$LIVE_DATA" > "$DIR/data/.copied"
   echo "已复制正式站数据：$LIVE_DATA → $DIR/data"
 else
   echo "沿用上次复制的数据（想重新复制：FRESH_DATA=1 再运行）"
@@ -61,6 +62,10 @@ fi
 
 say "5/6 启动测试站容器 $NAME"
 docker rm -f "$NAME" >/dev/null 2>&1 || true
+# an older test site (e.g. topkenapi-test) may still hold the port: retire it
+for OLD in $(docker ps -a --format '{{.Names}}' | grep -i test | grep -v "^$NAME\$" || true); do
+  echo "停用旧测试站容器：$OLD"; docker rm -f "$OLD" >/dev/null 2>&1 || true
+done
 if [ "$NET" = host ]; then NETARGS=(--network host -e PORT=$PORT); else NETARGS=(--network "$NET" -p 127.0.0.1:$PORT:3000); fi
 docker run -d --name "$NAME" --restart unless-stopped "${NETARGS[@]}" \
   --env-file "$ENVF" -v "$DIR/data":/data topkenx:test >/dev/null
@@ -87,6 +92,12 @@ fi
 PASSF="$DIR/password.txt"
 [ -f "$PASSF" ] || { openssl rand -hex 6 2>/dev/null || date +%s%N | sha256sum | cut -c1-12; } > "$PASSF"
 PASS=$(cat "$PASSF")
+if grep -q "^$DOMAIN" "$CF" && ! grep -q "reverse_proxy $UP\$" "$CF"; then
+  # an older block for this domain points somewhere else: replace it with ours
+  cp "$CF" "$CF.bak.$(date +%s)"
+  awk -v d="$DOMAIN" 'index($0,d)==1 && /\{/ {skip=1; depth=0}
+    skip { n=gsub(/\{/,"{"); m=gsub(/\}/,"}"); depth+=n-m; if (depth<=0 && (n||m)) {skip=0}; next } {print}' "$CF" > "$CF.tmp" && cat "$CF.tmp" > "$CF" && rm -f "$CF.tmp"
+fi
 if ! grep -q "^$DOMAIN" "$CF"; then
   H=$(HASH "$PASS" | tail -1); [ -n "$H" ] || die "无法生成访问密码（caddy hash-password 失败）"
   cp "$CF" "$CF.bak.$(date +%s)"
