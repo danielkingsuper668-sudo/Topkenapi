@@ -35,7 +35,7 @@ fi
 echo "版本：$(git -C "$DIR/src" log -1 --format='%h %s')"
 
 say "3/6 编译网站（大约 8–15 分钟，请耐心等待，不要关闭 Termius）"
-git -C "$DIR/src" log -1 --format='%h' > "$DIR/src/VERSION"
+git -C "$DIR/src" rev-parse --short HEAD:web > "$DIR/src/VERSION"  # web folder fingerprint: unchanged web code reuses the build cache
 docker build -q -t topkenx:test "$DIR/src" >/dev/null || die "编译失败，请把上面的报错截图发给 Claude（正式站不受影响）"
 
 say "4/6 找到正式站，复制一份数据给测试站"
