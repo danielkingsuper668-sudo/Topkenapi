@@ -467,12 +467,17 @@ html.tk-gold {
 .qg-visual { position: relative; margin: 0 -20px; }
 .qg-visual img {
   display: block; width: 100%; height: auto; max-width: none;
-  -webkit-mask-image: radial-gradient(ellipse 60% 58% at 50% 50%, #000 55%, transparent 100%);
-          mask-image: radial-gradient(ellipse 60% 58% at 50% 50%, #000 55%, transparent 100%);
+  /* black of the photo melts into the page glow, so no visible box */
+  mix-blend-mode: lighten;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
   animation: qg-float 7s ease-in-out infinite;
 }
 @keyframes qg-float { 50% { transform: translateY(-8px); } }
-@media (min-width: 1024px) { .qg-visual { margin: 0 -6% 0 -4%; } .qg-visual img { width: 112%; } }
+@media (min-width: 1024px) {
+  .qg-visual { margin: 0 -6% 0 -4%; }
+  .qg-visual img { width: 110%; animation: none; }
+}
 
 /* highlights + models */
 .qg-hls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; padding: 22px 0 6px; }
