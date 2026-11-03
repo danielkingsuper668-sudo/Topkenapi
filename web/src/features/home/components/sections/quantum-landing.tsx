@@ -17,55 +17,59 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { Claude, DeepSeek, Gemini, OpenAI, Qwen } from '@lobehub/icons'
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import {
   ArrowRight,
-  BookOpen,
-  ChevronRight,
-  Coins,
+  Check,
+  Copy,
   Headphones,
-  KeyRound,
   Layers,
-  Rocket,
-  ShieldCheck,
-  Sparkles,
-  TrendingUp,
-  UserRound,
+  MousePointerClick,
+  Wallet,
   Zap,
 } from 'lucide-react'
-import { useEffect } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 
-import { BRAND_ACCENT, BRAND_MAIN, BRAND_NAME } from '@/components/topken/brand'
 import {
-  SupportChannelList,
-  SupportFab,
-} from '@/components/topken/support-contact'
+  BRAND_ACCENT,
+  BRAND_MAIN,
+  BRAND_NAME,
+  getApiBase,
+} from '@/components/topken/brand'
+import { SetupGuide } from '@/components/topken/setup-guide'
+import { TopkenMarquee } from '@/components/topken/topken-marquee'
+import { ModelCardGrid } from '@/features/pricing/components/model-card-grid'
+import { usePricingData } from '@/features/pricing/hooks/use-pricing-data'
+import type { PricingModel } from '@/features/pricing/types'
+import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 import { useStatus } from '@/hooks/use-status'
+import { getLobeIcon } from '@/lib/lobe-icon'
 
-import heroCube2000 from '../../assets/hero-cube-2000.webp'
-import heroCube3840 from '../../assets/hero-cube-3840.webp'
 import { DocsLink, QuantumHeader } from './quantum-header'
 
 import '@/components/topken/topken.css'
 import './quantum-landing.css'
 
-const MODELS = [
-  { name: 'OpenAI', icon: <OpenAI size={26} /> },
-  { name: 'Claude', icon: <Claude.Color size={26} /> },
-  { name: 'Gemini', icon: <Gemini.Color size={26} /> },
-  { name: 'DeepSeek', icon: <DeepSeek.Color size={26} /> },
-  { name: 'Qwen', icon: <Qwen.Color size={26} /> },
+const SUPPORTED_MODELS = [
+  { name: 'Claude', icon: <Claude.Color size={22} /> },
+  { name: 'GPT', icon: <OpenAI size={22} /> },
+  { name: 'Gemini', icon: <Gemini.Color size={22} /> },
+  { name: 'Grok', icon: getLobeIcon('Grok', 22) },
+  { name: 'DeepSeek', icon: <DeepSeek.Color size={22} /> },
+  { name: 'Qwen', icon: <Qwen.Color size={22} /> },
 ]
 
-/** Switches the page tokens to black-brown + champagne gold while mounted. */
-function useGoldTheme() {
-  useEffect(() => {
-    const root = document.documentElement
-    root.classList.add('tk-gold')
-    return () => root.classList.remove('tk-gold')
-  }, [])
-}
+/** One featured model per family, in this order, when it exists. */
+const FEATURED_PATTERNS = [
+  /claude/i,
+  /gpt/i,
+  /gemini/i,
+  /grok/i,
+  /deepseek/i,
+  /qwen/i,
+]
 
 interface QuantumLandingProps {
   isAuthenticated?: boolean
@@ -73,52 +77,74 @@ interface QuantumLandingProps {
 
 export function QuantumLanding(props: QuantumLandingProps) {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const { status } = useStatus()
-  useGoldTheme()
+  const { copyToClipboard } = useCopyToClipboard({ notify: false })
+  const pricing = usePricingData()
   const docsUrl =
     (status?.docs_link as string | undefined) || 'https://docs.newapi.pro'
+  const apiBase = getApiBase()
 
-  const highlights = [
-    { icon: Zap, title: t('Fast'), sub: t('Streaming, fast first token') },
+  const featured = useMemo(() => {
+    const picked: PricingModel[] = []
+    for (const pattern of FEATURED_PATTERNS) {
+      const model = pricing.models.find(
+        (item) => pattern.test(item.model_name) && !picked.includes(item)
+      )
+      if (model) picked.push(model)
+      if (picked.length === 6) break
+    }
+    return picked
+  }, [pricing.models])
+
+  const copyBase = async () => {
+    const copied = await copyToClipboard(`${apiBase}/v1`)
+    if (copied) toast.success(t('Copied to clipboard'))
+    else toast.error(t('Failed to copy to clipboard'))
+  }
+
+  const checks = [
+    t('One account, many AI models'),
+    t('Compatible with OpenAI & Anthropic'),
+    t('Works with OpenCode, Claude Code, Codex'),
+    t('Cost log for every request'),
+  ]
+
+  const basics = [
     {
-      icon: ShieldCheck,
-      title: t('Reliable'),
-      sub: t('Automatic retries across channels'),
+      title: t('What is an API?'),
+      body: t(
+        'ChatGPT, Claude and Gemini are AI brains. An API is the key that lets the tools on your computer talk to them for you.'
+      ),
     },
-    { icon: Coins, title: t('Priced in ¥'), sub: t('Pay only for what you use') },
-    { icon: Layers, title: t('Easy setup'), sub: 'Claude Code · Codex' },
     {
-      icon: Headphones,
-      title: t('24/7 support'),
-      sub: 'WeChat · Zalo · Telegram',
+      title: t('Just say what you need'),
+      body: t(
+        'Describe the job the way you would to a person and the AI does it. Any language works.'
+      ),
+    },
+    {
+      title: t('Pay only for what you use'),
+      body: t(
+        'No monthly fee. Top up any amount and every request is billed by the tokens it actually uses.'
+      ),
     },
   ]
 
-  const reasons = [
+  const perks = [
+    { icon: Zap, title: t('Quick'), sub: t('A few minutes to set up') },
     {
-      icon: ShieldCheck,
-      title: t('Real models'),
-      body: t('Exactly the model you call — never swapped or diluted'),
+      icon: MousePointerClick,
+      title: t('Copy & paste'),
+      sub: t('No technical skills needed'),
     },
-    {
-      icon: KeyRound,
-      title: t('Key control'),
-      body: t('Set limits and models per key, disable any time'),
-    },
-    {
-      icon: TrendingUp,
-      title: t('Clear usage'),
-      body: t('Every call logged, costs visible in real time'),
-    },
-    {
-      icon: UserRound,
-      title: t('Real people'),
-      body: t('Support in Chinese, Vietnamese and English'),
-    },
+    { icon: Layers, title: t('Many AI models'), sub: 'Claude, GPT, Gemini…' },
+    { icon: Wallet, title: t('Flexible top-up'), sub: t('Pay as you go') },
   ]
 
   return (
-    <div className='qn qg'>
+    <div className='qn qx'>
+      <TopkenMarquee />
       <QuantumHeader
         brandMain={BRAND_MAIN}
         brandAccent={BRAND_ACCENT}
@@ -127,136 +153,227 @@ export function QuantumLanding(props: QuantumLandingProps) {
       />
 
       <main>
-        <section className='qg-hero'>
-          <div className='qn-wrap qg-grid'>
-            <div className='qg-text'>
-              <span className='qg-pill'>
-                <Sparkles size={14} aria-hidden='true' />
-                {t('Next-generation AI API platform')}
+        <section className='qx-hero'>
+          <div className='qn-wrap qx-hero-grid'>
+            <div>
+              <span className='qx-pill'>
+                <i aria-hidden='true' />
+                {t('AI API for everyone')}
               </span>
-              <h1 className='qg-title'>
-                {BRAND_MAIN}
-                <span>{BRAND_ACCENT}</span>
+              <h1 className='qx-title'>
+                {t('One key.')}
+                <br />
+                <span>{t('Every AI model.')}</span>
               </h1>
-              <p className='qg-sub'>
-                {t('Connect every AI,')} <span>{t('with just one API')}</span>
-              </p>
-              <p className='qg-desc'>
+              <p className='qx-desc'>
                 {t(
-                  'One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Billed in ¥, pay as you go.'
+                  'No coding required. Copy your key into the tool you already use and just tell the AI what to do. One account for Claude, GPT, Gemini, Grok and DeepSeek; pay only for what you use.'
                 )}
               </p>
-              <div className='qg-cta'>
+              <div className='qx-cta'>
                 <Link
                   to={props.isAuthenticated ? '/dashboard' : '/sign-up'}
-                  className='qg-btn qg-gold qg-lg'
+                  className='qx-btn qx-btn-light'
                 >
-                  <Rocket size={17} aria-hidden='true' />
                   {props.isAuthenticated
                     ? t('Go to Dashboard')
-                    : t('Sign up free, get $5 credit')}
+                    : t('Sign up free')}
                   <ArrowRight size={16} aria-hidden='true' />
                 </Link>
-                <Link
-                  to='/dashboard/$section'
-                  params={{ section: 'setup' }}
-                  className='qg-btn qg-ghost qg-lg'
-                >
-                  <BookOpen size={17} aria-hidden='true' />
-                  {t('API setup guide')}
-                  <ArrowRight size={16} aria-hidden='true' />
+                <Link to='/pricing' className='qx-btn qx-btn-dark'>
+                  {t('See models & pricing')}
                 </Link>
               </div>
+              {!props.isAuthenticated && (
+                <p className='qx-note'>
+                  {t('Already have an account?')}{' '}
+                  <Link to='/sign-in'>{t('Go to the dashboard')}</Link>
+                </p>
+              )}
+              <button type='button' className='qx-base' onClick={copyBase}>
+                <code>{apiBase}/v1</code>
+                <Copy size={14} aria-hidden='true' />
+                <span className='sr-only'>{t('Copy')}</span>
+              </button>
+              <p className='qx-compat'>
+                {t('OpenAI-compatible · Anthropic via {{base}} · Streaming', {
+                  base: apiBase,
+                })}
+              </p>
             </div>
-            <div className='qg-visual' aria-hidden='true'>
-              <img
-                src={heroCube2000}
-                srcSet={`${heroCube2000} 2000w, ${heroCube3840} 3840w`}
-                sizes='(min-width: 1024px) 56vw, 110vw'
-                width={2000}
-                height={1341}
-                alt=''
-                fetchPriority='high'
-                decoding='async'
-              />
+
+            <div className='qx-term' aria-hidden='true'>
+              <div className='qx-term-h'>
+                <span className='qx-dots'>
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className='qx-term-tag'>POST /v1/chat/completions</span>
+              </div>
+              <pre>
+                <span className='c'>curl</span> {apiBase}/v1/chat/completions \
+                {'\n'}  -H <span className='s'>"Authorization: Bearer $TOPKENX_API_KEY"</span> \
+                {'\n'}  -H <span className='s'>"Content-Type: application/json"</span> \
+                {'\n'}  -d <span className='s'>'{'{'}</span>
+                {'\n'}    <span className='k'>"model"</span>: <span className='s'>"claude-sonnet-4-5"</span>,
+                {'\n'}    <span className='k'>"messages"</span>: [
+                {'\n'}      {'{'} <span className='k'>"role"</span>: <span className='s'>"user"</span>, <span className='k'>"content"</span>: <span className='s'>"Hello {BRAND_NAME}"</span> {'}'}
+                {'\n'}    ]
+                {'\n'}  <span className='s'>{'}'}'</span>
+              </pre>
+              <div className='qx-term-f'>
+                <b>200 OK</b>
+                <span>stream · SSE</span>
+                <span>OpenAI-compatible</span>
+              </div>
             </div>
           </div>
+        </section>
 
+        <div className='qx-checks'>
+          <div className='qn-wrap qx-checks-in'>
+            {checks.map((item) => (
+              <span key={item}>
+                <Check size={14} aria-hidden='true' />
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <section className='qx-sec'>
           <div className='qn-wrap'>
-            <div className='qg-hls'>
-              {highlights.map((item) => (
-                <div className='qg-hl' key={item.title}>
-                  <item.icon size={26} strokeWidth={1.5} aria-hidden='true' />
+            <p className='qx-eyebrow'>{t('New to APIs?')}</p>
+            <h2 className='qx-h2'>{t('No coding skills? You can still use it')}</h2>
+            <p className='qx-lead'>{t('You will not write a single line of code.')}</p>
+            <div className='qx-cards3'>
+              {basics.map((item) => (
+                <article className='qx-card' key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className='qx-sec qx-center'>
+          <div className='qn-wrap'>
+            <p className='qx-badge'>{t('Fastest way')}</p>
+            <h2 className='qx-h2 qx-big'>
+              {t('Up and running in minutes')}
+            </h2>
+            <p className='qx-lead'>
+              {t(
+                'Pick the tool you use and the steps appear right below. Sign in to have your key filled in automatically.'
+              )}
+            </p>
+            <div className='qx-perks'>
+              {perks.map((item) => (
+                <div className='qx-perk' key={item.title}>
+                  <span>
+                    <item.icon size={20} aria-hidden='true' />
+                  </span>
                   <div>
                     <b>{item.title}</b>
-                    <span>{item.sub}</span>
+                    <small>{item.sub}</small>
                   </div>
                 </div>
               ))}
             </div>
-            <div className='qg-models'>
-              {MODELS.map((item) => (
-                <div className='qg-model' key={item.name}>
-                  <span className='qg-model-ic'>{item.icon}</span>
-                  {item.name}
+            <div className='qx-guide'>
+              <SetupGuide apiBase={apiBase} displayKey='sk-...' />
+            </div>
+            <div className='qx-supported'>
+              <div>
+                <b>{t('Supported AI models')}</b>
+                <span>
+                  {t('All in one place; switch between them any time.')}
+                </span>
+              </div>
+              <div className='qx-chips'>
+                {SUPPORTED_MODELS.map((item) => (
+                  <span className='qx-chip' key={item.name}>
+                    {item.icon}
+                    {item.name}
+                  </span>
+                ))}
+                <Link to='/pricing' className='qx-chip'>
+                  {t('and many more…')}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {featured.length > 0 && (
+          <section className='qx-sec'>
+            <div className='qn-wrap'>
+              <p className='qx-eyebrow'>{t('Featured models')}</p>
+              <div className='qx-head-row'>
+                <div>
+                  <h2 className='qx-h2'>{t('Pick a model for the job')}</h2>
+                  <p className='qx-lead'>
+                    {t(
+                      'Billed by real token usage. Model IDs stay exactly as the provider names them.'
+                    )}
+                  </p>
                 </div>
-              ))}
-              <Link to='/pricing' className='qg-model qg-more'>
-                {t('More models')}
-                <ChevronRight size={15} aria-hidden='true' />
+                <Link to='/pricing' className='qx-link'>
+                  {t('See all models & pricing')} →
+                </Link>
+              </div>
+              <div className='qx-models'>
+                <ModelCardGrid
+                  models={featured}
+                  priceRate={pricing.priceRate}
+                  usdExchangeRate={pricing.usdExchangeRate}
+                  onModelClick={(modelName) =>
+                    navigate({
+                      to: '/pricing/$modelId',
+                      params: { modelId: modelName },
+                    })
+                  }
+                />
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section className='qx-sec'>
+          <div className='qn-wrap'>
+            <div className='qx-band'>
+              <div>
+                <h2>{t('Ready to try {{brand}}?', { brand: BRAND_NAME })}</h2>
+                <p>
+                  {t('Create your first API key and connect the tool you use.')}
+                </p>
+              </div>
+              <Link
+                to={props.isAuthenticated ? '/dashboard' : '/sign-up'}
+                className='qx-btn qx-btn-light'
+              >
+                {props.isAuthenticated
+                  ? t('Go to Dashboard')
+                  : t('Sign up & create an API key')}
+                <ArrowRight size={16} aria-hidden='true' />
               </Link>
             </div>
           </div>
         </section>
-
-        <section className='qg-sec'>
-          <div className='qn-wrap'>
-            <div className='qg-sh'>
-              <h2>
-                <Trans
-                  i18nKey='Why choose <1>{{brand}}</1>?'
-                  values={{ brand: BRAND_NAME }}
-                  components={{ 1: <em /> }}
-                />
-              </h2>
-            </div>
-            <p className='qg-shs'>Why Choose Us?</p>
-            <div className='qg-cards'>
-              {reasons.map((item) => (
-                <div className='qg-card' key={item.title}>
-                  <item.icon size={30} strokeWidth={1.4} aria-hidden='true' />
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className='qg-sec qg-contact' id='contact'>
-          <div className='qn-wrap'>
-            <div className='qg-sh'>
-              <h2>{t('Contact us')}</h2>
-            </div>
-            <p className='qg-shs'>
-              {t('Online 24/7, reach us on your favourite app')}
-            </p>
-            <SupportChannelList />
-          </div>
-        </section>
       </main>
 
-      <footer className='qg-footer'>
+      <footer className='qn-footer'>
         <div className='qn-wrap'>
-          <span>© {new Date().getFullYear()} {BRAND_NAME}</span>
-          <span className='qg-footer-links'>
+          <span className='qn-footer-links'>
             <Link to='/pricing'>{t('Models & pricing')}</Link>
             <DocsLink href={docsUrl}>{t('Docs')}</DocsLink>
-            <a href='#contact'>{t('Contact us')}</a>
+            <Link to='/about'>
+              <Headphones size={14} aria-hidden='true' /> {t('Support')}
+            </Link>
           </span>
-          <span className='qg-attr'>
+          <span className='qn-footer-attribution'>
             {t('Powered by')}{' '}
             <a
               href='https://github.com/QuantumNous/new-api'
@@ -269,8 +386,6 @@ export function QuantumLanding(props: QuantumLandingProps) {
           </span>
         </div>
       </footer>
-
-      <SupportFab />
     </div>
   )
 }

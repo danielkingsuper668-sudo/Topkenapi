@@ -25,8 +25,8 @@ For commercial licensing, please contact support@quantumnous.com
   --app-header-height: calc(3.5rem + 34px);
 }
 :root {
-  --tk-gold-a: #ddd5fb;
-  --tk-gold-b: #b7a8ee;
+  --tk-gold-a: #f8e6bf;
+  --tk-gold-b: #d9b06a;
   --tk-ok: oklch(0.72 0.15 158);
   --tk-up: oklch(0.7 0.16 30);
   --tk-violet: oklch(0.68 0.19 295);
@@ -47,12 +47,12 @@ For commercial licensing, please contact support@quantumnous.com
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: #f4f0ff;
-  text-shadow: 0 0 14px rgba(196, 178, 245, 0.45);
-  background: linear-gradient(90deg, #241d3a 0%, #3a2d66 50%, #241d3a 100%);
-  border-bottom: 1px solid rgba(196, 178, 245, 0.28);
+  color: #ffe7b3;
+  text-shadow: 0 0 14px rgba(240, 207, 142, 0.45);
+  background: linear-gradient(90deg, #3a2810 0%, #6b4a1c 50%, #3a2810 100%);
+  border-bottom: 1px solid rgba(240, 207, 142, 0.28);
 }
-.tk-mq-in span::first-letter { color: #c4b2f5; }
+.tk-mq-in span::first-letter { color: #f8e6bf; }
 .tk-mq-in {
   display: inline-flex;
   gap: 48px;
@@ -110,7 +110,7 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-console [data-slot='sidebar-menu-button'] { position: relative; border-radius: 12px; }
 .tk-console [data-slot='sidebar-menu-button'][data-active] {
   background: var(--tk-accent);
-  color: oklch(0.9 0.05 292);
+  color: oklch(0.88 0.065 80);
   font-weight: 600;
 }
 .tk-console [data-slot='sidebar-menu-button'][data-active] svg { color: var(--primary); }
@@ -324,12 +324,12 @@ For commercial licensing, please contact support@quantumnous.com
   margin-top: 14px;
   overflow: hidden;
   border-radius: 16px;
-  background: oklch(0.14 0.006 285);
+  background: oklch(0.13 0.007 70);
   border: 1px solid var(--tk-border);
 }
 .tk-lights { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--tk-border); }
-.tk-lights i { width: 10px; height: 10px; border-radius: 50%; background: #45424f; }
-.tk-lights i:first-child { background: #a99bd8; }
+.tk-lights i { width: 10px; height: 10px; border-radius: 50%; background: #5a4a35; }
+.tk-lights i:first-child { background: #c9a467; }
 .tk-code pre {
   margin: 0;
   padding: 14px;
@@ -489,7 +489,7 @@ For commercial licensing, please contact support@quantumnous.com
   border-radius: 50%;
   color: var(--primary-foreground);
   background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b));
-  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.7), 0 0 0 6px rgba(183, 168, 238, 0.12);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.7), 0 0 0 6px rgba(226, 196, 143, 0.12);
   cursor: grab;
   touch-action: none;
   user-select: none;
@@ -583,7 +583,7 @@ For commercial licensing, please contact support@quantumnous.com
   place-items: center;
   border-radius: 50%;
   border: 2px solid color-mix(in oklch, var(--tone) 70%, transparent);
-  color: oklch(0.25 0.03 285);
+  color: oklch(0.25 0.03 65);
 }
 .tk-tool.is-on .tk-tool-check { background: #fff; border-color: #fff; }
 .tk-gsteps {
@@ -619,7 +619,7 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-gbody { min-width: 0; }
 .tk-gbody h4 { margin: 8px 0 4px; font-size: 16px; font-weight: 700; color: var(--foreground); }
 .tk-gbody p { margin: 0 0 10px; font-size: 14px; line-height: 1.6; color: var(--muted-foreground); }
-.tk-gcode { margin-top: 10px; overflow: hidden; border-radius: 14px; border: 1px solid var(--tk-border); background: oklch(0.14 0.006 285); }
+.tk-gcode { margin-top: 10px; overflow: hidden; border-radius: 14px; border: 1px solid var(--tk-border); background: oklch(0.13 0.007 70); }
 .tk-gcode-h {
   display: flex;
   align-items: center;
@@ -653,7 +653,7 @@ For commercial licensing, please contact support@quantumnous.com
   font-family: var(--tk-mono);
   font-size: 12.5px;
   line-height: 1.65;
-  color: #d9d4e8;
+  color: #d9cfbf;
   white-space: pre;
 }
 
