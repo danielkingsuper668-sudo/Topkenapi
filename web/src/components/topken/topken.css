@@ -819,3 +819,8 @@ For commercial licensing, please contact support@quantumnous.com
   .tk-brand-head > svg { width: 30px; height: auto; flex-shrink: 0; }
   .tk-brand-head .tk-wordmark { font-size: 17px; }
 }
+/* phones: each heading line stays on one row */
+@media (max-width: 639px) {
+  .tk-setup-hero h2, .tk-docs-head h1 { font-size: clamp(17px, 5.4vw, 26px); }
+  .tk-setup-hero h2 > span, .tk-docs-head h1 > span { white-space: nowrap; }
+}
