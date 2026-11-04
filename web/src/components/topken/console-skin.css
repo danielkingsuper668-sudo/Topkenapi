@@ -266,3 +266,15 @@ html.tk-violet.dark .tk-console [data-slot='sidebar-inset'] {
     height: 28px; padding-inline: 9px; font-size: 12px;
   }
 }
+
+/* ---------- marquee for the grey-violet palette only ----------
+ * Lavender strip, white-grey text, white light sweep. The bronze palette
+ * keeps its champagne strip from topken.css. */
+html.tk-navy .tk-mq {
+  background: linear-gradient(90deg, #6c5ea6 0%, #9a8ed2 50%, #6c5ea6 100%);
+  border-bottom: 1px solid rgba(236, 230, 255, 0.55);
+  box-shadow: 0 4px 18px -6px rgba(157, 143, 208, 0.55);
+}
+html.tk-navy .tk-mq-in > span {
+  background-image: linear-gradient(90deg, #eceaf3 0%, #eceaf3 44%, #ffffff 50%, #eceaf3 56%, #eceaf3 100%);
+}
