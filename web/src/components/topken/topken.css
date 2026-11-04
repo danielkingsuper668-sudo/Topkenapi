@@ -876,3 +876,18 @@ For commercial licensing, please contact support@quantumnous.com
 /* brand in the overview "Connect TopkenX" heading: same logo wordmark */
 #tk-g-title .tk-h2-brand { font-weight: 700; letter-spacing: -0.01em; color: var(--foreground); }
 #tk-g-title .tk-h2-brand em { font-style: normal; color: transparent; background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b)); -webkit-background-clip: text; background-clip: text; }
+
+/* ---------- user tier badges: Thường · VIP (gold) · SVIP (violet) ---------- */
+.tk-tier { font-weight: 700 !important; letter-spacing: 0.06em; border-radius: 999px !important; }
+.tk-tier-default { color: var(--muted-foreground) !important; background: color-mix(in oklch, var(--foreground) 6%, transparent) !important; border: 1px solid color-mix(in oklch, var(--foreground) 14%, transparent) !important; letter-spacing: 0.02em; }
+.tk-tier-vip {
+  color: #2a1c0c !important; border: 1px solid #f3e2bd !important;
+  background: linear-gradient(120deg, #c9a467, #f3e2bd 45%, #d9b06a 60%, #c9a467) !important;
+  box-shadow: 0 2px 10px -3px rgba(217, 176, 106, 0.6);
+}
+.tk-tier-svip {
+  color: #fff !important; border: 1px solid rgba(221, 214, 254, 0.7) !important;
+  background: linear-gradient(120deg, #6d28d9, #a78bfa 45%, #f0abfc 60%, #7c3aed) !important;
+  box-shadow: 0 2px 12px -3px rgba(167, 139, 250, 0.7);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}

@@ -7605,6 +7605,7 @@
     "Connect AI tools and call the API through {{brand}}": "通过 {{brand}} 连接 AI 工具并调用 API",
     "Pick what you need to do below.": "在下方选择你需要做的事。",
     "AI guide": "AI說明",
-    "WeChat number copied. Add it in WeChat.": "已複製微信號，請在微信中添加好友"
+    "WeChat number copied. Add it in WeChat.": "已複製微信號，請在微信中添加好友",
+    "Standard tier": "普通"
   }
 }

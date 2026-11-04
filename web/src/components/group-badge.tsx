@@ -95,8 +95,17 @@ export function GroupBadge(props: GroupBadgeProps) {
   const isAutoGroup = groupName === 'auto'
   const isEmptyGroup = !groupName
   const isSpecialGroup = isAutoGroup || isEmptyGroup
+  // TopkenX tiers get their own badge look; the group name itself is unchanged.
+  const tier =
+    groupName === 'default' || groupName === 'vip' || groupName === 'svip'
+      ? groupName
+      : null
+  let tierLabel: string | undefined
+  if (tier === 'vip') tierLabel = 'VIP'
+  if (tier === 'svip') tierLabel = 'SVIP'
+  if (tier === 'default') tierLabel = t('Standard tier')
   const label = getGroupLabel({
-    labelOverride,
+    labelOverride: labelOverride ?? tierLabel,
     groupName,
     isAutoGroup,
     isEmptyGroup,
@@ -108,10 +117,14 @@ export function GroupBadge(props: GroupBadgeProps) {
       {...badgeProps}
       copyable={copyable}
       label={label}
-      showDot={showDot ?? (isSpecialGroup ? false : undefined)}
+      showDot={showDot ?? (isSpecialGroup || tier ? false : undefined)}
       variant={isSpecialGroup ? 'neutral' : undefined}
-      autoColor={isSpecialGroup ? undefined : groupName}
-      className={cn('min-w-0 shrink overflow-hidden', className)}
+      autoColor={isSpecialGroup || tier ? undefined : groupName}
+      className={cn(
+        'min-w-0 shrink overflow-hidden',
+        tier && `tk-tier tk-tier-${tier}`,
+        className
+      )}
     />
   )
 
