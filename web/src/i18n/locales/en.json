@@ -7610,6 +7610,7 @@
     "Security check": "Security check",
     "Drag the slider so the piece fits the gap": "Drag the slider so the piece fits the gap",
     "Slide to fit the piece": "Slide to fit the piece",
-    "Verified": "Verified"
+    "Verified": "Verified",
+    "Switch to {{name}}": "Switch to {{name}}"
   }
 }

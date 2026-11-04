@@ -7610,6 +7610,7 @@
     "Security check": "安全验证",
     "Drag the slider so the piece fits the gap": "拖动下方滑块，将拼块对齐到缺口",
     "Slide to fit the piece": "向右拖动滑块",
-    "Verified": "验证通过"
+    "Verified": "验证通过",
+    "Switch to {{name}}": "切換到 {{name}}"
   }
 }

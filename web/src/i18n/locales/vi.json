@@ -7610,6 +7610,7 @@
     "Security check": "Xác minh an toàn",
     "Drag the slider so the piece fits the gap": "Kéo thanh trượt để ghép mảnh vào chỗ trống",
     "Slide to fit the piece": "Kéo sang phải để ghép",
-    "Verified": "Đã xác minh"
+    "Verified": "Đã xác minh",
+    "Switch to {{name}}": "Chuyển sang {{name}}"
   }
 }

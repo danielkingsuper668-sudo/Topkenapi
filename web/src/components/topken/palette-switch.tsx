@@ -20,29 +20,32 @@ import { useTranslation } from 'react-i18next'
 
 import { useConsolePalette } from './use-console-theme'
 
-/** Two swatches in the console header: bronze + circuit, or grey violet. */
+/**
+ * Console colour switch: one square tile that flips in 3D like a card.
+ * Gold face (金) = bronze palette, violet face (紫) = grey-violet palette.
+ */
 export function PaletteSwitch() {
   const { t } = useTranslation()
   const { palette, choose } = useConsolePalette()
+  const next = palette === 'bronze' ? 'navy' : 'bronze'
+  const label =
+    palette === 'bronze'
+      ? t('Switch to {{name}}', { name: t('Grey violet') })
+      : t('Switch to {{name}}', { name: t('Bronze') })
 
   return (
-    <div className='tk-palette' role='group' aria-label={t('Color theme')}>
-      <button
-        type='button'
-        className='is-bronze'
-        aria-pressed={palette === 'bronze'}
-        aria-label={t('Bronze')}
-        title={t('Bronze')}
-        onClick={() => choose('bronze')}
-      />
-      <button
-        type='button'
-        className='is-navy'
-        aria-pressed={palette === 'navy'}
-        aria-label={t('Grey violet')}
-        title={t('Grey violet')}
-        onClick={() => choose('navy')}
-      />
-    </div>
+    <button
+      type='button'
+      className='tk-flip'
+      data-palette={palette}
+      aria-label={label}
+      title={label}
+      onClick={() => choose(next)}
+    >
+      <span className='tk-flip-in' aria-hidden='true'>
+        <span className='tk-flip-face is-bronze'>金</span>
+        <span className='tk-flip-face is-navy'>紫</span>
+      </span>
+    </button>
   )
 }
