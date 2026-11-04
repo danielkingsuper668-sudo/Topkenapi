@@ -159,7 +159,7 @@ export function DocsPage() {
               </span>
               {t('{{brand}} docs', { brand: BRAND_NAME })}
               <span className='tk-deco' aria-hidden='true'>
-                {' ◥ ◣‿◢ ◤ '}
+                {' . ◥ ◣‿◢ ◤ . '}
               </span>
               <span className='tk-h2-accent'>{t('AI guide')}</span>
             </h1>
