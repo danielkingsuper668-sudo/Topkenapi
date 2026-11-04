@@ -50,7 +50,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
     },
     {
       icon: Wallet,
-      title: t('Priced in ¥'),
+      title: t('Flexible pricing'),
       sub: t('Pay only for what you use'),
     },
     {
