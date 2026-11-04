@@ -158,12 +158,10 @@ export function DocsPage() {
               <span className='tk-deco' aria-hidden='true'>
                 {' ── .✦ '}
               </span>
-              <span className='tk-h2-accent'>{t('Everything in one place')}</span>
+              <span className='tk-h2-accent'>{t('Pick what you want to do below')}</span>
             </h1>
             <p>
-              {t(
-                'Pick what you want to do below. Each part is short and has copy-ready settings.'
-              )}
+              {t('Each part is short and has copy-ready settings.')}
             </p>
           </header>
 

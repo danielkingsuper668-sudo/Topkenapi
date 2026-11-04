@@ -249,6 +249,8 @@
     "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.": "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.",
     "Every model and its price.": "Every model and its price.",
     "Per token. Every call and its cost is listed in API logs.": "Per token. Every call and its cost is listed in API logs.",
-    "Top up in Top up; your balance is shown on the overview.": "Top up in Top up; your balance is shown on the overview."
+    "Top up in Top up; your balance is shown on the overview.": "Top up in Top up; your balance is shown on the overview.",
+    "Pick what you want to do below": "Pick what you want to do below",
+    "Each part is short and has copy-ready settings.": "Each part is short and has copy-ready settings."
   }
 }

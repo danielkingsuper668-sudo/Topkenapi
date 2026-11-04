@@ -7599,6 +7599,8 @@
     "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.": "一个密钥调用 OpenAI、Claude、Gemini、DeepSeek、Qwen 等主流模型。兼容 OpenAI 格式，改一行地址即可接入，按量付费。",
     "Every model and its price.": "所有模型及其价格。",
     "Per token. Every call and its cost is listed in API logs.": "按 token 计费，每次调用及费用都记录在 API 日志中。",
-    "Top up in Top up; your balance is shown on the overview.": "在充值页面充值，余额显示在概览页。"
+    "Top up in Top up; your balance is shown on the overview.": "在充值页面充值，余额显示在概览页。",
+    "Pick what you want to do below": "选择你想做的事",
+    "Each part is short and has copy-ready settings.": "每部分都简短，并附可直接复制的配置。"
   }
 }
