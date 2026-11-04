@@ -161,7 +161,7 @@ export function DocsPage() {
               <span className='tk-deco' aria-hidden='true'>
                 {' .◥◣‿◢◤.'}
               </span>
-              <span className='tk-h2-accent'>AI说明</span>
+              <span className='tk-h2-accent'>{t('AI guide')}</span>
             </h1>
             <p className='tk-docs-sub'>
               {'➥'}
