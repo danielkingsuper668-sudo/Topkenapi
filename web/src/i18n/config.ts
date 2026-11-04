@@ -63,4 +63,15 @@ i18n
     },
   })
 
+// Mark the page language on <html> so styles can switch fonts (Chinese uses
+// Noto Serif SC; its font files are only downloaded when Chinese is shown).
+function markPageLanguage(language: string | undefined) {
+  if (typeof document === 'undefined') return
+  document.documentElement.dataset.uiLang = language?.startsWith('zh')
+    ? 'zh'
+    : 'other'
+}
+markPageLanguage(i18n.language)
+i18n.on('languageChanged', markPageLanguage)
+
 export default i18n

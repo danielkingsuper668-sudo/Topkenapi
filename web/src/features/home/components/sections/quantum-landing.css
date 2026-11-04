@@ -672,3 +672,6 @@ html.tk-gold {
   .qg-pill { gap: 4px !important; padding: 5px 10px 5px 8px !important; font-size: 10px !important; }
   .qg-pill svg { width: 11px; height: 11px; }
 }
+
+/* Chinese landing: Han characters in Noto Serif SC */
+html[data-ui-lang='zh'] .qg { font-family: 'Josefin Sans Variable', 'Josefin Sans', 'Noto Serif SC', serif; }

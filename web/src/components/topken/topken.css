@@ -18,6 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 @import '@fontsource-variable/unbounded';
 @import '@fontsource-variable/josefin-sans';
+@import '@fontsource/noto-serif-sc/400.css';
+@import '@fontsource/noto-serif-sc/700.css';
 
 /* Topkenapi console skin: marquee, brand, sidebar accents, overview panels,
  * support card and floating contact button. Colours come from theme.css. */
@@ -990,3 +992,18 @@ For commercial licensing, please contact support@quantumnous.com
   .tk-sq-head[data-lang='zh'] h1 { font-size: min(23px, 6vw); }
   .tk-sq-head h1 + p + p + * { margin-top: 22px; font-size: 13px; }
 }
+
+/* ---------- Chinese pages: Noto Serif SC for Han characters ---------- */
+/* Latin letters keep their current fonts; Han glyphs fall through to Noto Serif SC. */
+html[data-ui-lang='zh'] {
+  --font-body: 'Josefin Sans Variable', 'Josefin Sans', 'Noto Serif SC', serif;
+  --font-ui-sans: 'Josefin Sans Variable', 'Josefin Sans', 'Noto Serif SC', serif;
+}
+html[data-ui-lang='zh'] body,
+html[data-ui-lang='zh'].tk-violet body,
+html[data-ui-lang='zh'] .qn,
+html[data-ui-lang='zh'].tk-violet [data-slot='sidebar'],
+html[data-ui-lang='zh'].tk-violet [data-slot='sheet-content'] {
+  font-family: 'Josefin Sans Variable', 'Josefin Sans', 'Noto Serif SC', serif;
+}
+html[data-ui-lang='zh'] :is(code, pre, kbd, .font-mono) { font-family: var(--tk-mono); }
