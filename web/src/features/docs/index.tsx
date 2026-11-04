@@ -33,6 +33,7 @@ import { useTranslation } from 'react-i18next'
 import { CopyButton } from '@/components/copy-button'
 import { BRAND_NAME, getApiBase } from '@/components/topken/brand'
 import { SupportChannelList } from '@/components/topken/support-contact'
+import { WithBrandWordmark } from '@/components/topken/topken-brand'
 import { PricingShell } from '@/features/pricing/components/pricing-shell'
 
 import '@/components/topken/topken.css'
@@ -157,7 +158,9 @@ export function DocsPage() {
               <span className='tk-deco' aria-hidden='true'>
                 {'₊‧⁺͙͘͡★'}
               </span>
-              {t('{{brand}} docs', { brand: BRAND_NAME })}
+              <WithBrandWordmark
+                text={t('{{brand}} docs', { brand: BRAND_NAME })}
+              />
               <span className='tk-deco' aria-hidden='true'>
                 {' . ◥ ◣‿◢ ◤ . '}
               </span>
@@ -165,9 +168,11 @@ export function DocsPage() {
             </h1>
             <p className='tk-docs-sub'>
               {'➥'}
-              {t('Connect AI tools and call the API through {{brand}}', {
-                brand: BRAND_NAME,
-              })}
+              <WithBrandWordmark
+                text={t('Connect AI tools and call the API through {{brand}}', {
+                  brand: BRAND_NAME,
+                })}
+              />
               <span className='tk-deco' aria-hidden='true'>
                 {' ᵎ✦ᵎ '}
               </span>

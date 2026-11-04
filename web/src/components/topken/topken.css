@@ -967,3 +967,6 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-slide[data-state='ok'] .tk-slide-knob { background: #22c55e; color: #fff; }
 .tk-slide[data-state='ok'] .tk-slide-piece { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.9); }
 @keyframes tk-slide-shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+/* "TopkenX" inside running text drawn like the logo */
+.tk-inline-brand { font-weight: 700; letter-spacing: -0.01em; color: var(--foreground); }
+.tk-inline-brand em { font-style: normal; color: transparent; background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b)); -webkit-background-clip: text; background-clip: text; }

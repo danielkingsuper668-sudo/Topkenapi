@@ -76,3 +76,23 @@ export function HotlinePill(props: { className?: string }) {
     </a>
   )
 }
+
+/** Renders text with every "TopkenX" drawn as the logo wordmark. */
+export function WithBrandWordmark(props: { text: string }) {
+  const parts = props.text.split(BRAND_NAME)
+  return (
+    <>
+      {parts.map((part, index) => (
+        <span key={index}>
+          {part}
+          {index < parts.length - 1 && (
+            <span className='tk-wordmark tk-inline-brand'>
+              {BRAND_MAIN}
+              <em>{BRAND_ACCENT}</em>
+            </span>
+          )}
+        </span>
+      ))}
+    </>
+  )
+}
