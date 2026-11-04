@@ -120,10 +120,15 @@ export function QuantumLanding(props: QuantumLandingProps) {
         <section className='qg-hero'>
           <div className='qn-wrap qg-grid'>
             <div className='qg-text'>
-              <span className='qg-pill'>
-                <Sparkles size={14} aria-hidden='true' />
+              <Link
+                to='/dashboard/$section'
+                params={{ section: 'setup' }}
+                className='qg-pill'
+              >
+                <Sparkles size={16} aria-hidden='true' />
                 {t('Next-generation AI API platform')}
-              </span>
+                <ArrowRight size={15} aria-hidden='true' className='qg-pill-go' />
+              </Link>
               <h1 className='qg-title'>
                 {BRAND_MAIN}
                 <span>{BRAND_ACCENT}</span>
