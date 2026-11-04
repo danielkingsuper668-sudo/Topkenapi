@@ -23,7 +23,6 @@ import {
   Copy,
   KeyRound,
   Link2,
-  Rocket,
   Target,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -97,9 +96,10 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
   return (
         <div className='tk-setup'>
           <header className='tk-setup-hero'>
-            <div className='tk-eyebrow'>
-              <Rocket size={15} aria-hidden='true' />
+            <div className='tk-eyebrow tk-eyebrow-deco'>
+              <span aria-hidden='true'>{'✦˖ ᵎ⋆˚࿔ '}</span>
               {t('API setup guide')}
+              <span aria-hidden='true'>{' 𝜗𝜚˚⋆ᵎ ✦'}</span>
             </div>
             <h2>
               <span>{t('Welcome to {{brand}}', { brand: BRAND_NAME })}</span>

@@ -842,3 +842,6 @@ For commercial licensing, please contact support@quantumnous.com
   .tk-setup-hero h2 .tk-h2-accent { font-size: min(22px, 5.6vw); }
   .tk-setup-hero p { font-size: 14px; }
 }
+/* setup eyebrow with symbols instead of the rocket; keep the words as written */
+.tk-eyebrow-deco { gap: 0; text-transform: none; letter-spacing: 0.04em; white-space: nowrap; }
+.tk-eyebrow-deco > span { color: var(--primary); font-weight: 500; white-space: pre; }
