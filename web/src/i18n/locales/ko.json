@@ -244,6 +244,11 @@
     "Your key or group may not use this model.": "Your key or group may not use this model.",
     "cURL, Python and Node.js samples.": "cURL, Python and Node.js samples.",
     "{{brand}} docs": "{{brand}} docs",
-    "View models & pricing": "모델 및 가격 보기"
+    "View models & pricing": "모델 및 가격 보기",
+    "Flexible pricing": "Flexible pricing",
+    "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.": "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.",
+    "Every model and its price.": "Every model and its price.",
+    "Per token. Every call and its cost is listed in API logs.": "Per token. Every call and its cost is listed in API logs.",
+    "Top up in Top up; your balance is shown on the overview.": "Top up in Top up; your balance is shown on the overview."
   }
 }

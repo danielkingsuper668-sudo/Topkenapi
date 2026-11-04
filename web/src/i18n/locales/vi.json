@@ -7591,6 +7591,11 @@
     "Your key or group may not use this model.": "Khóa hoặc nhóm của bạn không được dùng mô hình này.",
     "cURL, Python and Node.js samples.": "Mẫu cURL, Python và Node.js.",
     "{{brand}} docs": "Tài liệu {{brand}}",
-    "View models & pricing": "Xem mô hình & giá"
+    "View models & pricing": "Xem mô hình & giá",
+    "Flexible pricing": "Giá linh hoạt",
+    "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.": "Một khóa cho OpenAI, Claude, Gemini, DeepSeek, Qwen và nhiều mô hình khác. Tương thích OpenAI, đổi một dòng địa chỉ là dùng được, dùng bao nhiêu trả bấy nhiêu.",
+    "Every model and its price.": "Toàn bộ mô hình và giá.",
+    "Per token. Every call and its cost is listed in API logs.": "Theo token. Mỗi lần gọi và chi phí đều có trong Nhật ký API.",
+    "Top up in Top up; your balance is shown on the overview.": "Nạp tiền ở mục Nạp tiền; số dư hiển thị ở trang Tổng quan."
   }
 }

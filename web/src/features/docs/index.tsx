@@ -112,7 +112,7 @@ export function DocsPage() {
     { icon: Terminal, title: t('Claude Code & Codex'), desc: t('Coding agents in your terminal.'), to: '/dashboard/setup' },
     { icon: Layers, title: t('Chat apps'), desc: t('Cherry Studio and other OpenAI-compatible apps.'), to: '/dashboard/setup' },
     { icon: Code2, title: t('Call the API directly'), desc: t('cURL, Python and Node.js samples.'), href: '#api' },
-    { icon: Coins, title: t('Models & pricing'), desc: t('Every model and its price in ¥.'), to: '/pricing' },
+    { icon: Coins, title: t('Models & pricing'), desc: t('Every model and its price.'), to: '/pricing' },
   ]
 
   const errors = [
@@ -127,7 +127,7 @@ export function DocsPage() {
   const faq = [
     [t('Is it the real model?'), t('Yes: the exact model you call, never swapped, never diluted.')],
     [t('Do I need a different key per model?'), t('No. One key works with every model you have access to.')],
-    [t('How is usage billed?'), t('Per token, in ¥. Every call and its cost is listed in API logs.')],
+    [t('How is usage billed?'), t('Per token. Every call and its cost is listed in API logs.')],
     [t('Does the balance expire?'), t('No. Your balance stays until you use it.')],
   ]
 
@@ -213,7 +213,7 @@ export function DocsPage() {
               </div>
               <div>
                 <span>{t('Billing')}</span>
-                <code>¥</code>
+                <code>{t('Pay as you go')}</code>
                 <Link to='/usage-logs' className='tk-docs-link'>
                   {t('See every call in API logs')}
                 </Link>
@@ -269,7 +269,7 @@ export function DocsPage() {
             <h2>{t('API keys & top-up')}</h2>
             <ul>
               <li>{t('Create as many keys as you need; each can have its own limit and expiry.')}</li>
-              <li>{t('Top up in Top up; the balance is shown in ¥ on the overview.')}</li>
+              <li>{t('Top up in Top up; your balance is shown on the overview.')}</li>
               <li>{t('New accounts get a free trial credit.')}</li>
             </ul>
           </section>

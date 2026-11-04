@@ -7591,6 +7591,11 @@
     "Your key or group may not use this model.": "你的密钥或分组无权使用该模型。",
     "cURL, Python and Node.js samples.": "cURL、Python 和 Node.js 示例。",
     "{{brand}} docs": "{{brand}} 文档",
-    "View models & pricing": "查看模型與價格"
+    "View models & pricing": "查看模型與價格",
+    "Flexible pricing": "灵活计价",
+    "One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.": "一个密钥调用 OpenAI、Claude、Gemini、DeepSeek、Qwen 等主流模型。兼容 OpenAI 格式，改一行地址即可接入，按量付费。",
+    "Every model and its price.": "所有模型及其价格。",
+    "Per token. Every call and its cost is listed in API logs.": "按 token 计费，每次调用及费用都记录在 API 日志中。",
+    "Top up in Top up; your balance is shown on the overview.": "在充值页面充值，余额显示在概览页。"
   }
 }

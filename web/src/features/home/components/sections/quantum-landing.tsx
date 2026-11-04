@@ -20,6 +20,7 @@ import { Claude, DeepSeek, Gemini, OpenAI, Qwen } from '@lobehub/icons'
 import { Link } from '@tanstack/react-router'
 import {
   ArrowRight,
+  Boxes,
   ChevronRight,
   Coins,
   Headphones,
@@ -80,7 +81,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
       title: t('Reliable'),
       sub: t('Automatic retries across channels'),
     },
-    { icon: Coins, title: t('Priced in ¥'), sub: t('Pay only for what you use') },
+    { icon: Coins, title: t('Flexible pricing'), sub: t('Pay only for what you use') },
     { icon: Layers, title: t('Easy setup'), sub: 'Claude Code · Codex' },
     {
       icon: Headphones,
@@ -138,7 +139,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
               </p>
               <p className='qg-desc'>
                 {t(
-                  'One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Billed in ¥, pay as you go.'
+                  'One key for OpenAI, Claude, Gemini, DeepSeek, Qwen and more. OpenAI-compatible: change one URL and go. Pay only for what you use.'
                 )}
               </p>
               <div className='qg-cta'>
@@ -151,7 +152,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
                   <ArrowRight size={16} aria-hidden='true' />
                 </Link>
                 <Link to='/pricing' className='qg-btn qg-ghost qg-lg'>
-                  <Coins size={17} aria-hidden='true' />
+                  <Boxes size={17} aria-hidden='true' />
                   {t('View models & pricing')}
                   <ArrowRight size={16} aria-hidden='true' />
                 </Link>
