@@ -845,3 +845,5 @@ For commercial licensing, please contact support@quantumnous.com
 /* setup eyebrow with symbols instead of the rocket; keep the words as written */
 .tk-eyebrow-deco { gap: 0; text-transform: none; letter-spacing: 0.04em; white-space: nowrap; }
 .tk-eyebrow-deco > span { color: var(--primary); font-weight: 500; white-space: pre; }
+.tk-crow-tap { cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+.tk-crow-tap:hover, .tk-crow-tap:active { border-color: var(--tk-border2); background: var(--tk-accent); }

@@ -25,7 +25,9 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from 'react'
+import i18next from 'i18next'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 
 import { CopyButton } from '@/components/copy-button'
 import { cn } from '@/lib/utils'
@@ -61,13 +63,41 @@ const SUPPORT_CHANNELS: SupportChannel[] = [
   },
 ]
 
+/**
+ * Tapping a row opens the app: Telegram and Zalo by link; WeChat has no chat
+ * link, so its number is copied and the WeChat app is opened to paste it.
+ */
+function openChannel(channel: SupportChannel) {
+  if (channel.href) {
+    window.open(channel.href, '_blank', 'noopener')
+    return
+  }
+  navigator.clipboard?.writeText(channel.value).catch(() => undefined)
+  toast.success(i18next.t('WeChat number copied. Add it in WeChat.'))
+  window.location.href = 'weixin://'
+}
+
 /** WeChat / Zalo / Telegram rows with copy and open actions. */
 export function SupportChannelList() {
   const { t } = useTranslation()
   return (
     <div className='tk-clist'>
       {SUPPORT_CHANNELS.map((channel) => (
-        <div className='tk-crow' key={channel.name}>
+        <div
+          className='tk-crow tk-crow-tap'
+          key={channel.name}
+          role='button'
+          tabIndex={0}
+          aria-label={`${t('Open')} ${channel.name}`}
+          onClick={(event) => {
+            // Buttons inside the row keep their own action.
+            if ((event.target as HTMLElement).closest('button, a')) return
+            openChannel(channel)
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') openChannel(channel)
+          }}
+        >
           <span className='tk-cic' style={{ background: channel.color }}>
             {channel.icon}
           </span>
