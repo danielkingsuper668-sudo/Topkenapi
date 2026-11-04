@@ -771,3 +771,21 @@ For commercial licensing, please contact support@quantumnous.com
   .tk-ann-foot { flex-direction: column-reverse; }
   .tk-ann-foot > * { width: 100%; }
 }
+
+/* ---------- model makers row on the setup guide (as on the landing) ---------- */
+.tk-models {
+  margin: 18px auto 0; max-width: 980px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 12px; padding: 16px 18px; border-radius: 22px;
+  background: color-mix(in oklch, var(--card) 80%, transparent); border: 1px solid var(--tk-border2);
+}
+.tk-model { display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 0; font-size: 15.5px; font-weight: 600; }
+.tk-model-more {
+  grid-column: 1 / -1; gap: 4px; padding-top: 12px; border-top: 1px solid var(--tk-border);
+  font-size: 14px; font-weight: 500; color: var(--muted-foreground);
+}
+.tk-model-more:hover { color: var(--primary); }
+@media (min-width: 900px) {
+  .tk-models { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; padding: 20px 24px; }
+  .tk-model + .tk-model { border-left: 1px solid var(--tk-border); }
+  .tk-model-more { grid-column: auto; padding-top: 0; border-top: 0; }
+}

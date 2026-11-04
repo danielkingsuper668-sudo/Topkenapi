@@ -16,9 +16,17 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
+import { Claude, DeepSeek, Gemini, OpenAI, Qwen } from '@lobehub/icons'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from '@tanstack/react-router'
-import { Copy, KeyRound, Link2, Rocket, Target } from 'lucide-react'
+import {
+  ChevronRight,
+  Copy,
+  KeyRound,
+  Link2,
+  Rocket,
+  Target,
+} from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
@@ -29,10 +37,13 @@ import { fetchTokenKey, getApiKeys } from '@/features/keys/api'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 import { requireServerSuccess } from '@/lib/server-error-message'
 
-const SUPPORT_LINKS = [
-  { name: 'WeChat', value: '19866980020', href: '' },
-  { name: 'Telegram', value: '@topkenx', href: 'https://t.me/topkenx' },
-  { name: 'Zalo', value: '0816981777', href: 'https://zalo.me/0816981777' },
+/** Model makers shown under the welcome, same row as the landing page. */
+const SETUP_MODELS = [
+  { name: 'OpenAI', icon: <OpenAI size={24} /> },
+  { name: 'Claude', icon: <Claude.Color size={24} /> },
+  { name: 'Gemini', icon: <Gemini.Color size={24} /> },
+  { name: 'DeepSeek', icon: <DeepSeek.Color size={24} /> },
+  { name: 'Qwen', icon: <Qwen.Color size={24} /> },
 ]
 
 /** "API setup guide" page in the console. */
@@ -107,35 +118,17 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
                 'One key works with every model: Claude, GPT, Gemini, DeepSeek, Grok and more. No need to change keys when you change models.'
               )}
             </p>
-            <div className='tk-help'>
-              <span>{t('Need help setting up? Message us:')}</span>
-              <div className='tk-help-chips'>
-                {SUPPORT_LINKS.map((item) =>
-                  item.href ? (
-                    <a
-                      key={item.name}
-                      data-brand={item.name}
-                      className='tk-help-chip'
-                      href={item.href}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <span>{item.name}</span> {item.value}
-                    </a>
-                  ) : (
-                    <button
-                      key={item.name}
-                      type='button'
-                      data-brand={item.name}
-                      className='tk-help-chip'
-                      style={{ font: 'inherit' }}
-                      onClick={() => copy(item.value)}
-                    >
-                      <span>{item.name}</span> {item.value}
-                    </button>
-                  )
-                )}
-              </div>
+            <div className='tk-models'>
+              {SETUP_MODELS.map((item) => (
+                <div className='tk-model' key={item.name}>
+                  {item.icon}
+                  {item.name}
+                </div>
+              ))}
+              <Link to='/pricing' className='tk-model tk-model-more'>
+                {t('More models')}
+                <ChevronRight size={15} aria-hidden='true' />
+              </Link>
             </div>
           </header>
 
