@@ -1007,3 +1007,17 @@ html[data-ui-lang='zh'].tk-violet [data-slot='sheet-content'] {
   font-family: 'Josefin Sans Variable', 'Josefin Sans', 'Noto Serif SC', serif;
 }
 html[data-ui-lang='zh'] :is(code, pre, kbd, .font-mono) { font-family: var(--tk-mono); }
+
+/* ---------- Model Square header, Vietnamese & other languages (layout pass 2) ---------- */
+@media (min-width: 640px) {
+  .tk-sq-head[data-lang='other'] { padding-top: 12px; }
+  .tk-sq-head[data-lang='other'] h1 + p { font-size: 22px !important; margin-top: 24px; }
+  .tk-sq-head[data-lang='other'] h1 + p + p { font-size: 15px !important; max-width: 660px; }
+  .tk-sq-head[data-lang='other'] h1 + p + p + * { font-size: 16px; max-width: 700px; margin-top: 30px; }
+}
+@media (max-width: 639px) {
+  .tk-sq-head[data-lang='other'] { padding-top: 4px; }
+  .tk-sq-head[data-lang='other'] h1 { font-size: min(21px, 5.4vw) !important; }
+  .tk-sq-head[data-lang='other'] h1 + p { font-size: 14px !important; }
+  .tk-sq-head[data-lang='other'] h1 + p + p { font-size: 14px !important; max-width: 100%; }
+}
