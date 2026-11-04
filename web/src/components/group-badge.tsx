@@ -97,12 +97,16 @@ export function GroupBadge(props: GroupBadgeProps) {
   const isSpecialGroup = isAutoGroup || isEmptyGroup
   // TopkenX tiers get their own badge look; the group name itself is unchanged.
   const tier =
-    groupName === 'default' || groupName === 'vip' || groupName === 'svip'
+    groupName === 'default' ||
+    groupName === 'vip' ||
+    groupName === 'svip' ||
+    groupName === 'pro'
       ? groupName
       : null
   let tierLabel: string | undefined
   if (tier === 'vip') tierLabel = 'VIP'
   if (tier === 'svip') tierLabel = 'SVIP'
+  if (tier === 'pro') tierLabel = 'PRO'
   if (tier === 'default') tierLabel = t('Standard tier')
   const label = getGroupLabel({
     labelOverride: labelOverride ?? tierLabel,
