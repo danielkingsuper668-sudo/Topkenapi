@@ -530,7 +530,7 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-hint { margin: 0; font-size: 11.5px; text-align: center; color: var(--muted-foreground); opacity: 0.75; }
 
 /* ---------- attribution ---------- */
-.tk-attr { margin: 28px 0 0; text-align: center; font-size: 11px; color: var(--muted-foreground); opacity: 0.6; }
+.tk-attr { margin: 28px 0 0; text-align: center; font-size: 10px; font-weight: 400; color: var(--muted-foreground); opacity: 0.6; }
 .tk-attr a { text-decoration: none; }
 .tk-attr a:hover { color: var(--primary); }
 
@@ -782,16 +782,16 @@ For commercial licensing, please contact support@quantumnous.com
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
   min-width: 0; padding: 12px 4px; font-size: 13px; font-weight: 600;
 }
-/* phones: 3 x 2 even grid with hairlines between cells */
-.tk-model:nth-child(-n + 3) { border-bottom: 1px solid var(--tk-border); }
-.tk-model:not(:nth-child(3n + 1)) { border-left: 1px solid var(--tk-border); }
-.tk-model-more { flex-direction: row; gap: 2px; font-size: 12.5px; font-weight: 500; color: var(--muted-foreground); }
+/* phones: 3 x 2 even grid of makers, "more" as a full row below */
+.tk-model:nth-child(-n + 6) { border-bottom: 1px solid var(--tk-border); }
+.tk-model:not(:nth-child(3n + 1)):not(.tk-model-more) { border-left: 1px solid var(--tk-border); }
+.tk-model-more { grid-column: 1 / -1; flex-direction: row; gap: 2px; padding: 10px 4px 8px; font-size: 12.5px; font-weight: 500; color: var(--muted-foreground); }
 .tk-model-more:hover { color: var(--primary); }
 @media (min-width: 900px) {
-  .tk-models { grid-template-columns: repeat(6, minmax(0, 1fr)); padding: 20px 24px; }
+  .tk-models { grid-template-columns: repeat(7, minmax(0, 1fr)); padding: 20px 16px; }
   .tk-model { flex-direction: row; gap: 10px; padding: 0; font-size: 15.5px; border: 0 !important; }
   .tk-model + .tk-model { border-left: 1px solid var(--tk-border) !important; }
-  .tk-model-more { font-size: 14px; }
+  .tk-model-more { grid-column: auto; padding: 0; font-size: 14px; }
 }
 
 /* ---------- decorated headings ---------- */

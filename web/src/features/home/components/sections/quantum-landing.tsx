@@ -16,7 +16,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { Claude, DeepSeek, Gemini, OpenAI, Qwen } from '@lobehub/icons'
 import { Link } from '@tanstack/react-router'
 import {
   ArrowRight,
@@ -37,24 +36,19 @@ import { useEffect } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 
 import { BRAND_ACCENT, BRAND_MAIN, BRAND_NAME } from '@/components/topken/brand'
+import { MODEL_MAKERS } from '@/components/topken/model-makers'
+import { getLobeIcon } from '@/lib/lobe-icon'
 import {
   SupportChannelList,
   SupportFab,
 } from '@/components/topken/support-contact'
 
 import { HeroCube } from './hero-cube'
-import { DocsLink, QuantumHeader } from './quantum-header'
+import { QuantumHeader } from './quantum-header'
 
 import '@/components/topken/topken.css'
 import './quantum-landing.css'
 
-const MODELS = [
-  { name: 'OpenAI', icon: <OpenAI size={26} /> },
-  { name: 'Claude', icon: <Claude.Color size={26} /> },
-  { name: 'Gemini', icon: <Gemini.Color size={26} /> },
-  { name: 'DeepSeek', icon: <DeepSeek.Color size={26} /> },
-  { name: 'Qwen', icon: <Qwen.Color size={26} /> },
-]
 
 /** Switches the page tokens to black-brown + champagne gold while mounted. */
 function useGoldTheme() {
@@ -174,9 +168,9 @@ export function QuantumLanding(props: QuantumLandingProps) {
               ))}
             </div>
             <div className='qg-models'>
-              {MODELS.map((item) => (
+              {MODEL_MAKERS.map((item) => (
                 <div className='qg-model' key={item.name}>
-                  <span className='qg-model-ic'>{item.icon}</span>
+                  <span className='qg-model-ic'>{getLobeIcon(item.icon, 26)}</span>
                   {item.name}
                 </div>
               ))}
@@ -229,12 +223,6 @@ export function QuantumLanding(props: QuantumLandingProps) {
 
       <footer className='qg-footer'>
         <div className='qn-wrap'>
-          <span>© {new Date().getFullYear()} {BRAND_NAME}</span>
-          <span className='qg-footer-links'>
-            <Link to='/pricing'>{t('Models & pricing')}</Link>
-            <DocsLink href={docsUrl}>{t('Docs')}</DocsLink>
-            <a href='#contact'>{t('Contact us')}</a>
-          </span>
           <span className='qg-attr'>
             {t('Powered by')}{' '}
             <a

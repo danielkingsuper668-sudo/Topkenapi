@@ -16,7 +16,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { Claude, DeepSeek, Gemini, OpenAI, Qwen } from '@lobehub/icons'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from '@tanstack/react-router'
 import {
@@ -32,19 +31,13 @@ import { toast } from 'sonner'
 
 import { SectionPageLayout } from '@/components/layout'
 import { BRAND_NAME, getApiBase } from '@/components/topken/brand'
+import { MODEL_MAKERS } from '@/components/topken/model-makers'
 import { SetupGuide } from '@/components/topken/setup-guide'
 import { fetchTokenKey, getApiKeys } from '@/features/keys/api'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
+import { getLobeIcon } from '@/lib/lobe-icon'
 import { requireServerSuccess } from '@/lib/server-error-message'
 
-/** Model makers shown under the welcome, same row as the landing page. */
-const SETUP_MODELS = [
-  { name: 'OpenAI', icon: <OpenAI size={24} /> },
-  { name: 'Claude', icon: <Claude.Color size={24} /> },
-  { name: 'Gemini', icon: <Gemini.Color size={24} /> },
-  { name: 'DeepSeek', icon: <DeepSeek.Color size={24} /> },
-  { name: 'Qwen', icon: <Qwen.Color size={24} /> },
-]
 
 /** "API setup guide" page in the console. */
 export function TopkenSetupPage() {
@@ -121,9 +114,9 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
               )}
             </p>
             <div className='tk-models'>
-              {SETUP_MODELS.map((item) => (
+              {MODEL_MAKERS.map((item) => (
                 <div className='tk-model' key={item.name}>
-                  {item.icon}
+                  {getLobeIcon(item.icon, 24)}
                   {item.name}
                 </div>
               ))}
