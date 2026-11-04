@@ -837,8 +837,8 @@ For commercial licensing, please contact support@quantumnous.com
 @media (max-width: 639px) {
   main:has(.tk-setup) [data-slot='page-title'] { margin-inline-start: -8px; font-size: 19px; }
   .tk-setup-hero .tk-eyebrow { font-size: 12px; }
-  .tk-setup-hero h2 { font-size: 23px; }
+  .tk-setup-hero h2 { font-size: min(23px, 5.9vw); }
   .tk-setup-hero h2 .tk-deco { font-size: 14px; }
-  .tk-setup-hero h2 .tk-h2-accent { font-size: 22px; }
+  .tk-setup-hero h2 .tk-h2-accent { font-size: min(22px, 5.6vw); }
   .tk-setup-hero p { font-size: 14px; }
 }
