@@ -31,7 +31,7 @@
 }
 .tk-docs-head .tk-docs-sub { margin: 0; font-size: 14px; }
 @media (max-width: 639px) {
-  .tk-docs-head h1 { font-size: clamp(15px, 5.1vw, 26px); }
+  .tk-docs-head h1 { font-size: clamp(13px, 4.3vw, 26px); }
   .tk-docs-head .tk-docs-sub { font-size: 12.5px; }
 }
 .tk-docs-head p, .tk-docs-sec > p, .tk-docs-sec li { color: var(--muted-foreground); font-size: 15px; line-height: 1.7; }
