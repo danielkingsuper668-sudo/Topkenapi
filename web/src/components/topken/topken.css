@@ -1021,3 +1021,19 @@ html[data-ui-lang='zh'] :is(code, pre, kbd, .font-mono) { font-family: var(--tk-
   .tk-sq-head[data-lang='other'] h1 + p { font-size: 14px !important; }
   .tk-sq-head[data-lang='other'] h1 + p + p { font-size: 14px !important; max-width: 100%; }
 }
+
+/* ---------- Model Square header, layout pass 3 ---------- */
+@media (min-width: 640px) {
+  .tk-sq-head[data-lang='other'] h1 + p { font-size: 25px !important; margin-top: 18px; }
+  .tk-sq-head[data-lang='other'] h1 + p + p { font-size: 16px !important; margin-top: 10px; }
+  .tk-sq-head[data-lang='zh'] { padding-top: 12px; }
+  .tk-sq-head[data-lang='zh'] h1 { font-size: 57px; }
+  .tk-sq-head[data-lang='zh'] h1 + p { font-size: 20px !important; margin-top: 16px; }
+}
+@media (max-width: 639px) {
+  .tk-sq-head[data-lang='other'] h1 + p { font-size: 16px !important; margin-top: 8px; }
+  .tk-sq-head[data-lang='other'] h1 + p + p { font-size: 15px !important; }
+  .tk-sq-head[data-lang='zh'] h1 + p { font-size: 14px !important; margin-top: 8px; }
+  .tk-sq-head[data-lang='zh'] h1 + p + p { font-size: 13px !important; }
+  .tk-sq-head[data-lang='zh'] h1 + p + p + * { margin-top: 18px; }
+}
