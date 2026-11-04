@@ -853,8 +853,9 @@ For commercial licensing, please contact support@quantumnous.com
 @media (min-width: 640px) {
   main:has(.tk-setup[data-lang='other']) [data-slot='page-title'] { font-size: 28px; }
   .tk-setup[data-lang='other'] .tk-setup-hero { margin-top: -30px; }
-  .tk-setup[data-lang='other'] .tk-setup-hero .tk-eyebrow { font-size: 21px; }
-  .tk-setup[data-lang='other'] .tk-setup-hero p { font-size: 16px; }
+  .tk-setup[data-lang='other'] .tk-setup-hero .tk-eyebrow { font-size: 22px; }
+  .tk-setup[data-lang='other'] .tk-setup-hero h2 .tk-h2-accent { font-size: 41px; }
+  .tk-setup[data-lang='other'] .tk-setup-hero p { font-size: 17px; }
 }
 @media (max-width: 639px) {
   .tk-setup[data-lang='other'] .tk-setup-hero .tk-eyebrow { font-size: 13px; }
