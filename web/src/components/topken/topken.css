@@ -879,14 +879,14 @@ For commercial licensing, please contact support@quantumnous.com
 
 /* ---------- user tier badges: crown (Thường silver · VIP gold · SVIP amethyst), PRO diamond ---------- */
 .tk-tier {
-  position: relative; display: inline-flex !important; align-items: center; justify-content: center; gap: 5px;
-  box-sizing: border-box; width: 94px; min-width: 94px !important; height: 24px !important; padding-inline: 8px !important; font-weight: 700 !important; letter-spacing: 0.08em;
+  position: relative; display: inline-flex !important; align-items: center; justify-content: center; gap: 3px;
+  box-sizing: border-box; width: 64px; min-width: 64px !important; height: 20px !important; padding-inline: 4px !important; font-size: 10.5px !important; font-weight: 700 !important; letter-spacing: 0.04em;
   border-radius: 999px !important; border: 1.5px solid transparent !important; overflow: hidden !important;
   background-size: 100% 100%, 250% 100% !important; animation: tk-tier-shine 4s linear infinite;
 }
 @keyframes tk-tier-shine { from { background-position: 0 0, 120% 0; } to { background-position: 0 0, -120% 0; } }
 .tk-tier::before {
-  content: ''; width: 14px; height: 14px; flex-shrink: 0;
+  content: ''; width: 11px; height: 11px; flex-shrink: 0;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3.2 16.5 2.4 8.2l5.2 4.1L12 6.2l4.4 6.1 5.2-4.1-.8 8.3z'/%3E%3Ccircle cx='2.6' cy='6.6' r='1.7'/%3E%3Ccircle cx='12' cy='4.3' r='1.8'/%3E%3Ccircle cx='21.4' cy='6.6' r='1.7'/%3E%3Crect x='3.2' y='18' width='17.6' height='2.6' rx='1.1'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3.2 16.5 2.4 8.2l5.2 4.1L12 6.2l4.4 6.1 5.2-4.1-.8 8.3z'/%3E%3Ccircle cx='2.6' cy='6.6' r='1.7'/%3E%3Ccircle cx='12' cy='4.3' r='1.8'/%3E%3Ccircle cx='21.4' cy='6.6' r='1.7'/%3E%3Crect x='3.2' y='18' width='17.6' height='2.6' rx='1.1'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 /* Thường: dark glass, silver rim and glow */
@@ -924,11 +924,11 @@ For commercial licensing, please contact support@quantumnous.com
   background: linear-gradient(180deg, #1e3a8a, #0f172a);
 }
 .tk-tier::after {
-  content: '✦'; position: absolute; top: 1px; right: 5px; font-size: 7px; line-height: 1; pointer-events: none;
+  content: '✦'; position: absolute; top: 0; right: 3px; font-size: 6px; line-height: 1; pointer-events: none;
   color: #fff; text-shadow: 0 0 4px #fff, 0 0 8px var(--tk-tier-glow, #fff);
   animation: tk-tier-twinkle 1.8s ease-in-out infinite;
 }
-.tk-tier-default { --tk-tier-glow: #e2e8f0; letter-spacing: 0.03em !important; }
+.tk-tier-default { --tk-tier-glow: #e2e8f0; letter-spacing: 0 !important; }
 .tk-tier-vip { --tk-tier-glow: #fde68a; }
 .tk-tier-vip::after { animation-delay: 0.4s; }
 .tk-tier-svip { --tk-tier-glow: #d8b4fe; }
