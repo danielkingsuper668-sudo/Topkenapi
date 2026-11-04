@@ -43,7 +43,7 @@ import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
 import { SectionPageLayout } from '@/components/layout'
-import { BRAND_NAME } from '@/components/topken/brand'
+import { BRAND_ACCENT, BRAND_MAIN } from '@/components/topken/brand'
 import { SupportContactCard } from '@/components/topken/support-contact'
 import { getUserQuotaDates } from '@/features/dashboard/api'
 import {
@@ -264,7 +264,11 @@ export function TopkenOverview() {
             {t('Get started in 1 minute')}
           </div>
           <h2 id='tk-g-title'>
-            {t('Connect')} <em>{BRAND_NAME}</em>
+            {t('Connect')}{' '}
+            <span className='tk-wordmark tk-h2-brand'>
+              {BRAND_MAIN}
+              <em>{BRAND_ACCENT}</em>
+            </span>
           </h2>
           <p className='tk-d'>
             {t(

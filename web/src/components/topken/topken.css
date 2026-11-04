@@ -873,3 +873,6 @@ For commercial licensing, please contact support@quantumnous.com
 /* brand inside the welcome heading uses the logo wordmark (Unbounded, gold X) */
 .tk-setup-hero h2 .tk-h2-brand { display: inline; font-weight: 700; letter-spacing: -0.01em; }
 .tk-setup-hero h2 .tk-h2-brand em { font-style: normal; color: transparent; background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b)); -webkit-background-clip: text; background-clip: text; }
+/* brand in the overview "Connect TopkenX" heading: same logo wordmark */
+#tk-g-title .tk-h2-brand { font-weight: 700; letter-spacing: -0.01em; color: var(--foreground); }
+#tk-g-title .tk-h2-brand em { font-style: normal; color: transparent; background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b)); -webkit-background-clip: text; background-clip: text; }
