@@ -131,20 +131,13 @@ export function QuantumHeader(props: QuantumHeaderProps) {
               {t('Go to Dashboard')}
             </Link>
           ) : (
-            <>
-              <Link
-                to='/sign-in'
-                className='qn-btn qn-btn-ghost qn-btn-sm qn-signin'
-              >
-                {t('Sign In')}
-              </Link>
-              <Link
-                to='/sign-up'
-                className='qn-btn qn-btn-gold qn-btn-sm qn-auth-text'
-              >
-                {t('Sign Up')}
-              </Link>
-            </>
+            // Header is for returning customers; new ones sign up from the hero.
+            <Link
+              to='/sign-in'
+              className='qn-btn qn-btn-gold qn-btn-sm qn-auth-text'
+            >
+              {t('Sign In')}
+            </Link>
           )}
           {/* phones: one round account button instead of the wide pill */}
           <Link
