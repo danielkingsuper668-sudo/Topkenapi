@@ -32,7 +32,6 @@ import { SectionPageLayout } from '@/components/layout'
 import {
   BRAND_ACCENT,
   BRAND_MAIN,
-  BRAND_NAME,
   getApiBase,
 } from '@/components/topken/brand'
 import { MODEL_MAKERS } from '@/components/topken/model-makers'
