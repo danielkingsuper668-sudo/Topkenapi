@@ -73,11 +73,6 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
             icon: Rocket,
           },
           {
-            title: t('Docs'),
-            url: '/docs',
-            icon: BookOpen,
-          },
-          {
             title: t('Overview'),
             url: '/dashboard/overview',
             icon: Activity,
@@ -98,6 +93,11 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
             url: '/pricing',
             search: { view: 'table' },
             icon: CreditCard,
+          },
+          {
+            title: t('Docs'),
+            url: '/docs',
+            icon: BookOpen,
           },
           {
             title: t('Usage'),

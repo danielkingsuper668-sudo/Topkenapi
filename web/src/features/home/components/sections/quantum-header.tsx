@@ -26,7 +26,7 @@ import {
   LayoutDashboard,
   Menu,
   Rocket,
-  UserRound,
+  CircleUserRound,
   X,
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -154,7 +154,7 @@ export function QuantumHeader(props: QuantumHeaderProps) {
               props.isAuthenticated ? t('Go to Dashboard') : t('Sign In')
             }
           >
-            <UserRound size={19} aria-hidden='true' />
+            <CircleUserRound size={21} strokeWidth={1.8} aria-hidden='true' />
           </Link>
           <button
             type='button'
