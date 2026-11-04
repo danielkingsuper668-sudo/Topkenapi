@@ -7541,6 +7541,8 @@
     "Sign in to get your key. One key works with every model.": "Войдите, чтобы получить ключ. Один ключ подходит для всех моделей.",
     "Color theme": "Цветовая тема",
     "Bronze": "Бронза",
-    "Night blue": "Ночной синий"
+    "Night blue": "Ночной синий",
+    "Welcome to {{brand}}": "Добро пожаловать в {{brand}}",
+    "Pick how you work": "Выберите, как работать"
   }
 }

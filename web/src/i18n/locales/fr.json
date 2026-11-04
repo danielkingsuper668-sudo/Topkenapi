@@ -7541,6 +7541,8 @@
     "Sign in to get your key. One key works with every model.": "Connectez-vous pour obtenir votre clé. Une seule clé pour tous les modèles.",
     "Color theme": "Thème de couleur",
     "Bronze": "Bronze",
-    "Night blue": "Bleu nuit"
+    "Night blue": "Bleu nuit",
+    "Welcome to {{brand}}": "Bienvenue sur {{brand}}",
+    "Pick how you work": "Choisissez votre usage"
   }
 }

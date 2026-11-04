@@ -7541,6 +7541,8 @@
     "Sign in to get your key. One key works with every model.": "ログインしてキーを取得。1つのキーで全モデルを利用できます。",
     "Color theme": "カラーテーマ",
     "Bronze": "ブロンズ",
-    "Night blue": "ナイトブルー"
+    "Night blue": "ナイトブルー",
+    "Welcome to {{brand}}": "{{brand}} へようこそ",
+    "Pick how you work": "使い方を選ぶ"
   }
 }

@@ -109,9 +109,11 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
               {t('API setup guide')}
             </div>
             <h2>
-              {t('Welcome to {{brand}}: pick how you work', {
-                brand: BRAND_NAME,
-              })}
+              <span>{t('Welcome to {{brand}}', { brand: BRAND_NAME })}</span>
+              <span className='tk-deco' aria-hidden='true'>
+                {' ── .✦ '}
+              </span>
+              <span className='tk-h2-accent'>{t('Pick how you work')}</span>
             </h2>
             <p>
               {t(
