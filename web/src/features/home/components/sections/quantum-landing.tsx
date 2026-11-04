@@ -147,7 +147,7 @@ export function QuantumLanding(props: QuantumLandingProps) {
                   className='qg-btn qg-gold qg-lg'
                 >
                   <Rocket size={17} aria-hidden='true' />
-                  {t('Sign up free')}
+                  {props.isAuthenticated ? t('Go to Dashboard') : t('Sign up free')}
                   <ArrowRight size={16} aria-hidden='true' />
                 </Link>
                 <Link to='/pricing' className='qg-btn qg-ghost qg-lg'>
