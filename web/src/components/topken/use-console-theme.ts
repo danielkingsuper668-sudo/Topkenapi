@@ -35,7 +35,7 @@ function readPalette(): ConsolePalette {
 /**
  * Turns on the console skin while the calling layout is mounted (the
  * landing page keeps its own colours) and applies the saved palette:
- * bronze + circuit (default) or night blue.
+ * bronze + circuit (default) or grey violet.
  */
 export function useConsoleTheme() {
   useEffect(() => {

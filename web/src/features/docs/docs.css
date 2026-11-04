@@ -1,0 +1,70 @@
+/* TopkenX docs page: sticky section menu + readable column. */
+.tk-docs {
+  max-width: 1180px; margin: 0 auto; padding: 24px 16px 60px;
+  display: grid; gap: 28px;
+}
+@media (min-width: 1024px) { .tk-docs { grid-template-columns: 220px minmax(0, 1fr); padding-top: 36px; } }
+.tk-docs-nav { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+.tk-docs-group { display: contents; }
+.tk-docs-group b { display: none; }
+.tk-docs-nav a {
+  flex-shrink: 0; padding: 7px 14px; border-radius: 999px; font-size: 13.5px;
+  border: 1px solid var(--tk-border2); color: var(--muted-foreground);
+}
+.tk-docs-nav a:hover { color: var(--primary); border-color: var(--primary); }
+@media (min-width: 1024px) {
+  .tk-docs-nav { position: sticky; top: 24px; align-self: start; flex-direction: column; gap: 18px; overflow: visible; }
+  .tk-docs-group { display: grid; gap: 2px; }
+  .tk-docs-group b { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary); }
+  .tk-docs-nav a { padding: 7px 12px; border: 0; border-radius: 10px; font-size: 14px; }
+  .tk-docs-nav a:hover { background: var(--tk-accent); }
+}
+.tk-docs-main { min-width: 0; display: grid; gap: 34px; }
+.tk-docs-head h1 { margin: 10px 0 8px; font-size: clamp(26px, 5vw, 40px); font-weight: 800; line-height: 1.15; }
+.tk-docs-head h1 .tk-deco { color: var(--primary); font-weight: 500; white-space: pre; }
+.tk-docs-head h1 .tk-h2-accent {
+  background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+@media (max-width: 639px) {
+  .tk-docs-head h1 > span { display: block; }
+  .tk-docs-head h1 .tk-deco { font-size: 0.6em; line-height: 1.6; }
+}
+.tk-docs-head p, .tk-docs-sec > p, .tk-docs-sec li { color: var(--muted-foreground); font-size: 15px; line-height: 1.7; }
+.tk-docs-sec { scroll-margin-top: 90px; display: grid; gap: 14px; justify-items: start; }
+.tk-docs-sec > * { justify-self: stretch; }
+.tk-docs-sec > .tk-btn { justify-self: start; }
+.tk-docs-sec h2 { margin: 0; font-size: 22px; font-weight: 800; }
+.tk-docs-sec h2::before { content: '✦ '; color: var(--primary); font-weight: 500; }
+.tk-docs-sec ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.tk-docs-cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.tk-docs-card {
+  display: grid; gap: 6px; padding: 16px; border-radius: 18px; border: 1px solid var(--tk-border2);
+  background: var(--card); transition: border-color 0.2s, transform 0.2s;
+}
+.tk-docs-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+.tk-docs-card svg { color: var(--primary); }
+.tk-docs-card b { font-size: 15.5px; }
+.tk-docs-card span { font-size: 13.5px; color: var(--muted-foreground); }
+.tk-docs-table { display: grid; border-radius: 18px; border: 1px solid var(--tk-border2); background: var(--card); overflow: hidden; }
+.tk-docs-table > div {
+  display: grid; grid-template-columns: 1fr; gap: 6px; align-items: center; padding: 12px 16px;
+}
+.tk-docs-table > div + div { border-top: 1px solid var(--tk-border); }
+@media (min-width: 640px) {
+  .tk-docs-table > div { grid-template-columns: 260px minmax(0, 1fr) auto; gap: 12px; }
+  .tk-docs-table.is-errors > div { grid-template-columns: 130px minmax(0, 1fr); }
+}
+.tk-docs-table span { font-size: 14px; color: var(--muted-foreground); }
+.tk-docs-table code { font-family: var(--tk-mono); font-size: 13.5px; color: var(--primary); overflow-wrap: anywhere; }
+.tk-docs-link { font-size: 13.5px; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+.tk-docs-tabs { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid var(--tk-border2); justify-self: start; }
+.tk-docs-tabs button { padding: 6px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--muted-foreground); cursor: pointer; }
+.tk-docs-tabs button[aria-selected='true'] { background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b)); color: #1b140a; }
+.tk-docs-code { margin-top: 0; }
+.tk-docs-code .tk-lights { align-items: center; padding-block: 4px; }
+.tk-docs-faq { display: grid; gap: 8px; }
+.tk-docs-faq details { padding: 12px 16px; border-radius: 14px; border: 1px solid var(--tk-border2); background: var(--card); }
+.tk-docs-faq summary { cursor: pointer; font-weight: 600; }
+.tk-docs-faq p { margin: 8px 0 0; color: var(--muted-foreground); font-size: 14.5px; }
+.tk-docs-help { margin: 8px 0 0; font-size: 14px; color: var(--muted-foreground); }

@@ -16,28 +16,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { createFileRoute, redirect } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 
-import { PublicLayout } from '@/components/layout'
-import '@/components/topken/topken.css'
-import { TopkenSetupContent } from '@/features/dashboard/components/overview/topken-setup'
-import { useAuthStore } from '@/stores/auth-store'
+import { DocsPage } from '@/features/docs'
 
-/** Docs: signed-in users get the console setup guide, visitors a public copy. */
 export const Route = createFileRoute('/docs/')({
-  beforeLoad: () => {
-    if (useAuthStore.getState().auth.user) {
-      throw redirect({
-        to: '/dashboard/$section',
-        params: { section: 'setup' },
-      })
-    }
-  },
-  component: () => (
-    <PublicLayout>
-      <div className='mx-auto w-full max-w-5xl px-4 py-8'>
-        <TopkenSetupContent visitor />
-      </div>
-    </PublicLayout>
-  ),
+  component: DocsPage,
 })

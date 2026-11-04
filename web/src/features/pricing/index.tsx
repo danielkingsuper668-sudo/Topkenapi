@@ -20,6 +20,7 @@ import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { PageTransition } from '@/components/page-transition'
+import '@/components/topken/topken.css'
 
 import {
   LoadingSkeleton,
@@ -178,8 +179,14 @@ export function Pricing() {
         />
         <PageTransition className='relative mx-auto w-full max-w-[1800px] px-3 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-10 xl:px-8'>
           <header className='mx-auto mb-5 max-w-3xl pt-5 text-center sm:mb-10 sm:pt-10'>
-            <h1 className='text-[clamp(2rem,5.5vw,3.5rem)] leading-[1.15] font-bold tracking-tight'>
-              {t('Model Square')}
+            <h1 className='tk-fancy-title text-[clamp(2rem,5.5vw,3.5rem)] leading-[1.15] tracking-tight'>
+              <span className='tk-fancy-deco' aria-hidden='true'>
+                {'ੈ✩‧₊˚ '}
+              </span>
+              <span className='tk-fancy-text'>{t('Model Square')}</span>
+              <span className='tk-fancy-deco' aria-hidden='true'>
+                {'.ೃ࿐'}
+              </span>
             </h1>
             <p className='text-muted-foreground/80 mt-3 text-sm sm:mt-4 sm:text-base'>
               {t('This site currently has {{count}} models enabled', {

@@ -20,7 +20,7 @@ import { useTranslation } from 'react-i18next'
 
 import { useConsolePalette } from './use-console-theme'
 
-/** Two swatches in the console header: bronze + circuit, or night blue. */
+/** Two swatches in the console header: bronze + circuit, or grey violet. */
 export function PaletteSwitch() {
   const { t } = useTranslation()
   const { palette, choose } = useConsolePalette()
@@ -39,8 +39,8 @@ export function PaletteSwitch() {
         type='button'
         className='is-navy'
         aria-pressed={palette === 'navy'}
-        aria-label={t('Night blue')}
-        title={t('Night blue')}
+        aria-label={t('Grey violet')}
+        title={t('Grey violet')}
         onClick={() => choose('navy')}
       />
     </div>
