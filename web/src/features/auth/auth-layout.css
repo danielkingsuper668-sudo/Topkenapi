@@ -1,0 +1,140 @@
+/* TopkenX sign-in / sign-up shell. Colours come from the console palette tokens. */
+.tk-auth {
+  --tk-auth-line: color-mix(in oklch, var(--primary) 22%, transparent);
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+  color: var(--foreground);
+  background:
+    radial-gradient(ellipse 70% 45% at 85% 0%, color-mix(in oklch, var(--primary) 16%, transparent), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 0% 100%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 30% 30%, rgba(139, 92, 246, 0.08), transparent 70%),
+    var(--background);
+}
+.tk-auth-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) max(18px, env(safe-area-inset-right, 0px)) 0
+    max(18px, env(safe-area-inset-left, 0px));
+}
+.tk-auth-brand { font-size: 20px; }
+.tk-auth-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  border: 1px solid var(--tk-auth-line);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tk-auth-back:hover { color: var(--primary); border-color: var(--primary); }
+
+.tk-auth-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px));
+}
+
+/* side: cube banner on phones, full pitch on wide screens */
+.tk-auth-side { width: 100%; max-width: 460px; }
+.tk-auth-art { position: relative; margin: 4px auto -26px; width: 100%; max-width: 360px; }
+.tk-auth-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: radial-gradient(ellipse 58% 56% at 50% 50%, #000 55%, transparent 100%);
+          mask-image: radial-gradient(ellipse 58% 56% at 50% 50%, #000 55%, transparent 100%);
+  animation: tk-auth-float 7s ease-in-out infinite;
+}
+@keyframes tk-auth-float { 50% { transform: translateY(-6px); } }
+.tk-auth-pitch { display: none; }
+
+/* glass card */
+.tk-auth-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  padding: 26px 22px 22px;
+  border-radius: 24px;
+  border: 1px solid var(--tk-auth-line);
+  background: color-mix(in oklch, var(--card) 78%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.7), inset 0 1px 0 color-mix(in oklch, var(--primary) 18%, transparent);
+}
+.tk-auth-card::before {
+  content: '';
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+.tk-auth-card h2 { text-align: left !important; font-size: 26px !important; font-weight: 700 !important; letter-spacing: -0.01em; }
+@media (min-width: 480px) { .tk-auth-card { padding: 32px 30px 26px; } }
+
+.tk-auth-attr { position: static !important; margin: 0 !important; padding: 0 16px calc(14px + env(safe-area-inset-bottom, 0px)); text-align: center; }
+
+/* wide screens: pitch beside the card */
+@media (min-width: 1024px) {
+  .tk-auth-main {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding-top: 12px;
+  }
+  .tk-auth-side { max-width: 560px; flex: 1; }
+  .tk-auth-art { max-width: 520px; margin: 0 0 -10px -20px; }
+  .tk-auth-pitch { display: block; }
+  .tk-auth-title {
+    margin: 0;
+    font-family: 'Unbounded Variable', 'Unbounded', system-ui, sans-serif;
+    font-size: 52px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .tk-auth-title em {
+    font-style: normal;
+    color: transparent;
+    background: linear-gradient(180deg, var(--tk-gold-a, #f8e6bf), var(--tk-gold-b, #d9b06a));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .tk-auth-sub { margin: 12px 0 0; font-size: 20px; font-weight: 600; }
+  .tk-auth-sub span { color: var(--muted-foreground); font-weight: 500; }
+  .tk-auth-list { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 14px; }
+  .tk-auth-list li { display: flex; gap: 12px; align-items: flex-start; }
+  .tk-auth-list svg {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    padding: 8px;
+    border-radius: 10px;
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+  }
+  .tk-auth-list b { display: block; font-size: 15px; }
+  .tk-auth-list span { display: block; margin-top: 2px; font-size: 13px; color: var(--muted-foreground); }
+  .tk-auth-card { flex: 0 0 440px; }
+}
+@media (prefers-reduced-motion: reduce) { .tk-auth-art img { animation: none; } }

@@ -16,38 +16,91 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
+import { Link } from '@tanstack/react-router'
+import { ArrowLeft, Headphones, ShieldCheck, Wallet } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+import { BRAND_ACCENT, BRAND_MAIN } from '@/components/topken/brand'
 import { TopkenBrand } from '@/components/topken/topken-brand'
 import { useConsoleTheme } from '@/components/topken/use-console-theme'
-import '@/components/topken/console-skin.css'
+import heroCube2000 from '@/features/home/assets/hero-cube-2000.webp'
 
+import '@/components/topken/console-skin.css'
 import '@/components/topken/topken.css'
+import './auth-layout.css'
 
 type AuthLayoutProps = {
   children: React.ReactNode
 }
 
+/**
+ * Sign-in / sign-up shell: glass form card over the black-gold backdrop.
+ * Phones get a slim cube banner above the card; wide screens show the cube
+ * and three promises beside the card.
+ */
 export function AuthLayout({ children }: AuthLayoutProps) {
   const { t } = useTranslation()
   useConsoleTheme()
 
+  const promises = [
+    {
+      icon: ShieldCheck,
+      title: t('Real models'),
+      sub: t('Exactly the model you call — never swapped or diluted'),
+    },
+    {
+      icon: Wallet,
+      title: t('Priced in ¥'),
+      sub: t('Pay only for what you use'),
+    },
+    {
+      icon: Headphones,
+      title: t('24/7 support'),
+      sub: 'WeChat · Telegram · Zalo',
+    },
+  ]
+
   return (
-    <div className='relative grid h-svh max-w-none overflow-hidden'>
-      {/* Soft violet glow, matching the console palette */}
-      <div
-        aria-hidden='true'
-        className='pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_85%_8%,color-mix(in_oklch,var(--primary)_12%,transparent),transparent_70%),radial-gradient(ellipse_55%_40%_at_0%_100%,color-mix(in_oklch,var(--primary)_7%,transparent),transparent_70%)]'
-      />
-      <div className='absolute top-4 left-4 z-10 sm:top-8 sm:left-8'>
-        <TopkenBrand markWidth={40} className='text-xl' />
-      </div>
-      <div className='container flex items-center pt-16 sm:pt-0'>
-        <div className='sm:border-border sm:bg-card/70 mx-auto flex w-full flex-col justify-center space-y-2 px-4 py-8 sm:w-[480px] sm:rounded-2xl sm:border sm:p-8 sm:shadow-[0_30px_80px_-30px_rgb(0_0_0/0.6)] sm:backdrop-blur'>
-          {children}
-        </div>
-      </div>
-      <p className='tk-attr absolute inset-x-0 bottom-3 m-0'>
+    <div className='tk-auth'>
+      <header className='tk-auth-bar'>
+        <TopkenBrand markWidth={36} className='tk-auth-brand' />
+        <Link to='/' className='tk-auth-back'>
+          <ArrowLeft size={15} aria-hidden='true' />
+          {t('Back to Home')}
+        </Link>
+      </header>
+
+      <main className='tk-auth-main'>
+        <section className='tk-auth-side'>
+          <div className='tk-auth-art' aria-hidden='true'>
+            <img src={heroCube2000} alt='' width={2400} height={1350} />
+          </div>
+          <div className='tk-auth-pitch'>
+            <p className='tk-auth-title'>
+              {BRAND_MAIN}
+              <em>{BRAND_ACCENT}</em>
+            </p>
+            <p className='tk-auth-sub'>
+              {t('Connect every AI,')} <span>{t('with just one API')}</span>
+            </p>
+            <ul className='tk-auth-list'>
+              {promises.map((item) => (
+                <li key={item.title}>
+                  <item.icon size={18} aria-hidden='true' />
+                  <div>
+                    <b>{item.title}</b>
+                    <span>{item.sub}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className='tk-auth-card'>{children}</section>
+      </main>
+
+      <p className='tk-attr tk-auth-attr'>
         {t('Powered by')}{' '}
         <a
           href='https://github.com/QuantumNous/new-api'
