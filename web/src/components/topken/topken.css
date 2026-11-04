@@ -824,3 +824,21 @@ For commercial licensing, please contact support@quantumnous.com
   .tk-setup-hero h2 { font-size: clamp(17px, 5.4vw, 26px); }
   .tk-setup-hero h2 > span { white-space: nowrap; }
 }
+
+/* ---------- setup guide header, as arranged by the owner ---------- */
+@media (min-width: 640px) {
+  .tk-setup-hero { padding-top: 0; margin-top: -26px; }
+  .tk-setup-hero .tk-eyebrow { font-size: 14px; }
+  .tk-setup-hero h2 { font-size: 41px; margin-top: 14px; }
+  .tk-setup-hero h2 .tk-deco { font-size: 22px; line-height: 1.8; }
+  .tk-setup-hero h2 .tk-h2-accent { font-size: 40px; }
+  .tk-setup-hero p { font-size: 17px; }
+}
+@media (max-width: 639px) {
+  main:has(.tk-setup) [data-slot='page-title'] { margin-inline-start: -8px; font-size: 19px; }
+  .tk-setup-hero .tk-eyebrow { font-size: 12px; }
+  .tk-setup-hero h2 { font-size: 23px; }
+  .tk-setup-hero h2 .tk-deco { font-size: 14px; }
+  .tk-setup-hero h2 .tk-h2-accent { font-size: 22px; }
+  .tk-setup-hero p { font-size: 14px; }
+}
