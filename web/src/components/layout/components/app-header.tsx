@@ -121,7 +121,7 @@ export function AppHeader({
     <TopkenMarquee />
     <Header className='tk-bar h-14'>
       <div className='@container/system-brand flex min-w-0 flex-1 items-center gap-1'>
-        <TopkenBrand hideMark className='-ms-1 shrink-0' />
+        <TopkenBrand className='tk-brand-head shrink-0' />
         <span className='ms-2 hidden md:inline-flex'>
           <HotlinePill />
         </span>

@@ -815,3 +815,9 @@ For commercial licensing, please contact support@quantumnous.com
   padding-inline-end: 0.08em;
 }
 .tk-fancy-deco { color: var(--primary); font-weight: 400; font-size: 0.62em; white-space: pre; direction: ltr; unicode-bidi: isolate; }
+
+/* console header on phones: wordmark only, nudged left (desktop keeps the mark) */
+@media (max-width: 767px) {
+  .tk-brand-head { margin-inline-start: -4px; }
+  .tk-brand-head > svg { display: none; }
+}
