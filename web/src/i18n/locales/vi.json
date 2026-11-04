@@ -7601,6 +7601,8 @@
     "Per token. Every call and its cost is listed in API logs.": "Theo token. Mỗi lần gọi và chi phí đều có trong Nhật ký API.",
     "Top up in Top up; your balance is shown on the overview.": "Nạp tiền ở mục Nạp tiền; số dư hiển thị ở trang Tổng quan.",
     "Pick what you want to do below": "Chọn việc bạn muốn làm dưới đây",
-    "Each part is short and has copy-ready settings.": "Mỗi phần đều ngắn gọn và có cấu hình sao chép sẵn."
+    "Each part is short and has copy-ready settings.": "Mỗi phần đều ngắn gọn và có cấu hình sao chép sẵn.",
+    "Connect AI tools and call the API through {{brand}}": "Kết nối công cụ AI và gọi API qua {{brand}}",
+    "Pick what you need to do below.": "Chọn việc bạn cần làm dưới đây."
   }
 }

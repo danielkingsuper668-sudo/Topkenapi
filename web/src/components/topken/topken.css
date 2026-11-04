@@ -821,6 +821,6 @@ For commercial licensing, please contact support@quantumnous.com
 }
 /* phones: each heading line stays on one row */
 @media (max-width: 639px) {
-  .tk-setup-hero h2, .tk-docs-head h1 { font-size: clamp(17px, 5.4vw, 26px); }
-  .tk-setup-hero h2 > span, .tk-docs-head h1 > span { white-space: nowrap; }
+  .tk-setup-hero h2 { font-size: clamp(17px, 5.4vw, 26px); }
+  .tk-setup-hero h2 > span { white-space: nowrap; }
 }

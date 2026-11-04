@@ -7601,6 +7601,8 @@
     "Per token. Every call and its cost is listed in API logs.": "按 token 计费，每次调用及费用都记录在 API 日志中。",
     "Top up in Top up; your balance is shown on the overview.": "在充值页面充值，余额显示在概览页。",
     "Pick what you want to do below": "选择你想做的事",
-    "Each part is short and has copy-ready settings.": "每部分都简短，并附可直接复制的配置。"
+    "Each part is short and has copy-ready settings.": "每部分都简短，并附可直接复制的配置。",
+    "Connect AI tools and call the API through {{brand}}": "通过 {{brand}} 连接 AI 工具并调用 API",
+    "Pick what you need to do below.": "在下方选择你需要做的事。"
   }
 }

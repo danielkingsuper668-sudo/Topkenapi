@@ -154,14 +154,24 @@ export function DocsPage() {
               {t('Docs')}
             </div>
             <h1>
-              <span>{t('{{brand}} docs', { brand: BRAND_NAME })}</span>
               <span className='tk-deco' aria-hidden='true'>
-                {'.◥◣_◢◤.'}
+                {'₊‧⁺͙͘͡★'}
               </span>
-              <span className='tk-h2-accent'>{t('Pick what you want to do below')}</span>
+              {t('{{brand}} docs', { brand: BRAND_NAME })}
+              <span className='tk-deco' aria-hidden='true'>
+                {' .◥◣‿◢◤.'}
+              </span>
+              <span className='tk-h2-accent'>AI说明</span>
             </h1>
-            <p>
-              {t('Each part is short and has copy-ready settings.')}
+            <p className='tk-docs-sub'>
+              {'➥'}
+              {t('Connect AI tools and call the API through {{brand}}', {
+                brand: BRAND_NAME,
+              })}
+              <span className='tk-deco' aria-hidden='true'>
+                {' ᵎ✦ᵎ '}
+              </span>
+              {t('Pick what you need to do below.')}
             </p>
           </header>
 
