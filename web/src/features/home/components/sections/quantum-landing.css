@@ -657,7 +657,9 @@ html.tk-gold {
 @media (min-width: 640px) { .qn-auth-icon { width: 36px; height: 36px; border-radius: 10px; } }
 
 /* hero pill: a little larger and wider, links to the API setup guide */
-.qg-pill { gap: 10px; padding: 9px 18px 9px 16px; font-size: 14.5px; transition: border-color 0.2s, background 0.2s; }
+.qg-pill { gap: 7px; padding: 6px 13px 6px 11px; font-size: 12.5px; transition: border-color 0.2s, background 0.2s; }
+.qg-pill svg { width: 14px; height: 14px; }
+@media (min-width: 640px) { .qg-pill { gap: 10px; padding: 9px 18px 9px 16px; font-size: 14.5px; } .qg-pill svg { width: 16px; height: 16px; } }
 .qg-pill:hover { border-color: var(--qn-gold-2); background: rgba(226, 196, 143, 0.1); }
 .qg-pill-go { color: var(--qn-gold); margin-left: 2px; transition: transform 0.2s; }
 .qg-pill:hover .qg-pill-go { transform: translateX(3px); }
