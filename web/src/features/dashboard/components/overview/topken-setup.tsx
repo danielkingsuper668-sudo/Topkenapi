@@ -104,7 +104,7 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
             <h2>
               <span>{t('Welcome to {{brand}}', { brand: BRAND_NAME })}</span>
               <span className='tk-deco' aria-hidden='true'>
-                {' ✦ .◥◣_◢◤.✦ '}
+                {'.◥◣_◢◤.'}
               </span>
               <span className='tk-h2-accent'>{t('Pick how you work')}</span>
             </h2>

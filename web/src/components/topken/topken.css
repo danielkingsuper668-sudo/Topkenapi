@@ -794,15 +794,12 @@ For commercial licensing, please contact support@quantumnous.com
   .tk-model-more { grid-column: auto; padding: 0; font-size: 14px; }
 }
 
-/* ---------- decorated headings ---------- */
-.tk-setup-hero h2 .tk-deco { color: var(--primary); font-weight: 500; white-space: pre; }
+/* ---------- decorated headings: welcome / ornament / gold line, stacked ---------- */
+.tk-setup-hero h2 > span { display: block; }
+.tk-setup-hero h2 .tk-deco { color: var(--primary); font-weight: 500; font-size: 0.55em; line-height: 1.7; letter-spacing: 0.04em; white-space: pre; }
 .tk-setup-hero h2 .tk-h2-accent {
   background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b));
   -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-@media (max-width: 639px) {
-  .tk-setup-hero h2 > span { display: block; }
-  .tk-setup-hero h2 .tk-deco { font-size: 0.6em; line-height: 1.6; }
 }
 .tk-section-h b::before,
 .tk-keycard-h b::before { content: '✦ '; color: var(--primary); font-weight: 500; }

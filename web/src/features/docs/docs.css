@@ -21,14 +21,11 @@
 }
 .tk-docs-main { min-width: 0; display: grid; gap: 34px; }
 .tk-docs-head h1 { margin: 10px 0 8px; font-size: clamp(26px, 5vw, 40px); font-weight: 800; line-height: 1.15; }
-.tk-docs-head h1 .tk-deco { color: var(--primary); font-weight: 500; white-space: pre; }
+.tk-docs-head h1 > span { display: block; }
+.tk-docs-head h1 .tk-deco { color: var(--primary); font-weight: 500; font-size: 0.55em; line-height: 1.7; letter-spacing: 0.04em; white-space: pre; }
 .tk-docs-head h1 .tk-h2-accent {
   background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b));
   -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-@media (max-width: 639px) {
-  .tk-docs-head h1 > span { display: block; }
-  .tk-docs-head h1 .tk-deco { font-size: 0.6em; line-height: 1.6; }
 }
 .tk-docs-head p, .tk-docs-sec > p, .tk-docs-sec li { color: var(--muted-foreground); font-size: 15px; line-height: 1.7; }
 .tk-docs-sec { scroll-margin-top: 90px; display: grid; gap: 14px; justify-items: start; }
