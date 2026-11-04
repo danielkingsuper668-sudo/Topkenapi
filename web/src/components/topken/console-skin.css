@@ -246,3 +246,23 @@ html.tk-violet.dark .tk-console [data-slot='sidebar-inset'] {
 .tk-palette button[aria-pressed='true'] { border-color: var(--primary); }
 .tk-palette .is-bronze { background: radial-gradient(circle at 35% 35%, #e8d3a6, #6b4a1c); }
 .tk-palette .is-navy { background: radial-gradient(circle at 35% 35%, #c4b5fd, #2a2540); }
+
+/* ---------- Model Square toolbar on phones: compact, one scrollable row ---------- */
+@media (max-width: 639px) {
+  .tk-pricing-toolbar { padding: 10px; border-radius: 16px; }
+  .tk-pricing-toolbar > div { gap: 8px; }
+  .tk-pricing-toolbar > div > div:last-child {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%;
+  }
+  .tk-pricing-toolbar > div > div:last-child::-webkit-scrollbar { display: none; }
+  html.tk-violet .tk-pricing-toolbar [data-slot='button'],
+  .tk-pricing-toolbar [data-slot='button'] {
+    height: 30px; padding-inline: 10px; font-size: 12px; flex-shrink: 0;
+  }
+  .tk-pricing-toolbar :is([data-slot='toggle-group'], [data-slot='tabs-list'], [role='group'], [role='radiogroup']) {
+    flex-shrink: 0;
+  }
+  .tk-pricing-toolbar :is([data-slot='toggle-group-item'], [data-slot='tabs-trigger'], [role='radio']) {
+    height: 28px; padding-inline: 9px; font-size: 12px;
+  }
+}

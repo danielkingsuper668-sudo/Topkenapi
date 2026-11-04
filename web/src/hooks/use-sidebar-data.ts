@@ -18,6 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import {
   Activity,
+  BookOpen,
   Box,
   CreditCard,
   FileText,
@@ -70,6 +71,11 @@ export function useSidebarData(badges: SidebarBadges = {}): SidebarData {
             title: t('API setup guide'),
             url: '/dashboard/setup',
             icon: Rocket,
+          },
+          {
+            title: t('Docs'),
+            url: '/docs',
+            icon: BookOpen,
           },
           {
             title: t('Overview'),

@@ -7590,6 +7590,7 @@
     "Yes: the exact model you call, never swapped, never diluted.": "Đúng vậy: gọi mô hình nào nhận đúng mô hình đó, không tráo, không pha.",
     "Your key or group may not use this model.": "Khóa hoặc nhóm của bạn không được dùng mô hình này.",
     "cURL, Python and Node.js samples.": "Mẫu cURL, Python và Node.js.",
-    "{{brand}} docs": "Tài liệu {{brand}}"
+    "{{brand}} docs": "Tài liệu {{brand}}",
+    "View models & pricing": "Xem mô hình & giá"
   }
 }

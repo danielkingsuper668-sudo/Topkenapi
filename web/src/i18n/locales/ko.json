@@ -243,6 +243,7 @@
     "Yes: the exact model you call, never swapped, never diluted.": "Yes: the exact model you call, never swapped, never diluted.",
     "Your key or group may not use this model.": "Your key or group may not use this model.",
     "cURL, Python and Node.js samples.": "cURL, Python and Node.js samples.",
-    "{{brand}} docs": "{{brand}} docs"
+    "{{brand}} docs": "{{brand}} docs",
+    "View models & pricing": "모델 및 가격 보기"
   }
 }

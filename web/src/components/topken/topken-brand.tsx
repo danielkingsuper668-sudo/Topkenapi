@@ -40,7 +40,12 @@ export function TopkenMark(props: { width?: number }) {
 }
 
 /** Mark + "Topken" + accent "X" wordmark in Unbounded, linking home. */
-export function TopkenBrand(props: { className?: string; markWidth?: number }) {
+export function TopkenBrand(props: {
+  className?: string
+  markWidth?: number
+  /** Wordmark only (the console header has no room for the mark). */
+  hideMark?: boolean
+}) {
   const { t } = useTranslation()
   return (
     <Link
@@ -48,7 +53,7 @@ export function TopkenBrand(props: { className?: string; markWidth?: number }) {
       aria-label={`${BRAND_NAME} · ${t('Go to home')}`}
       className={cn('tk-brand', props.className)}
     >
-      <TopkenMark width={props.markWidth} />
+      {!props.hideMark && <TopkenMark width={props.markWidth} />}
       <span className='tk-wordmark'>
         {BRAND_MAIN}
         <em>{BRAND_ACCENT}</em>

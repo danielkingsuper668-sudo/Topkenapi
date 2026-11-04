@@ -20,7 +20,6 @@ import { Claude, DeepSeek, Gemini, OpenAI, Qwen } from '@lobehub/icons'
 import { Link } from '@tanstack/react-router'
 import {
   ArrowRight,
-  BookOpen,
   ChevronRight,
   Coins,
   Headphones,
@@ -148,18 +147,12 @@ export function QuantumLanding(props: QuantumLandingProps) {
                   className='qg-btn qg-gold qg-lg'
                 >
                   <Rocket size={17} aria-hidden='true' />
-                  {props.isAuthenticated
-                    ? t('Go to Dashboard')
-                    : t('Sign up free, get $5 credit')}
+                  {props.isAuthenticated ? t('Go to Dashboard') : t('Sign up free')}
                   <ArrowRight size={16} aria-hidden='true' />
                 </Link>
-                <Link
-                  to='/dashboard/$section'
-                  params={{ section: 'setup' }}
-                  className='qg-btn qg-ghost qg-lg'
-                >
-                  <BookOpen size={17} aria-hidden='true' />
-                  {t('API setup guide')}
+                <Link to='/pricing' className='qg-btn qg-ghost qg-lg'>
+                  <Coins size={17} aria-hidden='true' />
+                  {t('View models & pricing')}
                   <ArrowRight size={16} aria-hidden='true' />
                 </Link>
               </div>

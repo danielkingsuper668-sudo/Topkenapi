@@ -26,6 +26,7 @@ import {
   LayoutDashboard,
   Menu,
   Rocket,
+  UserRound,
   X,
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -123,7 +124,10 @@ export function QuantumHeader(props: QuantumHeaderProps) {
             <LanguageSwitcher variant='compact' codes={LANDING_LANGUAGES} />
           </span>
           {props.isAuthenticated ? (
-            <Link to='/dashboard' className='qn-btn qn-btn-gold qn-btn-sm'>
+            <Link
+              to='/dashboard'
+              className='qn-btn qn-btn-gold qn-btn-sm qn-auth-text'
+            >
               {t('Go to Dashboard')}
             </Link>
           ) : (
@@ -134,11 +138,24 @@ export function QuantumHeader(props: QuantumHeaderProps) {
               >
                 {t('Sign In')}
               </Link>
-              <Link to='/sign-up' className='qn-btn qn-btn-gold qn-btn-sm'>
+              <Link
+                to='/sign-up'
+                className='qn-btn qn-btn-gold qn-btn-sm qn-auth-text'
+              >
                 {t('Sign Up')}
               </Link>
             </>
           )}
+          {/* phones: one round account button instead of the wide pill */}
+          <Link
+            to={props.isAuthenticated ? '/dashboard' : '/sign-in'}
+            className='qn-auth-icon'
+            aria-label={
+              props.isAuthenticated ? t('Go to Dashboard') : t('Sign In')
+            }
+          >
+            <UserRound size={19} aria-hidden='true' />
+          </Link>
           <button
             type='button'
             className='qn-burger'

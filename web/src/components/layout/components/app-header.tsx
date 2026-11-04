@@ -121,11 +121,13 @@ export function AppHeader({
     <TopkenMarquee />
     <Header className='tk-bar h-14'>
       <div className='@container/system-brand flex min-w-0 flex-1 items-center gap-1'>
-        <TopkenBrand />
+        <TopkenBrand hideMark className='-ms-1 shrink-0' />
         <span className='ms-2 hidden md:inline-flex'>
           <HotlinePill />
         </span>
-        <SystemUpdateAction presentation='version' />
+        <span className='hidden md:inline-flex'>
+          <SystemUpdateAction presentation='version' />
+        </span>
       </div>
 
       {leftContent ? (
@@ -140,7 +142,7 @@ export function AppHeader({
             </div>
           )}
           {showSearch && (
-            <Search className='w-8 flex-none [&>span]:hidden sm:[&>span]:inline' />
+            <Search className='hidden w-8 flex-none sm:flex [&>span]:hidden sm:[&>span]:inline' />
           )}
           {showNotifications && (
             <NotificationPopover

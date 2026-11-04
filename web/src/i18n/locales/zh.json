@@ -7590,6 +7590,7 @@
     "Yes: the exact model you call, never swapped, never diluted.": "是的：调用哪个模型就是哪个模型，绝不替换、绝不掺假。",
     "Your key or group may not use this model.": "你的密钥或分组无权使用该模型。",
     "cURL, Python and Node.js samples.": "cURL、Python 和 Node.js 示例。",
-    "{{brand}} docs": "{{brand}} 文档"
+    "{{brand}} docs": "{{brand}} 文档",
+    "View models & pricing": "查看模型与价格"
   }
 }
