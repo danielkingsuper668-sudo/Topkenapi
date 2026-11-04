@@ -29,7 +29,12 @@ import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
 import { SectionPageLayout } from '@/components/layout'
-import { BRAND_NAME, getApiBase } from '@/components/topken/brand'
+import {
+  BRAND_ACCENT,
+  BRAND_MAIN,
+  BRAND_NAME,
+  getApiBase,
+} from '@/components/topken/brand'
 import { MODEL_MAKERS } from '@/components/topken/model-makers'
 import { SetupGuide } from '@/components/topken/setup-guide'
 import { fetchTokenKey, getApiKeys } from '@/features/keys/api'
@@ -57,6 +62,8 @@ export function TopkenSetupPage() {
  */
 export function TopkenSetupContent(props: { visitor?: boolean }) {
   const { t, i18n } = useTranslation()
+  // Split the sentence around the brand so the brand can use the logo style.
+  const welcomeParts = t('Welcome to {{brand}}', { brand: '\u0001' }).split('\u0001')
   const { copyToClipboard } = useCopyToClipboard({ notify: false })
   const apiBase = getApiBase()
 
@@ -105,7 +112,14 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
               <span aria-hidden='true'>{' 𝜗𝜚˚⋆ᵎ ✦'}</span>
             </div>
             <h2>
-              <span>{t('Welcome to {{brand}}', { brand: BRAND_NAME })}</span>
+              <span>
+                {welcomeParts[0]}
+                <span className='tk-wordmark tk-h2-brand'>
+                  {BRAND_MAIN}
+                  <em>{BRAND_ACCENT}</em>
+                </span>
+                {welcomeParts[1]}
+              </span>
               <span className='tk-deco' aria-hidden='true'>
                 {'.◥◣_◢◤.'}
               </span>
