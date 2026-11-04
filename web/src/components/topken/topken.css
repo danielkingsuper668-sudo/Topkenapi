@@ -17,6 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 @import '@fontsource-variable/unbounded';
+@import '@fontsource-variable/josefin-sans';
 
 /* Topkenapi console skin: marquee, brand, sidebar accents, overview panels,
  * support card and floating contact button. Colours come from theme.css. */

@@ -238,7 +238,7 @@ html.tk-violet.dark .tk-console [data-slot='sidebar-inset'] {
 /* palette switch in the header */
 /* Colour switch: square tile that flips in 3D (gold 金 / violet 紫) */
 .tk-flip {
-  width: 32px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer;
+  width: 26px; height: 26px; padding: 0; border: 0; background: none; cursor: pointer;
   perspective: 300px; flex-shrink: 0;
 }
 .tk-flip:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 8px; }
@@ -251,7 +251,7 @@ html.tk-violet.dark .tk-console [data-slot='sidebar-inset'] {
   position: absolute; inset: 0; display: grid; place-items: center;
   border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.25);
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
-  font-size: 13px; font-weight: 800; line-height: 1;
+  font-size: 11px; font-weight: 800; line-height: 1;
 }
 .tk-flip-face.is-bronze {
   color: #1a130a;
@@ -296,3 +296,14 @@ html.tk-navy .tk-mq {
 html.tk-navy .tk-mq-in > span {
   background-image: linear-gradient(90deg, #eceaf3 0%, #eceaf3 44%, #ffffff 50%, #eceaf3 56%, #eceaf3 100%);
 }
+
+/* ---------- Josefin Sans across the console, menu and sign-in pages ---------- */
+html.tk-violet {
+  --font-body: 'Josefin Sans Variable', 'Josefin Sans', system-ui, sans-serif;
+  --font-ui-sans: 'Josefin Sans Variable', 'Josefin Sans', system-ui, sans-serif;
+}
+html.tk-violet body,
+html.tk-violet [data-slot='sidebar'],
+html.tk-violet [data-slot='sheet-content'] { font-family: var(--font-body); }
+/* code, keys and numbers stay in the mono font */
+html.tk-violet :is(code, pre, kbd, .font-mono) { font-family: var(--tk-mono); }

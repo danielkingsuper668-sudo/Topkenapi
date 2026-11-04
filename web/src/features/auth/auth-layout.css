@@ -12,6 +12,15 @@
     radial-gradient(ellipse 60% 40% at 0% 100%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 70%),
     radial-gradient(ellipse 40% 30% at 30% 30%, rgba(139, 92, 246, 0.08), transparent 70%),
     var(--background);
+  isolation: isolate;
+}
+/* faint circuit lines like the landing page, fading out toward the bottom */
+.tk-auth::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23e8cda0' stroke-opacity='.11' stroke-width='1'%3E%3Cpath d='M0 40h50l20 20h40l20-20h30M40 160v-50l20-20V0M120 160v-30l-20-20H60M160 100h-30l-10 10'/%3E%3C/g%3E%3Cg fill='%23e8cda0' fill-opacity='.22'%3E%3Crect x='48' y='38' width='4' height='4'/%3E%3Crect x='108' y='58' width='4' height='4'/%3E%3Crect x='58' y='88' width='4' height='4'/%3E%3Crect x='118' y='128' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 25%, #000 20%, transparent 90%);
+          mask-image: radial-gradient(ellipse 90% 70% at 50% 25%, #000 20%, transparent 90%);
 }
 .tk-auth-bar {
   position: relative;
