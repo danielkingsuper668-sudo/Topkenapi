@@ -7545,7 +7545,7 @@
     "Color theme": "Màu giao diện",
     "Bronze": "Nâu vàng",
     "Welcome to {{brand}}": "Chào mừng đến {{brand}}",
-    "Pick how you work": "Chọn cách bạn dùng",
+    "Pick how you work": "Chọn việc bạn muốn làm dưới đây..",
     "Grey violet": "Xám tím",
     "5-minute start": "Bắt đầu 5 phút",
     "API keys & top-up": "Khóa API & nạp tiền",
@@ -7600,7 +7600,7 @@
     "Every model and its price.": "Toàn bộ mô hình và giá.",
     "Per token. Every call and its cost is listed in API logs.": "Theo token. Mỗi lần gọi và chi phí đều có trong Nhật ký API.",
     "Top up in Top up; your balance is shown on the overview.": "Nạp tiền ở mục Nạp tiền; số dư hiển thị ở trang Tổng quan.",
-    "Pick what you want to do below": "Chọn việc bạn muốn làm dưới đây",
+    "Pick what you want to do below": "Chọn việc bạn muốn làm dưới đây..",
     "Each part is short and has copy-ready settings.": "Mỗi phần đều ngắn gọn và có cấu hình sao chép sẵn."
   }
 }
