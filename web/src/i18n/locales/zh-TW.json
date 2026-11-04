@@ -7606,6 +7606,10 @@
     "Pick what you need to do below.": "在下方选择你需要做的事。",
     "AI guide": "AI說明",
     "WeChat number copied. Add it in WeChat.": "已複製微信號，請在微信中添加好友",
-    "Standard tier": "普通"
+    "Standard tier": "普通",
+    "Security check": "安全验证",
+    "Drag the slider so the piece fits the gap": "拖动下方滑块，将拼块对齐到缺口",
+    "Slide to fit the piece": "向右拖动滑块",
+    "Verified": "验证通过"
   }
 }

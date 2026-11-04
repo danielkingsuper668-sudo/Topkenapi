@@ -936,3 +936,34 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-tier-pro { --tk-tier-glow: #a5f3fc; }
 @keyframes tk-tier-twinkle { 0%, 100% { opacity: 0; transform: scale(0.4); } 50% { opacity: 1; transform: scale(1.1); } }
 @media (prefers-reduced-motion: reduce) { .tk-tier, .tk-tier::after { animation: none; } }
+
+/* ---------- slide-to-fit check before sign-in / sign-up ---------- */
+.tk-slide { display: grid; gap: 14px; user-select: none; -webkit-user-select: none; }
+.tk-slide-pic {
+  position: relative; height: 120px; border-radius: 16px; overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 80% at 20% 30%, rgba(255, 236, 200, 0.35), transparent 60%),
+    linear-gradient(120deg, #6b4a1c, #c9a467 45%, #8a6430 70%, #3a2810);
+}
+.tk-slide-hole, .tk-slide-piece { position: absolute; top: 34px; width: 52px; height: 52px; border-radius: 12px; }
+.tk-slide-hole { background: rgba(10, 8, 6, 0.55); box-shadow: inset 0 0 0 2px rgba(255, 243, 208, 0.7); }
+.tk-slide-piece {
+  background: linear-gradient(135deg, #fff3d0, #e7cf9f); border: 2px solid #fff;
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.6);
+}
+.tk-slide-track {
+  position: relative; height: 46px; border-radius: 999px; overflow: hidden;
+  background: color-mix(in oklch, var(--foreground) 6%, transparent); border: 1px solid var(--tk-border2);
+}
+.tk-slide-fill { position: absolute; inset: 0 auto 0 0; background: color-mix(in oklch, var(--primary) 30%, transparent); }
+.tk-slide-hint { position: absolute; inset: 0; display: grid; place-items: center; font-size: 13px; color: var(--muted-foreground); pointer-events: none; }
+.tk-slide-knob {
+  position: absolute; top: -3px; width: 52px; height: 52px; border-radius: 50%; border: 0; cursor: grab; touch-action: none;
+  display: grid; place-items: center; color: #1b140a;
+  background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b));
+  box-shadow: 0 6px 18px -6px rgba(217, 176, 106, 0.8);
+}
+.tk-slide[data-state='fail'] .tk-slide-piece { animation: tk-slide-shake 0.35s; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.8); }
+.tk-slide[data-state='ok'] .tk-slide-knob { background: #22c55e; color: #fff; }
+.tk-slide[data-state='ok'] .tk-slide-piece { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.9); }
+@keyframes tk-slide-shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }

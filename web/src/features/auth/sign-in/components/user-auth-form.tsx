@@ -26,6 +26,7 @@ import { toast } from 'sonner'
 import type { z } from 'zod'
 
 import { Dialog } from '@/components/dialog'
+import { useSliderCheck } from '@/components/topken/slider-check'
 import { PasswordInput } from '@/components/password-input'
 import { Turnstile } from '@/components/turnstile'
 import { Button } from '@/components/ui/button'
@@ -66,6 +67,7 @@ export function UserAuthForm({
   ...props
 }: AuthFormProps) {
   const { t } = useTranslation()
+  const slider = useSliderCheck()
   const [isLoading, setIsLoading] = useState(false)
   const [wechatCode, setWeChatCode] = useState('')
   const [agreedToLegal, setAgreedToLegal] = useState(false)
@@ -344,8 +346,9 @@ export function UserAuthForm({
 
   return (
     <Form {...form}>
+      {slider.dialog}
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit((data) => slider.gate(() => void onSubmit(data)))}
         className={cn('grid gap-4', className)}
         {...props}
       >
