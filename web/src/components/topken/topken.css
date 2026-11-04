@@ -816,8 +816,9 @@ For commercial licensing, please contact support@quantumnous.com
 }
 .tk-fancy-deco { color: var(--primary); font-weight: 400; font-size: 0.62em; white-space: pre; direction: ltr; unicode-bidi: isolate; }
 
-/* console header on phones: wordmark only, nudged left (desktop keeps the mark) */
+/* console header on phones: mark then wordmark, sized to fill up to the bell */
 @media (max-width: 767px) {
-  .tk-brand-head { margin-inline-start: -4px; }
-  .tk-brand-head > svg { display: none; }
+  .tk-brand-head { gap: 6px; margin-inline-start: -2px; }
+  .tk-brand-head > svg { width: 30px; height: auto; flex-shrink: 0; }
+  .tk-brand-head .tk-wordmark { font-size: 17px; }
 }
