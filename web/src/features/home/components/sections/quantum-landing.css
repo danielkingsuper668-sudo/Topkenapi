@@ -650,3 +650,8 @@ html.tk-gold {
   .qn-burger { width: 32px; height: 32px; border-radius: 9px; }
   .qn-burger svg { width: 18px; height: 18px; }
 }
+
+/* all screens: the frosted account button replaces the wide pill */
+.qn-auth-text { display: none !important; }
+.qn-auth-icon { display: grid; }
+@media (min-width: 640px) { .qn-auth-icon { width: 36px; height: 36px; border-radius: 10px; } }
