@@ -23,7 +23,8 @@
 .tk-docs-head h1 { margin: 10px 0 8px; font-size: clamp(26px, 5vw, 40px); font-weight: 800; line-height: 1.15; }
 .tk-docs-head h1 { white-space: nowrap; }
 .tk-docs-head .tk-deco { color: var(--primary); font-weight: 500; }
-.tk-docs-head h1 .tk-deco { font-size: 0.7em; }
+.tk-docs-head h1 { display: flex; align-items: center; gap: 0.25em; }
+.tk-docs-head h1 .tk-deco { display: inline-flex; align-items: center; font-size: 0.5em; line-height: 1; letter-spacing: 0.02em; }
 .tk-docs-head h1 .tk-h2-accent {
   background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b));
   -webkit-background-clip: text; background-clip: text; color: transparent;
