@@ -223,7 +223,7 @@ html.tk-violet.dark.tk-navy {
   --input: oklch(0.78 0.06 295 / 23%);
   --skeleton-base: oklch(0.275 0.022 290);
   --skeleton-highlight: oklch(0.33 0.026 290);
-  --tk-circuit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23c4b5fd' stroke-opacity='.08' stroke-width='1'%3E%3Cpath d='M0 40h50l20 20h40l20-20h30M40 160v-50l20-20V0M120 160v-30l-20-20H60'/%3E%3C/g%3E%3C/svg%3E");
+  --tk-circuit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23c4b5fd' stroke-opacity='.08' stroke-width='1'%3E%3Cpath d='M0 40h50l20 20h40l20-20h30M40 160v-50l20-20V0M120 160v-30l-20-20H60M160 100h-30l-10 10'/%3E%3C/g%3E%3Cg fill='%23c4b5fd' fill-opacity='.16'%3E%3Crect x='48' y='38' width='4' height='4'/%3E%3Crect x='108' y='58' width='4' height='4'/%3E%3Crect x='58' y='88' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");
   --tk-glow-a: oklch(0.68 0.19 295 / 16%);
   --tk-glow-b: oklch(0.83 0.075 80 / 8%);
 }
