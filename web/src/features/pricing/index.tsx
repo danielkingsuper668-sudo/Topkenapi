@@ -38,7 +38,7 @@ import { useFilters } from './hooks/use-filters'
 import { usePricingData } from './hooks/use-pricing-data'
 
 export function Pricing() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [selectedModelName, setSelectedModelName] = useState<string | null>(
     null
   )
@@ -178,7 +178,10 @@ export function Pricing() {
           }}
         />
         <PageTransition className='relative mx-auto w-full max-w-[1800px] px-3 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-10 xl:px-8'>
-          <header className='mx-auto mb-5 max-w-3xl pt-5 text-center sm:mb-10 sm:pt-10'>
+          <header
+            className='tk-sq-head mx-auto mb-5 max-w-3xl pt-5 text-center sm:mb-10 sm:pt-10'
+            data-lang={i18n.language?.startsWith('zh') ? 'zh' : 'other'}
+          >
             <h1 className='tk-fancy-title text-[clamp(1.15rem,5.4vw,3.5rem)] leading-[1.15] font-bold tracking-tight whitespace-nowrap'>
               <span className='tk-fancy-deco' aria-hidden='true'>
                 {'✦ ᵎـــﮩ٨ـ '}

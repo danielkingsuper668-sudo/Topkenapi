@@ -971,3 +971,22 @@ For commercial licensing, please contact support@quantumnous.com
 /* "TopkenX" inside running text drawn like the logo */
 .tk-inline-brand { font-weight: 700; letter-spacing: -0.01em; color: var(--foreground); }
 .tk-inline-brand em { font-style: normal; color: transparent; background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b)); -webkit-background-clip: text; background-clip: text; }
+
+/* ---------- Model Square header, as arranged by the owner ---------- */
+.tk-sq-head h1 { white-space: nowrap; }
+.tk-sq-head h1 + p { margin-top: 18px; }
+@media (min-width: 640px) {
+  .tk-sq-head h1 { font-size: 56px; }
+  .tk-sq-head[data-lang='other'] h1 + p { font-size: 18px; }
+  .tk-sq-head[data-lang='other'] h1 + p + p { font-size: 14px; }
+  .tk-sq-head[data-lang='zh'] h1 + p { font-size: 17px; }
+  .tk-sq-head[data-lang='zh'] h1 + p + p { font-size: 15px; }
+  .tk-sq-head h1 + p + p + * { margin-top: 26px; font-size: 15px; }
+}
+@media (max-width: 639px) {
+  .tk-sq-head h1 + p { margin-top: 10px; font-size: 13px; }
+  .tk-sq-head h1 + p + p { margin-top: 6px; font-size: 12px; }
+  .tk-sq-head[data-lang='other'] h1 { font-size: min(20px, 5.2vw); }
+  .tk-sq-head[data-lang='zh'] h1 { font-size: min(23px, 6vw); }
+  .tk-sq-head h1 + p + p + * { margin-top: 22px; font-size: 13px; }
+}
