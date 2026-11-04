@@ -56,7 +56,7 @@ export function TopkenSetupPage() {
  * Docs page) see the same guide with a sign-in button instead of a key.
  */
 export function TopkenSetupContent(props: { visitor?: boolean }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { copyToClipboard } = useCopyToClipboard({ notify: false })
   const apiBase = getApiBase()
 
@@ -94,7 +94,10 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
   }
 
   return (
-        <div className='tk-setup'>
+        <div
+          className='tk-setup'
+          data-lang={i18n.language?.startsWith('zh') ? 'zh' : 'other'}
+        >
           <header className='tk-setup-hero'>
             <div className='tk-eyebrow tk-eyebrow-deco'>
               <span aria-hidden='true'>{'✦˖ ᵎ⋆˚࿔ '}</span>

@@ -847,3 +847,25 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-eyebrow-deco > span { color: var(--primary); font-weight: 500; white-space: pre; }
 .tk-crow-tap { cursor: pointer; transition: border-color 0.2s, background 0.2s; }
 .tk-crow-tap:hover, .tk-crow-tap:active { border-color: var(--tk-border2); background: var(--tk-accent); }
+
+/* ---------- setup header per language (owner's layout pass 3) ---------- */
+/* Vietnamese and other languages */
+@media (min-width: 640px) {
+  main:has(.tk-setup[data-lang='other']) [data-slot='page-title'] { font-size: 28px; }
+  .tk-setup[data-lang='other'] .tk-setup-hero { margin-top: -30px; }
+  .tk-setup[data-lang='other'] .tk-setup-hero .tk-eyebrow { font-size: 21px; }
+  .tk-setup[data-lang='other'] .tk-setup-hero p { font-size: 16px; }
+}
+@media (max-width: 639px) {
+  .tk-setup[data-lang='other'] .tk-setup-hero .tk-eyebrow { font-size: 13px; }
+  .tk-setup[data-lang='other'] .tk-setup-hero h2 .tk-deco { font-size: 17px; line-height: 1.5; }
+  .tk-setup[data-lang='other'] .tk-setup-hero p { margin-top: -4px; }
+}
+/* Chinese */
+@media (max-width: 639px) {
+  .tk-setup[data-lang='zh'] .tk-setup-hero { margin-top: -18px; }
+  .tk-setup[data-lang='zh'] .tk-setup-hero .tk-eyebrow { font-size: 14px; }
+  .tk-setup[data-lang='zh'] .tk-setup-hero h2 { font-size: min(25px, 6.4vw); margin-top: 18px; }
+  .tk-setup[data-lang='zh'] .tk-setup-hero h2 .tk-deco { font-size: 15px; }
+  .tk-setup[data-lang='zh'] .tk-setup-hero h2 .tk-h2-accent { font-size: min(23px, 5.9vw); }
+}
