@@ -17,7 +17,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 @import '@fontsource-variable/unbounded';
-@import '@fontsource-variable/tektur';
 
 /* Topkenapi console skin: marquee, brand, sidebar accents, overview panels,
  * support card and floating contact button. Colours come from theme.css. */
@@ -805,15 +804,10 @@ For commercial licensing, please contact support@quantumnous.com
 .tk-keycard-h b::before { content: '✦ '; color: var(--primary); font-weight: 500; }
 
 /* ---------- fancy page titles (Model Square) ---------- */
-.tk-fancy-title {
-  font-family: 'Tektur Variable', 'Tektur', 'Unbounded Variable', system-ui, sans-serif;
-  font-weight: 800;
-  font-style: italic;
-  text-transform: capitalize;
-}
+.tk-fancy-title { text-transform: capitalize; }
 .tk-fancy-text {
   background: linear-gradient(180deg, var(--tk-gold-a), var(--tk-gold-b));
   -webkit-background-clip: text; background-clip: text; color: transparent;
   padding-inline-end: 0.08em;
 }
-.tk-fancy-deco { color: var(--primary); font-style: normal; font-weight: 400; font-size: 0.62em; white-space: pre; }
+.tk-fancy-deco { color: var(--primary); font-weight: 400; font-size: 0.62em; white-space: pre; direction: ltr; unicode-bidi: isolate; }
