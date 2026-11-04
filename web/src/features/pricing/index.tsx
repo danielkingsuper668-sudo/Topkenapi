@@ -181,11 +181,11 @@ export function Pricing() {
           <header className='mx-auto mb-5 max-w-3xl pt-5 text-center sm:mb-10 sm:pt-10'>
             <h1 className='tk-fancy-title text-[clamp(2rem,5.5vw,3.5rem)] leading-[1.15] font-bold tracking-tight'>
               <span className='tk-fancy-deco' aria-hidden='true'>
-                {'✦ ᵎـــﮩ٨ـ'}
+                {'✦ ᵎـــﮩ٨ـ '}
               </span>
               <span className='tk-fancy-text'>{t('Model Square')}</span>
               <span className='tk-fancy-deco' aria-hidden='true'>
-                {' 𓂃 ࣪˖ ִֶָ✦'}
+                {'ﮩ٨ــــᵎ✦'}
               </span>
             </h1>
             <p className='text-muted-foreground/80 mt-3 text-sm sm:mt-4 sm:text-base'>
