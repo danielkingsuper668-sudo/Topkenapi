@@ -643,3 +643,10 @@ html.tk-gold {
   .qg-cta { flex-direction: column; align-self: stretch; }
   .qg-cta .qg-btn { justify-content: center; }
 }
+
+/* phones/tablets: account + menu buttons hug the right edge, same size */
+@media (max-width: 1023px) {
+  .qn-nav + .qn-actions, .qn-actions { margin-left: auto; gap: 6px; }
+  .qn-burger { width: 32px; height: 32px; border-radius: 9px; }
+  .qn-burger svg { width: 18px; height: 18px; }
+}
