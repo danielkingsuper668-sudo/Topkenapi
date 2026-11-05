@@ -7611,6 +7611,8 @@
     "Drag the slider so the piece fits the gap": "Drag the slider so the piece fits the gap",
     "Slide to fit the piece": "Slide to fit the piece",
     "Verified": "Verified",
-    "Switch to {{name}}": "Переключить на {{name}}"
+    "Switch to {{name}}": "Переключить на {{name}}",
+    "By clicking sign in, you agree to our": "Входя в систему, вы соглашаетесь с нашими",
+    "By creating an account, you agree to our": "Создавая аккаунт, вы соглашаетесь с нашими"
   }
 }

@@ -67,6 +67,14 @@ i18n
 // Noto Serif SC; its font files are only downloaded when Chinese is shown).
 function markPageLanguage(language: string | undefined) {
   if (typeof document === 'undefined') return
+  // Keep <html lang> in step with the UI language for screen readers and SEO.
+  if (language) {
+    document.documentElement.lang = language.startsWith('zhCN')
+      ? 'zh-CN'
+      : language.startsWith('zhTW')
+        ? 'zh-TW'
+        : language
+  }
   document.documentElement.dataset.uiLang = language?.startsWith('zh')
     ? 'zh'
     : 'other'

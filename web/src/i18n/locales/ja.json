@@ -7611,6 +7611,8 @@
     "Drag the slider so the piece fits the gap": "Drag the slider so the piece fits the gap",
     "Slide to fit the piece": "Slide to fit the piece",
     "Verified": "Verified",
-    "Switch to {{name}}": "{{name}} に切り替え"
+    "Switch to {{name}}": "{{name}} に切り替え",
+    "By clicking sign in, you agree to our": "サインインすると、次に同意したことになります:",
+    "By creating an account, you agree to our": "アカウントを作成すると、次に同意したことになります:"
   }
 }

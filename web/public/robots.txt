@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+Disallow: /v1/
+
+Sitemap: https://topkenx.com/sitemap.xml
