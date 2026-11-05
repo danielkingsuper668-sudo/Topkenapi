@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next'
 import {
   IconDiscord,
   IconGithub,
+  IconGoogle,
   IconLinuxDo,
   IconTelegram,
   IconWeChat,
@@ -109,6 +110,10 @@ export function OAuthProviders({
         name: oidcDisplayName,
       }),
       onClick: handleOIDCLogin,
+      // Google sign-in is configured through OIDC; show its logo when named so.
+      icon: /google/i.test(oidcDisplayName) ? (
+        <IconGoogle className='h-4 w-4' />
+      ) : undefined,
     })
   }
 
