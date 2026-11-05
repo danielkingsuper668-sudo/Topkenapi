@@ -20,6 +20,7 @@ import { Link } from '@tanstack/react-router'
 import { ArrowLeft, Headphones, ShieldCheck, Wallet } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+import { LanguageSwitcher } from '@/components/language-switcher'
 import { BRAND_ACCENT, BRAND_MAIN } from '@/components/topken/brand'
 import { TopkenBrand } from '@/components/topken/topken-brand'
 import { useConsoleTheme } from '@/components/topken/use-console-theme'
@@ -28,6 +29,9 @@ import heroCube2000 from '@/features/home/assets/hero-cube-2000.webp'
 import '@/components/topken/console-skin.css'
 import '@/components/topken/topken.css'
 import './auth-layout.css'
+
+// Same language list as the landing header, so the choice carries over.
+const AUTH_LANGUAGES = ['zhCN', 'en', 'vi', 'ru', 'fr', 'ko', 'ja'] as const
 
 type AuthLayoutProps = {
   children: React.ReactNode
@@ -64,10 +68,13 @@ export function AuthLayout({ children }: AuthLayoutProps) {
     <div className='tk-auth'>
       <header className='tk-auth-bar'>
         <TopkenBrand markWidth={36} className='tk-auth-brand' />
-        <Link to='/' className='tk-auth-back'>
-          <ArrowLeft size={15} aria-hidden='true' />
-          {t('Back to Home')}
-        </Link>
+        <div className='tk-auth-actions'>
+          <LanguageSwitcher variant='compact' codes={AUTH_LANGUAGES} />
+          <Link to='/' className='tk-auth-back' aria-label={t('Back to Home')}>
+            <ArrowLeft size={15} aria-hidden='true' />
+            <span className='tk-auth-back-label'>{t('Back to Home')}</span>
+          </Link>
+        </div>
       </header>
 
       <main className='tk-auth-main'>

@@ -49,6 +49,18 @@
 }
 .tk-auth-back:hover { color: var(--primary); border-color: var(--primary); }
 
+.tk-auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Narrow phones: keep the arrow, drop the label so brand + language fit. */
+@media (max-width: 420px) {
+  .tk-auth-back { padding: 0 10px; }
+  .tk-auth-back-label { display: none; }
+}
+
 .tk-auth-main {
   flex: 1;
   width: 100%;
