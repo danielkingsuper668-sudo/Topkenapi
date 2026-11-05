@@ -855,7 +855,6 @@ For commercial licensing, please contact support@quantumnous.com
 /* Vietnamese and other languages */
 @media (min-width: 640px) {
   main:has(.tk-setup[data-lang='other']) [data-slot='page-title'] { font-size: 28px; }
-  .tk-setup[data-lang='other'] .tk-setup-hero { margin-top: -30px; }
   .tk-setup[data-lang='other'] .tk-setup-hero .tk-eyebrow { font-size: 22px; }
   .tk-setup[data-lang='other'] .tk-setup-hero h2 .tk-h2-accent { font-size: 41px; }
   .tk-setup[data-lang='other'] .tk-setup-hero p { font-size: 17px; }
@@ -867,7 +866,6 @@ For commercial licensing, please contact support@quantumnous.com
 }
 /* Chinese */
 @media (max-width: 639px) {
-  .tk-setup[data-lang='zh'] .tk-setup-hero { margin-top: -18px; }
   .tk-setup[data-lang='zh'] .tk-setup-hero .tk-eyebrow { font-size: 14px; }
   .tk-setup[data-lang='zh'] .tk-setup-hero h2 { font-size: min(25px, 6.4vw); margin-top: 18px; }
   .tk-setup[data-lang='zh'] .tk-setup-hero h2 .tk-deco { font-size: 15px; }

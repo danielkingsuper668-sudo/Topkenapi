@@ -105,11 +105,6 @@ export function TopkenSetupContent(props: { visitor?: boolean }) {
           data-lang={i18n.language?.startsWith('zh') ? 'zh' : 'other'}
         >
           <header className='tk-setup-hero'>
-            <div className='tk-eyebrow tk-eyebrow-deco'>
-              <span aria-hidden='true'>{'✦˖ ᵎ⋆˚࿔ '}</span>
-              {t('API setup guide')}
-              <span aria-hidden='true'>{' 𝜗𝜚˚⋆ᵎ ✦'}</span>
-            </div>
             <h2>
               <span>
                 {welcomeParts[0]}
