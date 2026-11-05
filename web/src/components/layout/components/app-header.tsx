@@ -21,7 +21,6 @@ import { LanguageSwitcher } from '@/components/language-switcher'
 import { NotificationPopover } from '@/components/notification-popover'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
-import { SystemUpdateAction } from '@/features/system-update/system-update-action'
 import { useNotifications } from '@/hooks/use-notifications'
 import { PaletteSwitch } from '@/components/topken/palette-switch'
 import { HotlinePill, TopkenBrand } from '@/components/topken/topken-brand'
@@ -124,9 +123,6 @@ export function AppHeader({
         <TopkenBrand className='tk-brand-head shrink-0' />
         <span className='ms-2 hidden md:inline-flex'>
           <HotlinePill />
-        </span>
-        <span className='hidden md:inline-flex'>
-          <SystemUpdateAction presentation='version' />
         </span>
       </div>
 
