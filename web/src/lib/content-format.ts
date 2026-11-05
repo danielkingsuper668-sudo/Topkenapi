@@ -30,3 +30,39 @@ export function isLikelyHtml(value: string): boolean {
     value
   )
 }
+
+const LANG_MARKER = /<!--\s*lang:\s*([a-zA-Z-]+)\s*-->/g
+
+function normalizeLang(code: string): string {
+  const c = code.trim().toLowerCase()
+  if (c === 'zhtw' || c === 'zh-tw' || c === 'zh-hk') return 'zh-tw'
+  if (c === 'zhcn' || c === 'zh-cn' || c.startsWith('zh')) return 'zh'
+  return c.split('-')[0]
+}
+
+/**
+ * Admin-written pages (About, User Agreement, Privacy Policy) can hold one
+ * block per language, each opened by a marker such as `<!-- lang:zh -->`,
+ * `<!-- lang:vi -->` or `<!-- lang:en -->`. Returns the block for the current
+ * UI language, falling back to Chinese, then to the first block. Content
+ * without markers is returned unchanged.
+ */
+export function pickLocalizedContent(value: string, language?: string): string {
+  const blocks = new Map<string, string>()
+  const markers = [...value.matchAll(LANG_MARKER)]
+  if (markers.length === 0) return value
+  markers.forEach((m, i) => {
+    const start = (m.index ?? 0) + m[0].length
+    const end = markers[i + 1]?.index ?? value.length
+    const lang = normalizeLang(m[1])
+    if (!blocks.has(lang)) blocks.set(lang, value.slice(start, end).trim())
+  })
+  const want = normalizeLang(language ?? '')
+  return (
+    blocks.get(want) ??
+    (want === 'zh-tw' ? blocks.get('zh') : undefined) ??
+    blocks.get('zh') ??
+    blocks.values().next().value ??
+    value
+  )
+}
