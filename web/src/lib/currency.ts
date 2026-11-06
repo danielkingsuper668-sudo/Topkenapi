@@ -79,6 +79,8 @@ For commercial licensing, please contact support@quantumnous.com
  * 5. **Effective exchange rate**: When quotaDisplayType is 'USD', use rate of 1 regardless of config
  */
 import i18n from '@/i18n/config'
+import { ROLE } from '@/lib/roles'
+import { useAuthStore } from '@/stores/auth-store'
 import {
   useSystemConfigStore,
   DEFAULT_CURRENCY_CONFIG,
@@ -186,13 +188,26 @@ function getConfig(): CurrencyConfig {
 }
 
 /**
- * TopkenX sells in two currencies only, never USD: when the site shows money
- * (not raw tokens), a Vietnamese UI shows ₫ at the admin's VND rate and every
- * other language shows ¥ at the CNY rate. Balances stay in USD underneath;
- * only the display is converted.
+ * TopkenX sells in two currencies only, never USD. When the site shows money
+ * (not raw tokens), decided again on every visit:
+ * - a customer whose IP is in mainland China always sees ¥ (CNY rate);
+ * - otherwise the Vietnamese UI shows ₫ (admin's VND rate) and every other
+ *   language shows ¥;
+ * - admins follow the UI language only, so totals read in ₫ in Vietnamese
+ *   and in ¥ in Chinese wherever they log in from.
+ * Balances stay in USD underneath; only the display is converted.
  */
 function getLanguageDisplayMeta(config: CurrencyConfig): DisplayMeta | null {
   if (config.quotaDisplayType === 'TOKENS') return null
+  const cny: DisplayMeta = {
+    kind: 'currency',
+    symbol: '¥',
+    currencyCode: 'CNY',
+    exchangeRate: config.usdExchangeRate,
+  }
+  const isAdmin =
+    (useAuthStore.getState().auth.user?.role ?? 0) >= ROLE.ADMIN
+  if (config.visitorInChina && !isAdmin) return cny
   const lang = (i18n.language || '').toLowerCase()
   if (lang.startsWith('vi') && config.vndExchangeRate > 0) {
     return {
@@ -202,12 +217,7 @@ function getLanguageDisplayMeta(config: CurrencyConfig): DisplayMeta | null {
       exchangeRate: config.vndExchangeRate,
     }
   }
-  return {
-    kind: 'currency',
-    symbol: '¥',
-    currencyCode: 'CNY',
-    exchangeRate: config.usdExchangeRate,
-  }
+  return cny
 }
 
 function getDisplayMeta(config: CurrencyConfig): DisplayMeta {

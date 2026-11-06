@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/QuantumNous/new-api/pkg/cnip"
 	"bytes"
 	"context"
 	"embed"
@@ -175,6 +176,9 @@ func main() {
 	if err != nil {
 		common.SysError(common.LogText("start pyroscope error : %v", err))
 	}
+
+	// China IP ranges for CNY pricing (downloaded into the data directory)
+	cnip.Start(".")
 
 	// Initialize HTTP server
 	server := gin.New()

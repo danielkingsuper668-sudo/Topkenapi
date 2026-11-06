@@ -38,6 +38,8 @@ export interface CurrencyConfig {
   customCurrencyExchangeRate: number
   /** VND per USD; when > 0 the Vietnamese UI shows amounts in ₫ */
   vndExchangeRate: number
+  /** The server saw this visitor's IP in mainland China (prices then in ¥) */
+  visitorInChina: boolean
 }
 
 export interface SystemConfig {
@@ -57,6 +59,7 @@ export const DEFAULT_CURRENCY_CONFIG: CurrencyConfig = {
   customCurrencySymbol: '¤',
   customCurrencyExchangeRate: 1,
   vndExchangeRate: 0,
+  visitorInChina: false,
 }
 
 interface SystemConfigState {
