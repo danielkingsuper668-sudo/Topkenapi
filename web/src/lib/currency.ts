@@ -210,7 +210,7 @@ function getLanguageDisplayMeta(config: CurrencyConfig): DisplayMeta | null {
     config.vndExchangeRate > 0
       ? {
           kind: 'currency',
-          symbol: '₫',
+          symbol: 'đ',
           currencyCode: 'VND',
           exchangeRate: config.vndExchangeRate,
         }
@@ -369,33 +369,15 @@ function formatCurrencyValue(
   const adjustedValue = adjustForMinimum(value, digits, options.minimumNonZero)
 
   if (meta.kind === 'currency') {
-    // Group digits the way each currency's customers read them:
-    // ₫ 26.000 (Vietnamese), ¥ 1,460 (Chinese).
-    const currencyLocale =
-      options.locale ??
-      (meta.currencyCode === 'VND'
-        ? 'vi-VN'
-        : meta.currencyCode === 'CNY'
-          ? 'zh-CN'
-          : undefined)
-    if (!options.showSymbol) {
-      return new Intl.NumberFormat(currencyLocale, {
+    // TopkenX's two currencies are written the way the owner's customers
+    // read them, symbol after the number with no space:
+    //   VND: dot thousands, whole đồng        1.460đ · 10.000đ · 1.000.000đ
+    //   CNY: no thousands separator, up to 2  20¥ · 1000¥ · 67.17¥
+    if (meta.currencyCode === 'VND' || meta.currencyCode === 'CNY') {
+      const isVND = meta.currencyCode === 'VND'
+      const number = new Intl.NumberFormat(isVND ? 'vi-VN' : 'en-US', {
         notation: options.compact ? 'compact' : 'standard',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: options.compact ? 1 : digits,
-      }).format(adjustedValue)
-    }
-
-    // ₫ has no minor unit: whole đồng for normal amounts, Vietnamese grouping
-    // (26.000 ₫); tiny per-token prices keep up to two decimals.
-    const isVND = meta.currencyCode === 'VND'
-    const formatted = new Intl.NumberFormat(
-      currencyLocale,
-      {
-        style: 'currency',
-        currency: meta.currencyCode,
-        currencyDisplay: 'narrowSymbol',
-        notation: options.compact ? 'compact' : 'standard',
+        useGrouping: isVND,
         minimumFractionDigits: 0,
         maximumFractionDigits: options.compact
           ? 1
@@ -403,10 +385,27 @@ function formatCurrencyValue(
             ? Math.abs(adjustedValue) >= 100
               ? 0
               : 2
-            : digits,
-      }
-    ).format(adjustedValue)
-    return formatted
+            : Math.min(digits, 2),
+      }).format(adjustedValue)
+      return options.showSymbol ? `${number}${meta.symbol}` : number
+    }
+
+    if (!options.showSymbol) {
+      return new Intl.NumberFormat(options.locale, {
+        notation: options.compact ? 'compact' : 'standard',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: options.compact ? 1 : digits,
+      }).format(adjustedValue)
+    }
+
+    return new Intl.NumberFormat(options.locale, {
+      style: 'currency',
+      currency: meta.currencyCode,
+      currencyDisplay: 'narrowSymbol',
+      notation: options.compact ? 'compact' : 'standard',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: options.compact ? 1 : digits,
+    }).format(adjustedValue)
   }
 
   const decimal = new Intl.NumberFormat(options.locale, {
