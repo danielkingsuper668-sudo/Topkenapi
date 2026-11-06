@@ -7621,6 +7621,13 @@
     "Any currency (always shown)": "不限幣種（始終顯示）",
     "¥ CNY (shown to Chinese and other languages)": "¥ 人民幣（中文及其他語言顯示）",
     "₫ VND (shown to Vietnamese)": "₫ 越南盾（越南語顯示）",
-    "Customers only see payment methods in the currency their prices are shown in.": "客戶只會看到與其價格顯示幣種一致的支付方式。"
+    "Customers only see payment methods in the currency their prices are shown in.": "客戶只會看到與其價格顯示幣種一致的支付方式。",
+    "Display currency": "顯示幣種",
+    "Not set yet (decided on next visit)": "未設定（下次造訪時自動確定）",
+    "¥ CNY": "¥ 人民幣",
+    "₫ VND": "₫ 越南盾",
+    "This customer's prices, balance and payment methods use this currency. It is set automatically on first use and saved immediately when changed here.": "該客戶的價格、餘額和支付方式都使用此幣種。首次使用時自動設定；在此修改會立即儲存。",
+    "Display currency saved": "顯示幣種已儲存",
+    "Could not save the display currency": "無法儲存顯示幣種"
   }
 }

@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import axios, { type AxiosRequestConfig } from 'axios'
-import { t } from 'i18next'
+import i18next, { t } from 'i18next'
 
 import {
   applyAuthRotation,
@@ -145,6 +145,8 @@ api.interceptors.response.use(
 )
 
 api.interceptors.request.use(async (config) => {
+  // Lets the server fix a new customer's currency (₫ for Vietnamese, else ¥).
+  if (i18next.language) config.headers.set('X-UI-Lang', i18next.language)
   if (config.singleUseAuthorization || config.headers.has('X-Security-Proof')) {
     // Refresh before spending a proof/flow, never by replaying its request.
     config.skipAuthRefresh = true

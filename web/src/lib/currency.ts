@@ -189,8 +189,10 @@ function getConfig(): CurrencyConfig {
 
 /**
  * TopkenX sells in two currencies only, never USD. When the site shows money
- * (not raw tokens), decided again on every visit:
- * - a customer whose IP is in mainland China always sees ¥ (CNY rate);
+ * (not raw tokens):
+ * - a signed-in customer sees the currency fixed on their account (set by the
+ *   server on first use, changeable by an admin);
+ * - other visitors, decided on every visit: a mainland China IP sees ¥;
  * - otherwise the Vietnamese UI shows ₫ (admin's VND rate) and every other
  *   language shows ¥;
  * - admins follow the UI language only, so totals read in ₫ in Vietnamese
@@ -205,18 +207,24 @@ function getLanguageDisplayMeta(config: CurrencyConfig): DisplayMeta | null {
     currencyCode: 'CNY',
     exchangeRate: config.usdExchangeRate,
   }
-  const isAdmin =
-    (useAuthStore.getState().auth.user?.role ?? 0) >= ROLE.ADMIN
+  const vnd: DisplayMeta | null =
+    config.vndExchangeRate > 0
+      ? {
+          kind: 'currency',
+          symbol: '₫',
+          currencyCode: 'VND',
+          exchangeRate: config.vndExchangeRate,
+        }
+      : null
+  const user = useAuthStore.getState().auth.user
+  const isAdmin = (user?.role ?? 0) >= ROLE.ADMIN
+  // A signed-in customer keeps the currency fixed on their account.
+  const accountCurrency = isAdmin ? '' : (user?.currency ?? '').toUpperCase()
+  if (accountCurrency === 'VND') return vnd ?? cny
+  if (accountCurrency === 'CNY') return cny
   if (config.visitorInChina && !isAdmin) return cny
   const lang = (i18n.language || '').toLowerCase()
-  if (lang.startsWith('vi') && config.vndExchangeRate > 0) {
-    return {
-      kind: 'currency',
-      symbol: '₫',
-      currencyCode: 'VND',
-      exchangeRate: config.vndExchangeRate,
-    }
-  }
+  if (lang.startsWith('vi') && vnd) return vnd
   return cny
 }
 

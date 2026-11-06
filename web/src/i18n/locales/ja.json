@@ -7621,6 +7621,13 @@
     "Any currency (always shown)": "Any currency (always shown)",
     "¥ CNY (shown to Chinese and other languages)": "¥ CNY (shown to Chinese and other languages)",
     "₫ VND (shown to Vietnamese)": "₫ VND (shown to Vietnamese)",
-    "Customers only see payment methods in the currency their prices are shown in.": "Customers only see payment methods in the currency their prices are shown in."
+    "Customers only see payment methods in the currency their prices are shown in.": "Customers only see payment methods in the currency their prices are shown in.",
+    "Display currency": "Display currency",
+    "Not set yet (decided on next visit)": "Not set yet (decided on next visit)",
+    "¥ CNY": "¥ CNY",
+    "₫ VND": "₫ VND",
+    "This customer's prices, balance and payment methods use this currency. It is set automatically on first use and saved immediately when changed here.": "This customer's prices, balance and payment methods use this currency. It is set automatically on first use and saved immediately when changed here.",
+    "Display currency saved": "Display currency saved",
+    "Could not save the display currency": "Could not save the display currency"
   }
 }

@@ -117,6 +117,7 @@ var accessTokenRouteRules = map[string]accessTokenRouteRule{
 	"POST /api/user/":                                  accessTokenScopeRule("user:write"),
 	"POST /api/user/manage":                            accessTokenScopeRule("user:write"),
 	"PUT /api/user/":                                   accessTokenScopeRule("user:write"),
+	"PUT /api/user/:id/currency":                       accessTokenScopeRule("user:write"),
 	"DELETE /api/user/:id":                             accessTokenScopeRule("user:write"),
 	"DELETE /api/user/:id/reset_passkey":               accessTokenScopeRule("user:write"),
 	"GET /api/user/2fa/stats":                          accessTokenScopeRule("user:read"),

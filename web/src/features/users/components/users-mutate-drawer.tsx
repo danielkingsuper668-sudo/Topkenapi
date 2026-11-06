@@ -97,6 +97,7 @@ import {
 } from '../lib'
 import type { User } from '../types'
 import { UserQuotaDialog } from './user-quota-dialog'
+import { UserCurrencyField } from './user-currency-field'
 import { useUsers } from './users-provider'
 
 type UsersMutateDrawerProps = {
@@ -414,6 +415,10 @@ export function UsersMutateDrawer({
               {isUpdate && (
                 <SideDrawerSection>
                   <h3 className='text-sm font-medium'>{t('Group & Quota')}</h3>
+
+                  {currentRow && !targetIsAdmin && (
+                    <UserCurrencyField userId={currentRow.id} />
+                  )}
 
                   <FormField
                     control={form.control}

@@ -7621,6 +7621,13 @@
     "Any currency (always shown)": "Mọi loại tiền (luôn hiển thị)",
     "¥ CNY (shown to Chinese and other languages)": "¥ Nhân dân tệ (hiện cho khách tiếng Trung và ngôn ngữ khác)",
     "₫ VND (shown to Vietnamese)": "₫ VND (hiện cho khách tiếng Việt)",
-    "Customers only see payment methods in the currency their prices are shown in.": "Khách chỉ thấy các phương thức thanh toán đúng loại tiền mà giá đang hiển thị cho họ."
+    "Customers only see payment methods in the currency their prices are shown in.": "Khách chỉ thấy các phương thức thanh toán đúng loại tiền mà giá đang hiển thị cho họ.",
+    "Display currency": "Tiền tệ hiển thị",
+    "Not set yet (decided on next visit)": "Chưa đặt (tự chọn ở lần vào tiếp theo)",
+    "¥ CNY": "¥ Nhân dân tệ",
+    "₫ VND": "₫ Việt Nam đồng",
+    "This customer's prices, balance and payment methods use this currency. It is set automatically on first use and saved immediately when changed here.": "Giá, số dư và phương thức thanh toán của khách này dùng loại tiền này. Hệ thống tự đặt ở lần dùng đầu tiên; đổi ở đây sẽ được lưu ngay.",
+    "Display currency saved": "Đã lưu tiền tệ hiển thị",
+    "Could not save the display currency": "Không lưu được tiền tệ hiển thị"
   }
 }

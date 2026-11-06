@@ -54,6 +54,8 @@ export interface AuthUser {
   setting?: Record<string, unknown> | string
   stripe_customer?: string
   sidebar_modules?: string
+  /** Customer's fixed display currency ("CNY" | "VND"); empty for admins */
+  currency?: string
   permissions?: UserPermissions
 }
 
