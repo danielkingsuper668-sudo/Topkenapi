@@ -20,15 +20,19 @@ const (
 	userCurrencyVND = "VND"
 )
 
-// decideUserCurrency picks the currency for a customer from this request:
-// a mainland China IP means CNY; otherwise the UI language the browser sends
-// in X-UI-Lang decides (Vietnamese means VND, anything else CNY).
+// decideUserCurrency picks the currency for a customer from this request,
+// in the owner's order (lang is the UI language the web app sends in
+// X-UI-Lang):
+//  1. mainland China IP or Chinese UI: CNY
+//  2. Vietnamese UI or Vietnam IP: VND
+//  3. anything else: CNY
 func decideUserCurrency(c *gin.Context) string {
-	if cnip.IsChina(c.ClientIP()) {
+	ip := c.ClientIP()
+	lang := strings.ToLower(strings.TrimSpace(c.GetHeader("X-UI-Lang")))
+	if cnip.IsChina(ip) || strings.HasPrefix(lang, "zh") {
 		return userCurrencyCNY
 	}
-	lang := strings.ToLower(strings.TrimSpace(c.GetHeader("X-UI-Lang")))
-	if strings.HasPrefix(lang, "vi") {
+	if strings.HasPrefix(lang, "vi") || cnip.IsVietnam(ip) {
 		return userCurrencyVND
 	}
 	return userCurrencyCNY

@@ -15,12 +15,12 @@ apnic|JP|ipv6|2400:4000::|22|20100118|allocated
 `
 
 func TestIsChina(t *testing.T) {
-	tbl, err := parse(strings.NewReader(sample))
+	parsed, err := parse(strings.NewReader(sample))
 	if err != nil {
 		t.Fatal(err)
 	}
 	mu.Lock()
-	current = tbl
+	tables = parsed
 	mu.Unlock()
 	cases := map[string]bool{
 		"1.0.1.5":        true,
@@ -38,6 +38,12 @@ func TestIsChina(t *testing.T) {
 	for ip, want := range cases {
 		if got := IsChina(ip); got != want {
 			t.Errorf("IsChina(%q) = %v, want %v", ip, got, want)
+		}
+	}
+	vn := map[string]bool{"14.161.0.1": true, "1.0.1.5": false, "8.8.8.8": false}
+	for ip, want := range vn {
+		if got := IsVietnam(ip); got != want {
+			t.Errorf("IsVietnam(%q) = %v, want %v", ip, got, want)
 		}
 	}
 }

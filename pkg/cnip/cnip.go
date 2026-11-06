@@ -1,8 +1,8 @@
-// Package cnip answers one question: is this client IP in mainland China?
+// Package cnip tells whether a client IP is in mainland China or in Vietnam.
 //
-// TopkenX shows prices in CNY to visitors from China and in VND/CNY by UI
-// language to everyone else, so it only needs a China / not-China verdict.
-// The data is APNIC's public delegation file (CC = "CN" rows), downloaded to
+// TopkenX fixes each customer's currency (CNY or VND) partly from their IP,
+// so it only needs those two verdicts. The data is APNIC's public delegation
+// file (CC = "CN" and "VN" rows), downloaded to
 // the data directory and refreshed weekly. No third-party library or account
 // is needed. Until the file has loaded, every lookup answers false.
 package cnip
@@ -34,10 +34,13 @@ type table struct {
 	v6 []*net.IPNet
 }
 
+// countries kept from the APNIC file
+var countries = map[string]bool{"CN": true, "VN": true}
+
 var (
-	mu      sync.RWMutex
-	current *table
-	once    sync.Once
+	mu     sync.RWMutex
+	tables map[string]*table
+	once   sync.Once
 )
 
 // Start loads the CN table from dataDir (downloading it when missing or
@@ -116,22 +119,24 @@ func load(path string) error {
 		return err
 	}
 	defer f.Close()
-	t, err := parse(f)
+	parsed, err := parse(f)
 	if err != nil {
 		return err
 	}
 	mu.Lock()
-	current = t
+	tables = parsed
 	mu.Unlock()
-	log.Printf("cnip: loaded %d IPv4 and %d IPv6 CN ranges", len(t.v4), len(t.v6))
+	for cc, t := range parsed {
+		log.Printf("cnip: loaded %d IPv4 and %d IPv6 %s ranges", len(t.v4), len(t.v6), cc)
+	}
 	return nil
 }
 
 // parse reads APNIC's delegated stats format:
 // registry|cc|type|start|value|date|status
 // For ipv4, value is an address count; for ipv6 it is a prefix length.
-func parse(r io.Reader) (*table, error) {
-	t := &table{}
+func parse(r io.Reader) (map[string]*table, error) {
+	out := map[string]*table{}
 	sc := bufio.NewScanner(r)
 	sc.Buffer(make([]byte, 64*1024), 1024*1024)
 	for sc.Scan() {
@@ -140,8 +145,13 @@ func parse(r io.Reader) (*table, error) {
 			continue
 		}
 		parts := strings.Split(line, "|")
-		if len(parts) < 7 || parts[1] != "CN" {
+		if len(parts) < 7 || !countries[parts[1]] {
 			continue
+		}
+		t := out[parts[1]]
+		if t == nil {
+			t = &table{}
+			out[parts[1]] = t
 		}
 		switch parts[2] {
 		case "ipv4":
@@ -166,8 +176,10 @@ func parse(r io.Reader) (*table, error) {
 	if err := sc.Err(); err != nil {
 		return nil, err
 	}
-	sort.Slice(t.v4, func(i, j int) bool { return t.v4[i].start < t.v4[j].start })
-	return t, nil
+	for _, t := range out {
+		sort.Slice(t.v4, func(i, j int) bool { return t.v4[i].start < t.v4[j].start })
+	}
+	return out, nil
 }
 
 func ipv4ToUint(ip net.IP) uint32 {
@@ -176,13 +188,18 @@ func ipv4ToUint(ip net.IP) uint32 {
 
 // IsChina reports whether ip (a textual IPv4 or IPv6 address) belongs to a
 // range APNIC lists for CN. Unknown, private or unparsable addresses are not.
-func IsChina(ip string) bool {
+func IsChina(ip string) bool { return in("CN", ip) }
+
+// IsVietnam is IsChina for VN.
+func IsVietnam(ip string) bool { return in("VN", ip) }
+
+func in(cc, ip string) bool {
 	parsed := net.ParseIP(strings.TrimSpace(ip))
 	if parsed == nil {
 		return false
 	}
 	mu.RLock()
-	t := current
+	t := tables[cc]
 	mu.RUnlock()
 	if t == nil {
 		return false

@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"github.com/QuantumNous/new-api/pkg/cnip"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -79,8 +78,6 @@ func GetStatus(c *gin.Context) {
 		"custom_currency_symbol":        operation_setting.GetGeneralSetting().CustomCurrencySymbol,
 		"custom_currency_exchange_rate": operation_setting.GetGeneralSetting().CustomCurrencyExchangeRate,
 		"vnd_exchange_rate":             operation_setting.GetGeneralSetting().VNDExchangeRate,
-		// per visitor: CN visitors always see prices in CNY
-		"visitor_in_china": cnip.IsChina(c.ClientIP()),
 		"enable_batch_update":           common.BatchUpdateEnabled,
 		"enable_drawing":                common.DrawingEnabled,
 		"enable_task":                   common.TaskEnabled,

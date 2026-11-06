@@ -93,7 +93,6 @@ export function mapStatusDataToConfig(
       data.vnd_exchange_rate,
       DEFAULT_CURRENCY_CONFIG.vndExchangeRate
     ),
-    visitorInChina: data.visitor_in_china === true,
   }
 
   return {

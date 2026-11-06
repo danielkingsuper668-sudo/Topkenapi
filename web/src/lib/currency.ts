@@ -192,9 +192,8 @@ function getConfig(): CurrencyConfig {
  * (not raw tokens):
  * - a signed-in customer sees the currency fixed on their account (set by the
  *   server on first use, changeable by an admin);
- * - other visitors, decided on every visit: a mainland China IP sees ¥;
- * - otherwise the Vietnamese UI shows ₫ (admin's VND rate) and every other
- *   language shows ¥;
+ * - visitors who are not signed in, decided on every visit by UI language:
+ *   Vietnamese shows ₫ (admin's VND rate), every other language shows ¥;
  * - admins follow the UI language only, so totals read in ₫ in Vietnamese
  *   and in ¥ in Chinese wherever they log in from.
  * Balances stay in USD underneath; only the display is converted.
@@ -222,7 +221,6 @@ function getLanguageDisplayMeta(config: CurrencyConfig): DisplayMeta | null {
   const accountCurrency = isAdmin ? '' : (user?.currency ?? '').toUpperCase()
   if (accountCurrency === 'VND') return vnd ?? cny
   if (accountCurrency === 'CNY') return cny
-  if (config.visitorInChina && !isAdmin) return cny
   const lang = (i18n.language || '').toLowerCase()
   if (lang.startsWith('vi') && vnd) return vnd
   return cny
