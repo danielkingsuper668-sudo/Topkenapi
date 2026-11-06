@@ -89,6 +89,10 @@ export function mapStatusDataToConfig(
       data.custom_currency_exchange_rate,
       DEFAULT_CURRENCY_CONFIG.customCurrencyExchangeRate
     ),
+    vndExchangeRate: toNumber(
+      data.vnd_exchange_rate,
+      DEFAULT_CURRENCY_CONFIG.vndExchangeRate
+    ),
   }
 
   return {

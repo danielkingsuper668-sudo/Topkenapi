@@ -97,6 +97,8 @@ const BILLING_SECTIONS = [
               settings['general_setting.custom_currency_symbol'] ?? '¤',
             custom_currency_exchange_rate:
               settings['general_setting.custom_currency_exchange_rate'] ?? 1,
+            vnd_exchange_rate:
+              settings['general_setting.vnd_exchange_rate'] ?? 0,
           },
         }}
       />

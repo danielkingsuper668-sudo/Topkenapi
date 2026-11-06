@@ -100,6 +100,12 @@ export interface PaymentMethod {
   min_topup?: number
   /** Optional react-icons component name or safe icon URL */
   icon?: string
+  /**
+   * Currency this method charges in: "VND" or "CNY". The top-up form only
+   * offers methods whose currency matches the one the visitor's prices are
+   * shown in (₫ on the Vietnamese UI, ¥ otherwise). Empty means always shown.
+   */
+  currency?: string
 }
 
 /**

@@ -7613,6 +7613,14 @@
     "Verified": "Verified",
     "Switch to {{name}}": "Переключить на {{name}}",
     "By clicking sign in, you agree to our": "Входя в систему, вы соглашаетесь с нашими",
-    "By creating an account, you agree to our": "Создавая аккаунт, вы соглашаетесь с нашими"
+    "By creating an account, you agree to our": "Создавая аккаунт, вы соглашаетесь с нашими",
+    "VND per USD": "VND per USD",
+    "e.g. 26000 means 1 USD = 26,000 ₫": "e.g. 26000 means 1 USD = 26,000 ₫",
+    "Vietnamese pages show prices in ₫ at this rate; every other language shows ¥ at the CNY rate above. With 0, Vietnamese pages also show ¥.": "Vietnamese pages show prices in ₫ at this rate; every other language shows ¥ at the CNY rate above. With 0, Vietnamese pages also show ¥.",
+    "Charges in": "Charges in",
+    "Any currency (always shown)": "Any currency (always shown)",
+    "¥ CNY (shown to Chinese and other languages)": "¥ CNY (shown to Chinese and other languages)",
+    "₫ VND (shown to Vietnamese)": "₫ VND (shown to Vietnamese)",
+    "Customers only see payment methods in the currency their prices are shown in.": "Customers only see payment methods in the currency their prices are shown in."
   }
 }

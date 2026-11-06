@@ -71,6 +71,10 @@ const createPricingSchema = (t: (key: string) => string) =>
           .number()
           .min(0.0001, t('Exchange rate must be greater than 0'))
           .optional(),
+        vnd_exchange_rate: z.coerce
+          .number()
+          .min(0, t('Value must be at least 0'))
+          .optional(),
       }),
     })
     .superRefine((data, ctx) => {
@@ -252,6 +256,42 @@ export function PricingSection({ defaultValues }: PricingSectionProps) {
                     <FormDescription>
                       {t(
                         'Real exchange rate between USD and your payment gateway currency'
+                      )}
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
+            {displayType !== 'TOKENS' && (
+              <FormField
+                control={form.control}
+                name='general_setting.vnd_exchange_rate'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t('VND per USD')}</FormLabel>
+                    <FormControl>
+                      <Input
+                        type='number'
+                        step='1'
+                        value={field.value ?? ''}
+                        onChange={(e) =>
+                          field.onChange(
+                            e.target.value === ''
+                              ? undefined
+                              : e.target.valueAsNumber
+                          )
+                        }
+                        name={field.name}
+                        onBlur={field.onBlur}
+                        ref={field.ref}
+                        placeholder={t('e.g. 26000 means 1 USD = 26,000 ₫')}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      {t(
+                        'Vietnamese pages show prices in ₫ at this rate; every other language shows ¥ at the CNY rate above. With 0, Vietnamese pages also show ¥.'
                       )}
                     </FormDescription>
                     <FormMessage />

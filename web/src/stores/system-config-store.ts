@@ -36,6 +36,8 @@ export interface CurrencyConfig {
   customCurrencySymbol: string
   /** Exchange rate from USD to the custom currency (used when type === CUSTOM) */
   customCurrencyExchangeRate: number
+  /** VND per USD; when > 0 the Vietnamese UI shows amounts in ₫ */
+  vndExchangeRate: number
 }
 
 export interface SystemConfig {
@@ -54,6 +56,7 @@ export const DEFAULT_CURRENCY_CONFIG: CurrencyConfig = {
   usdExchangeRate: 1,
   customCurrencySymbol: '¤',
   customCurrencyExchangeRate: 1,
+  vndExchangeRate: 0,
 }
 
 interface SystemConfigState {

@@ -35,6 +35,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import { getDisplayCurrencyCode } from '@/lib/currency'
 import { formatNumber } from '@/lib/format'
 import { cn } from '@/lib/utils'
 
@@ -113,7 +114,7 @@ export function RechargeFormCard({
   onWaffoMethodSelect,
   enableWaffoPancakeTopup,
 }: RechargeFormCardProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [localAmount, setLocalAmount] = useState(topupAmount.toString())
 
   useEffect(() => {
@@ -137,8 +138,16 @@ export function RechargeFormCard({
     enableWaffoTopup ||
     enableWaffoPancakeTopup
   const hasAnyTopup = hasConfigurableTopup || enableCreemTopup
-  const hasStandardPaymentMethods =
-    Array.isArray(topupInfo?.pay_methods) && topupInfo.pay_methods.length > 0
+  // Offer only the methods that charge in the currency this visitor's prices
+  // are shown in: ₫ methods on the Vietnamese UI, ¥ methods otherwise.
+  // i18n.language is read so the list updates when the visitor switches.
+  void i18n.language
+  const displayCurrency = getDisplayCurrencyCode()
+  const visiblePayMethods = (topupInfo?.pay_methods ?? []).filter((method) => {
+    const currency = (method.currency ?? '').trim().toUpperCase()
+    return !currency || currency === displayCurrency
+  })
+  const hasStandardPaymentMethods = visiblePayMethods.length > 0
   const hasWaffoPaymentMethods =
     Array.isArray(waffoPayMethods) && waffoPayMethods.length > 0
   const minTopup = getMinTopupAmount(topupInfo)
@@ -332,7 +341,7 @@ export function RechargeFormCard({
                 </Label>
                 {hasStandardPaymentMethods ? (
                   <div className='grid grid-cols-2 gap-1.5 sm:gap-3 lg:grid-cols-3'>
-                    {topupInfo?.pay_methods?.map((method) => {
+                    {visiblePayMethods.map((method) => {
                       const minTopup = Math.max(
                         method.min_topup || 0,
                         getMinTopupAmount(topupInfo)

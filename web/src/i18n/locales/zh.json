@@ -7613,6 +7613,14 @@
     "Verified": "验证通过",
     "Switch to {{name}}": "切换到 {{name}}",
     "By clicking sign in, you agree to our": "点击登录即表示您同意我们的",
-    "By creating an account, you agree to our": "创建账户即表示您同意我们的"
+    "By creating an account, you agree to our": "创建账户即表示您同意我们的",
+    "VND per USD": "1 美元兑换越南盾",
+    "e.g. 26000 means 1 USD = 26,000 ₫": "例如：26000 表示 1 美元 = 26,000 ₫",
+    "Vietnamese pages show prices in ₫ at this rate; every other language shows ¥ at the CNY rate above. With 0, Vietnamese pages also show ¥.": "越南语界面按此汇率以 ₫ 显示价格；其他所有语言按上方人民币汇率以 ¥ 显示。设为 0 时越南语界面也显示 ¥。",
+    "Charges in": "收款币种",
+    "Any currency (always shown)": "不限币种（始终显示）",
+    "¥ CNY (shown to Chinese and other languages)": "¥ 人民币（中文及其他语言显示）",
+    "₫ VND (shown to Vietnamese)": "₫ 越南盾（越南语显示）",
+    "Customers only see payment methods in the currency their prices are shown in.": "客户只会看到与其价格显示币种一致的支付方式。"
   }
 }

@@ -43,6 +43,7 @@ const createPaymentMethodDialogSchema = (t: (key: string) => string) =>
     type: z.string().min(1, t('Payment type key is required')),
     icon: z.string().optional(),
     min_topup: z.string().optional(),
+    currency: z.string().optional(),
   })
 
 type PaymentMethodDialogFormValues = z.infer<
@@ -57,6 +58,8 @@ export type PaymentMethodData = {
   icon?: string
   min_topup?: string
   color?: string
+  /** "VND" or "CNY": only shown to visitors whose prices are in that currency */
+  currency?: string
 }
 
 type PaymentMethodDialogProps = {
@@ -120,6 +123,7 @@ export function PaymentMethodDialog({
       type: '',
       icon: '',
       min_topup: '',
+      currency: '',
     },
   })
 
@@ -132,6 +136,7 @@ export function PaymentMethodDialog({
         type: editData.type,
         icon: editData.icon ?? getDefaultIconName(editData.type),
         min_topup: editData.min_topup ?? '',
+        currency: editData.currency ?? '',
       })
     } else {
       form.reset({
@@ -139,6 +144,7 @@ export function PaymentMethodDialog({
         type: '',
         icon: '',
         min_topup: '',
+        currency: '',
       })
     }
   }, [editData, form, open])
@@ -153,6 +159,9 @@ export function PaymentMethodDialog({
     }
     if (values.min_topup && values.min_topup.trim() !== '') {
       data.min_topup = values.min_topup
+    }
+    if (values.currency) {
+      data.currency = values.currency
     }
     onSave(data)
     form.reset()
@@ -305,6 +314,36 @@ export function PaymentMethodDialog({
                 </FormControl>
                 <FormDescription>
                   {t('Optional minimum recharge amount for this method.')}
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name='currency'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t('Charges in')}</FormLabel>
+                <FormControl>
+                  <select
+                    className='border-input bg-background h-9 w-full rounded-md border px-3 text-sm'
+                    value={field.value ?? ''}
+                    onChange={(e) => field.onChange(e.target.value)}
+                    onBlur={field.onBlur}
+                    name={field.name}
+                    ref={field.ref}
+                  >
+                    <option value=''>{t('Any currency (always shown)')}</option>
+                    <option value='CNY'>{t('¥ CNY (shown to Chinese and other languages)')}</option>
+                    <option value='VND'>{t('₫ VND (shown to Vietnamese)')}</option>
+                  </select>
+                </FormControl>
+                <FormDescription>
+                  {t(
+                    'Customers only see payment methods in the currency their prices are shown in.'
+                  )}
                 </FormDescription>
                 <FormMessage />
               </FormItem>

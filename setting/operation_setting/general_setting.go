@@ -20,6 +20,8 @@ type GeneralSetting struct {
 	CustomCurrencySymbol string `json:"custom_currency_symbol"`
 	// 自定义货币与美元汇率（1 USD = X Custom）
 	CustomCurrencyExchangeRate float64 `json:"custom_currency_exchange_rate"`
+	// 越南盾与美元汇率（1 USD = X VND）。>0 时，越南语界面按越南盾显示金额
+	VNDExchangeRate float64 `json:"vnd_exchange_rate"`
 }
 
 // 默认配置

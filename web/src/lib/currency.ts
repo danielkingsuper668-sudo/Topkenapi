@@ -78,6 +78,7 @@ For commercial licensing, please contact support@quantumnous.com
  * 4. **Billing displays**: Use formatBillingCurrencyFromUSD() to avoid token display
  * 5. **Effective exchange rate**: When quotaDisplayType is 'USD', use rate of 1 regardless of config
  */
+import i18n from '@/i18n/config'
 import {
   useSystemConfigStore,
   DEFAULT_CURRENCY_CONFIG,
@@ -184,7 +185,34 @@ function getConfig(): CurrencyConfig {
   }
 }
 
+/**
+ * TopkenX sells in two currencies only, never USD: when the site shows money
+ * (not raw tokens), a Vietnamese UI shows ₫ at the admin's VND rate and every
+ * other language shows ¥ at the CNY rate. Balances stay in USD underneath;
+ * only the display is converted.
+ */
+function getLanguageDisplayMeta(config: CurrencyConfig): DisplayMeta | null {
+  if (config.quotaDisplayType === 'TOKENS') return null
+  const lang = (i18n.language || '').toLowerCase()
+  if (lang.startsWith('vi') && config.vndExchangeRate > 0) {
+    return {
+      kind: 'currency',
+      symbol: '₫',
+      currencyCode: 'VND',
+      exchangeRate: config.vndExchangeRate,
+    }
+  }
+  return {
+    kind: 'currency',
+    symbol: '¥',
+    currencyCode: 'CNY',
+    exchangeRate: config.usdExchangeRate,
+  }
+}
+
 function getDisplayMeta(config: CurrencyConfig): DisplayMeta {
+  const byLanguage = getLanguageDisplayMeta(config)
+  if (byLanguage) return byLanguage
   switch (config.quotaDisplayType) {
     case 'CNY':
       return {
@@ -333,14 +361,26 @@ function formatCurrencyValue(
       }).format(adjustedValue)
     }
 
-    const formatted = new Intl.NumberFormat(options.locale, {
-      style: 'currency',
-      currency: meta.currencyCode,
-      currencyDisplay: 'narrowSymbol',
-      notation: options.compact ? 'compact' : 'standard',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: options.compact ? 1 : digits,
-    }).format(adjustedValue)
+    // ₫ has no minor unit: whole đồng for normal amounts, Vietnamese grouping
+    // (26.000 ₫); tiny per-token prices keep up to two decimals.
+    const isVND = meta.currencyCode === 'VND'
+    const formatted = new Intl.NumberFormat(
+      isVND ? (options.locale ?? 'vi-VN') : options.locale,
+      {
+        style: 'currency',
+        currency: meta.currencyCode,
+        currencyDisplay: 'narrowSymbol',
+        notation: options.compact ? 'compact' : 'standard',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: options.compact
+          ? 1
+          : isVND
+            ? Math.abs(adjustedValue) >= 100
+              ? 0
+              : 2
+            : digits,
+      }
+    ).format(adjustedValue)
     return formatted
   }
 
@@ -362,6 +402,12 @@ function formatCurrencyValue(
  * This is primarily for internal use. Most consumers should use the
  * higher-level formatting functions instead.
  */
+/** Currency code prices are shown in right now ("VND" or "CNY"; "" for tokens). */
+export function getDisplayCurrencyCode(): string {
+  const meta = getDisplayMeta(getConfig())
+  return meta.kind === 'currency' ? meta.currencyCode : ''
+}
+
 export function getCurrencyDisplay() {
   const config = getConfig()
   const meta = getDisplayMeta(config)

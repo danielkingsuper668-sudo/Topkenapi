@@ -7613,6 +7613,14 @@
     "Verified": "Đã xác minh",
     "Switch to {{name}}": "Chuyển sang {{name}}",
     "By clicking sign in, you agree to our": "Khi đăng nhập, bạn đồng ý với",
-    "By creating an account, you agree to our": "Khi tạo tài khoản, bạn đồng ý với"
+    "By creating an account, you agree to our": "Khi tạo tài khoản, bạn đồng ý với",
+    "VND per USD": "Số VND cho 1 USD",
+    "e.g. 26000 means 1 USD = 26,000 ₫": "Ví dụ: 26000 nghĩa là 1 USD = 26.000 ₫",
+    "Vietnamese pages show prices in ₫ at this rate; every other language shows ¥ at the CNY rate above. With 0, Vietnamese pages also show ¥.": "Giao diện tiếng Việt hiện giá bằng ₫ theo tỷ giá này; mọi ngôn ngữ khác hiện bằng ¥ theo tỷ giá Nhân dân tệ ở trên. Để 0 thì giao diện tiếng Việt cũng hiện ¥.",
+    "Charges in": "Tiền tệ nhận",
+    "Any currency (always shown)": "Mọi loại tiền (luôn hiển thị)",
+    "¥ CNY (shown to Chinese and other languages)": "¥ Nhân dân tệ (hiện cho khách tiếng Trung và ngôn ngữ khác)",
+    "₫ VND (shown to Vietnamese)": "₫ VND (hiện cho khách tiếng Việt)",
+    "Customers only see payment methods in the currency their prices are shown in.": "Khách chỉ thấy các phương thức thanh toán đúng loại tiền mà giá đang hiển thị cho họ."
   }
 }
