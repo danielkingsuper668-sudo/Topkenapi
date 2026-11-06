@@ -369,8 +369,17 @@ function formatCurrencyValue(
   const adjustedValue = adjustForMinimum(value, digits, options.minimumNonZero)
 
   if (meta.kind === 'currency') {
+    // Group digits the way each currency's customers read them:
+    // ₫ 26.000 (Vietnamese), ¥ 1,460 (Chinese).
+    const currencyLocale =
+      options.locale ??
+      (meta.currencyCode === 'VND'
+        ? 'vi-VN'
+        : meta.currencyCode === 'CNY'
+          ? 'zh-CN'
+          : undefined)
     if (!options.showSymbol) {
-      return new Intl.NumberFormat(options.locale, {
+      return new Intl.NumberFormat(currencyLocale, {
         notation: options.compact ? 'compact' : 'standard',
         minimumFractionDigits: 0,
         maximumFractionDigits: options.compact ? 1 : digits,
@@ -381,7 +390,7 @@ function formatCurrencyValue(
     // (26.000 ₫); tiny per-token prices keep up to two decimals.
     const isVND = meta.currencyCode === 'VND'
     const formatted = new Intl.NumberFormat(
-      isVND ? (options.locale ?? 'vi-VN') : options.locale,
+      currencyLocale,
       {
         style: 'currency',
         currency: meta.currencyCode,
